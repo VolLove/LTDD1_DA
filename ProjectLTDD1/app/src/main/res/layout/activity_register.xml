@@ -13,7 +13,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
         android:gravity="center"
-        android:text="Đăng nhập"
+        android:text="Đăng ký"
         android:textSize="20dp" />
 
     <ImageView
@@ -65,8 +65,7 @@
             android:inputType="textPassword"
             android:padding="10dp"
             android:textColor="@color/black"
-            android:textSize="18dp"
-            />
+            android:textSize="18dp" />
 
         <TextView
             android:layout_width="match_parent"
@@ -91,17 +90,20 @@
             android:id="@+id/btnLogin"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:backgroundTint="@color/primal_blue"
+            android:background="@drawable/buttondesign2"
             android:text="Đăng nhập"
-            android:textColor="@color/white" />
+            android:textColor="@color/white"
+            android:textSize="20dp"
+            android:gravity="center"/>
 
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
-            android:background="@drawable/buttondesign1"
+            android:background="@drawable/buttonclear"
             android:gravity="center"
-            android:text="Đăng ký tài khoản"
+            android:textSize="20dp"
+            android:text="Đăng nhập tài khoản"
             android:textColor="@color/black" />
     </LinearLayout>
 

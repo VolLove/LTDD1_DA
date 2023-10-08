@@ -71,17 +71,20 @@
             android:id="@+id/LoginBtnLogin"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textColor="@color/white"
-            android:backgroundTint="@color/primal_blue"
-            android:text="Đăng nhập"/>
+            android:background="@drawable/buttondesign2"
+            android:text="Đăng nhập"
+            android:textSize="20dp"
+            android:gravity="center"
+            android:textColor="@color/white" />
 
         <Button
             android:id="@+id/loginBtnRegister"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
-            android:background="@drawable/buttondesign1"
+            android:background="@drawable/buttonclear"
             android:gravity="center"
+            android:textSize="20dp"
             android:text="Đăng ký tài khoản"
             android:textColor="@color/black" />
     </LinearLayout>
