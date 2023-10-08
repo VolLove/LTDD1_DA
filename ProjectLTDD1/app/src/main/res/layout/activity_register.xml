@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/primal"
     android:orientation="vertical"
     tools:context=".RegisterActivity">
 
@@ -75,7 +74,7 @@
             android:textSize="16dp" />
 
         <EditText
-            android:id="@+id/edtConfirmPassword"
+            android:id="@+id/regisEdtConfirmPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="20dp"
@@ -87,7 +86,7 @@
             android:textSize="18dp" />
 
         <Button
-            android:id="@+id/btnLogin"
+            android:id="@+id/regisBtn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/buttondesign2"
@@ -97,6 +96,7 @@
             android:gravity="center"/>
 
         <Button
+            android:id="@+id/regisBtnLogin"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"

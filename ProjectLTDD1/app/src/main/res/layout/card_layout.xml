@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/layout_custom"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:background="@color/primal_pink"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:paddingStart="20dp"
+            android:background="@color/primal_pink"
+            android:src="@drawable/img" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="230dp"
+                android:layout_height="wrap_content"
+                android:background="@color/primal_pink"
+                android:text="Mã đơn hàng" />
+
+            <TextView
+                android:layout_width="230dp"
+                android:layout_height="wrap_content"
+                android:background="@color/primal_pink"
+                android:text="Tình trạng" />
+        </LinearLayout>
+
+        <Button
+            android:layout_width="100dp"
+            android:layout_height="20dp"
+            android:layout_gravity="center_vertical|right"
+            android:background="@drawable/buttondesign3"
+            android:text="Xem thêm"
+            android:textColor="@color/black" />
+    </LinearLayout>
+
+</LinearLayout>
