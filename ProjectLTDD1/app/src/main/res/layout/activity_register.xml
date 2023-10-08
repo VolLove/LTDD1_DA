@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@color/primal"
     android:orientation="vertical"
-    tools:context=".MainActivity">
+    tools:context=".RegisterActivity">
 
     <TextView
         android:layout_width="match_parent"
@@ -39,7 +39,7 @@
             android:textSize="16dp" />
 
         <EditText
-            android:id="@+id/loginEdtUserName"
+            android:id="@+id/regisEdtUserName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="20dp"
@@ -56,27 +56,46 @@
             android:textSize="16dp" />
 
         <EditText
-            android:id="@+id/loginEdtPassword"
+            android:id="@+id/regisEdtPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="20dp"
             android:background="@drawable/edittextdesign"
-            android:hint="Nhập tài khoản"
-            android:inputType="text"
+            android:hint="**********"
+            android:inputType="textPassword"
+            android:padding="10dp"
+            android:textColor="@color/black"
+            android:textSize="18dp"
+            />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:text="Xác nhận mật khẩu"
+            android:textSize="16dp" />
+
+        <EditText
+            android:id="@+id/edtConfirmPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:background="@drawable/edittextdesign"
+            android:hint="**********"
+            android:inputType="textPassword"
             android:padding="10dp"
             android:textColor="@color/black"
             android:textSize="18dp" />
 
         <Button
-            android:id="@+id/LoginBtnLogin"
+            android:id="@+id/btnLogin"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textColor="@color/white"
             android:backgroundTint="@color/primal_blue"
-            android:text="Đăng nhập"/>
+            android:text="Đăng nhập"
+            android:textColor="@color/white" />
 
         <Button
-            android:id="@+id/loginBtnRegister"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
@@ -85,6 +104,5 @@
             android:text="Đăng ký tài khoản"
             android:textColor="@color/black" />
     </LinearLayout>
-
 
 </LinearLayout>
