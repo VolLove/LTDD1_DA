@@ -13,4 +13,5 @@
         android:layout_gravity="center"
         android:background="@drawable/buttondesign2"
         android:text="Xác nhận gửi hàng"/>
+
 </LinearLayout>

@@ -25,9 +25,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="80dp"
+        android:layout_marginTop="30dp"
         android:layout_marginEnd="20dp"
-
         android:orientation="vertical">
 
         <TextView
@@ -35,12 +34,13 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"
             android:text="Tài khoản"
+            android:textColor="@color/black"
             android:textSize="16dp" />
 
         <EditText
             android:id="@+id/regisEdtUserName"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="48dp"
             android:layout_marginBottom="20dp"
             android:background="@drawable/edittextdesign"
             android:hint="Nhập tài khoản"
@@ -52,12 +52,13 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"
             android:text="Mật khẩu"
+            android:textColor="@color/black"
             android:textSize="16dp" />
 
         <EditText
             android:id="@+id/regisEdtPassword"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="48dp"
             android:layout_marginBottom="20dp"
             android:background="@drawable/edittextdesign"
             android:hint="**********"
@@ -71,6 +72,7 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"
             android:text="Xác nhận mật khẩu"
+            android:textColor="@color/black"
             android:textSize="16dp" />
 
         <EditText
@@ -90,10 +92,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/buttondesign2"
-            android:text="Đăng nhập"
+            android:gravity="center"
+            android:text="Đăng ký"
             android:textColor="@color/white"
-            android:textSize="20dp"
-            android:gravity="center"/>
+            android:textSize="20dp" />
 
         <Button
             android:id="@+id/regisBtnLogin"
@@ -102,9 +104,9 @@
             android:layout_marginTop="20dp"
             android:background="@drawable/buttonclear"
             android:gravity="center"
-            android:textSize="20dp"
             android:text="Đăng nhập tài khoản"
-            android:textColor="@color/black" />
+            android:textColor="@color/black"
+            android:textSize="20dp" />
     </LinearLayout>
 
 </LinearLayout>
