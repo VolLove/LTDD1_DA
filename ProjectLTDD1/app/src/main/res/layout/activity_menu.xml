@@ -21,13 +21,13 @@
         android:layout_height="wrap_content"
         android:background="@drawable/buttondesign1"
         android:backgroundTint="@color/white"
-        android:drawableEnd="@drawable/img"
-        android:drawablePadding="50dp"
+        android:drawableStart="@drawable/img"
+        android:drawablePadding="30dp"
         android:gravity="start|center"
-        android:paddingEnd="30dp"
         android:text="Kho"
         android:textColor="@color/black"
-        android:textSize="20dp" />
+        android:textSize="20dp"
+        android:paddingStart="30dp"/>
 
     <Button
         android:id="@+id/menuBtnSearch"
@@ -35,13 +35,14 @@
         android:layout_height="wrap_content"
         android:background="@drawable/buttondesign3"
         android:drawableLeft="@drawable/img_1"
-        android:drawablePadding="50dp"
+        android:drawablePadding="30dp"
         android:gravity="start|center"
         android:padding="5dp"
         android:paddingEnd="30dp"
         android:text="Tìm đơn"
         android:textColor="@color/black"
-        android:textSize="20dp" />
+        android:textSize="20dp"
+        android:paddingStart="30dp"/>
 
     <Button
         android:id="@+id/menuBtn"
@@ -49,12 +50,13 @@
         android:layout_height="wrap_content"
         android:background="@drawable/buttondesign1"
         android:drawableLeft="@drawable/img_2"
-        android:drawablePadding="50dp"
+        android:drawablePadding="30dp"
         android:gravity="start|center"
         android:paddingEnd="30dp"
         android:text="Thống kẽ"
         android:textColor="@color/black"
-        android:textSize="20dp" />
+        android:textSize="20dp"
+        android:paddingStart="30dp"/>
 
     <Button
         android:id="@+id/menuBtnAccount"
@@ -62,23 +64,25 @@
         android:layout_height="wrap_content"
         android:background="@drawable/buttondesign3"
         android:drawableLeft="@drawable/img_5"
-        android:drawablePadding="50dp"
+        android:drawablePadding="30dp"
         android:gravity="start|center"
         android:padding="5dp"
         android:paddingEnd="30dp"
         android:text="Tài khoản"
         android:textColor="@color/black"
-        android:textSize="20dp" />
+        android:textSize="20dp"
+        android:paddingStart="30dp" />
     <Button
         android:id="@+id/menuBtnlogOut"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/buttondesign1"
         android:drawableLeft="@drawable/img_3"
-        android:drawablePadding="50dp"
+        android:drawablePadding="30dp"
         android:gravity="start|center"
         android:paddingEnd="30dp"
         android:text="Đăng xuất"
         android:textColor="@color/black"
-        android:textSize="20dp" />
+        android:textSize="20dp"
+        android:paddingStart="30dp"/>
 </LinearLayout>
