@@ -9,29 +9,141 @@
 
     <Toolbar
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" >
+        android:layout_height="wrap_content">
+
         <ImageButton
             android:id="@+id/detailBtnBack"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/img_9"
             android:background="@android:color/transparent"
-            />
+            android:src="@drawable/img_9" />
+
         <ActionMenuView
             android:id="@+id/detailMenu"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="match_parent" />
     </Toolbar>
 
+    <LinearLayout
+        android:layout_width="390dp"
+        android:layout_height="500dp"
+        android:layout_margin="10dp"
+        android:orientation="vertical"
+        android:background="@drawable/layoutdesign1"
+        android:padding="20dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:text="Chi tiết"
+            android:textColor="@color/primal_blue"
+            android:textSize="28dp"
+            android:textStyle="bold" />
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="1dp"
+    android:layout_marginBottom="15dp"
+    android:background="@color/black"/>
+        <TextView
+            android:id="@+id/detailTVId"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:text="Mã đơn hàng: "
+            android:textSize="16dp"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/black"
+            android:layout_marginBottom="15dp"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:textSize="16dp"
+            android:id="@+id/detailTvSenderName"
+            android:text="Người gửi: "/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:textSize="16dp"
+            android:id="@+id/detailTVSenderPhone"
+            android:layout_marginTop="10dp"
+            android:text="SDT người gửi: "/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:layout_marginTop="10dp"
+            android:textSize="16dp"
+            android:text="Người nhận: "
+            android:id="@+id/detailTvReceiverName"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:background="@android:color/transparent"
+            android:textSize="16dp"
+            android:text="SDT người nhận: "
+            android:id="@+id/detailTvReceiverPhone"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:background="@android:color/transparent"
+            android:textSize="16dp"
+            android:id="@+id/detailTvDateAdd"
+            android:text="Ngày nhập kho: "/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:background="@android:color/transparent"
+            android:textSize="16dp"
+            android:id="@+id/detailTvDateSent"
+            android:text="Ngày xuất kho: "/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:background="@android:color/transparent"
+            android:textSize="16dp"
+            android:id="@+id/detailTvAddressRece"
+            android:text="Địa chỉ gửi: "/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/edittextdesign"
+            android:textSize="16dp"
+            android:id="@+id/detailTv"
+            android:text="Thông tin đơn hàng: "/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:background="@android:color/transparent"
+            android:textSize="16dp"
+            android:id="@+id/detail"/>
+    </LinearLayout>
 
     <Button
         android:id="@+id/detailBtnChange"
         android:layout_width="wrap_content"
         android:layout_height="40dp"
         android:layout_gravity="center"
-        android:padding="10dp"
-        android:textSize="15dp"
         android:background="@drawable/buttondesign2"
-        android:text="Xác nhận gửi hàng" />
+        android:padding="10dp"
+        android:text="Xác nhận gửi hàng"
+        android:textColor="@color/white"
+        android:textSize="15dp" />
 
 </LinearLayout>
