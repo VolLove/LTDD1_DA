@@ -10,7 +10,7 @@
     <Toolbar
         android:id="@+id/bunkerTb"
         android:layout_width="match_parent"
-        android:background="@drawable/layoutdesign2"
+        android:background="@color/white"
         android:layout_height="wrap_content" >
         <ImageButton
             android:id="@+id/bunkerBtnBack"
@@ -38,7 +38,22 @@
             android:background="@android:color/transparent"
             android:src="@drawable/img_10"/>
     </Toolbar>
-
+<LinearLayout
+    android:layout_width="match_parent"
+    android:background="@color/white"
+    android:layout_height="wrap_content"
+    android:paddingHorizontal="10dp"
+    android:orientation="horizontal">
+    <EditText
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:hint="Nhập mã đơn hàng"/>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Tìm kiếm"/>
+</LinearLayout>
     <ListView
         android:id="@+id/bunkerLv"
         android:layout_width="match_parent"
