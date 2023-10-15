@@ -18,6 +18,15 @@
             android:layout_height="wrap_content"
             android:background="@android:color/transparent"
             android:src="@drawable/img_9" />
+        <TextView
+            android:id="@+id/DetailContent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="40dp"
+            android:background="@android:color/transparent"
+            android:text="Thông tin gói hàng"
+            android:textColor="@color/black"
+            android:textSize="16dp" />
 
         <ActionMenuView
             android:id="@+id/detailMenu"
@@ -126,6 +135,23 @@
             android:text="Địa chỉ gửi: "
             android:textSize="16dp" />
 
+        <TextView
+            android:id="@+id/detailTvWeight"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:background="@android:color/transparent"
+            android:text="Cân nặng: "
+            android:textSize="16dp" />
+
+        <TextView
+            android:id="@+id/detailTvStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:background="@android:color/transparent"
+            android:text="Loại : "
+            android:textSize="16dp" />
         <TextView
             android:id="@+id/detailTvInfo"
             android:layout_width="match_parent"
