@@ -1,8 +1,30 @@
-package database;
+package Model;
+
+import Orther.HashPassword;
 
 public class User {
     int id;
     String userName,passWord,phone,name,avatar;
+
+    public User() {
+    }
+
+    public User(int id, String userName, String passWord,String name,  String phone, String avatar) {
+        this.id = id;
+        this.userName = userName;
+        this.passWord = passWord;
+        this.phone = phone;
+        this.name = name;
+        this.avatar = avatar;
+    }
+
+    public User(String userName, String passWord, String name, String phone, String avatar) {
+        this.userName = userName;
+        this.passWord = HashPassword.hashPassword(passWord);
+        this.phone = phone;
+        this.name = name;
+        this.avatar = avatar;
+    }
 
     public int getId() {
         return id;
@@ -50,17 +72,5 @@ public class User {
 
     public void setAvatar(String avatar) {
         this.avatar = avatar;
-    }
-
-    public User(int id, String userName, String passWord, String phone, String name, String avatar) {
-        this.id = id;
-        this.userName = userName;
-        this.passWord = passWord;
-        this.phone = phone;
-        this.name = name;
-        this.avatar = avatar;
-    }
-
-    public User() {
     }
 }

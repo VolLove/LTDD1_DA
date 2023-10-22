@@ -1,13 +1,13 @@
 package Model;
 
-public class TypeParcels {
+public class TypeParcel {
     private Integer id, transport_free,weight;
     private String title, id_type, name_sender, phone_sender, name_receiver, phone_receiver, address_receiver;
 
-    public TypeParcels() {
+    public TypeParcel() {
     }
 
-    public TypeParcels(Integer id, Integer transport_free, Integer weight, String title, String id_type, String name_sender, String phone_sender, String name_receiver, String phone_receiver, String address_receiver) {
+    public TypeParcel(Integer id, String title, String id_type, String name_sender, String phone_sender, String name_receiver, String phone_receiver, String address_receiver, Integer transport_free, Integer weight) {
         this.id = id;
         this.transport_free = transport_free;
         this.weight = weight;
@@ -20,7 +20,7 @@ public class TypeParcels {
         this.address_receiver = address_receiver;
     }
 
-    public TypeParcels(Integer transport_free, Integer weight, String title, String id_type, String name_sender, String phone_sender, String name_receiver, String phone_receiver, String address_receiver) {
+    public TypeParcel( String title, String id_type, String name_sender, String phone_sender, String name_receiver, String phone_receiver, String address_receiver,Integer transport_free, Integer weight) {
         this.transport_free = transport_free;
         this.weight = weight;
         this.title = title;
