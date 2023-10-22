@@ -7,21 +7,24 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 public class DatabaseHandler extends SQLiteOpenHelper {
     private static final String DATABASE_NAME = "buuCucManger.sqlite";
-    private static final int DATABASE_VERSION = 1;
+    private static final int DATABASE_VERSION =4;
 
 
     public DatabaseHandler(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
 
     }
-    public void QueryData(String sql){
+
+    public void QueryData(String sql) {
         SQLiteDatabase database = getWritableDatabase();
         database.execSQL(sql);
     }
-    public Cursor GetData(String sql){
+
+    public Cursor GetData(String sql) {
         SQLiteDatabase database = getReadableDatabase();
-        return  database.rawQuery(sql,null);
+        return database.rawQuery(sql, null);
     }
+
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
 
@@ -36,17 +39,19 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 
     @Override
     public void onUpgrade(SQLiteDatabase sqLiteDatabase, int old, int newVer) {
-            sqLiteDatabase.execSQL("drop table if exists Users");
-            sqLiteDatabase.execSQL("drop table if exists Parcels");
-            onCreate(sqLiteDatabase);
+        sqLiteDatabase.execSQL("drop table if exists Users");
+        sqLiteDatabase.execSQL("drop table if exists Parcels");
+        sqLiteDatabase.execSQL("drop table if exists Types");
+        onCreate(sqLiteDatabase);
     }
-    public boolean login(String username, String password){
+
+    public boolean login(String username, String password) {
         SQLiteDatabase database = this.getReadableDatabase();
         String query = "SELECT * FROM Users WHERE user_name = ? AND password = ?";
-        Cursor cursor = database.rawQuery(query,new String[]{username,password});
-    if (cursor.getCount()>0){
-        return true;
-    }
+        Cursor cursor = database.rawQuery(query, new String[]{username, password});
+        if (cursor.getCount() > 0) {
+            return true;
+        }
         return false;
     }
 }
