@@ -16,44 +16,59 @@
         android:textSize="30dp" />
 
     <EditText
+        android:id="@+id/bai3edtTaiKhoan"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Nhập tài khoản"
+        android:inputType="text"
         android:textSize="15dp" />
 
     <EditText
+        android:id="@+id/bai3edtMatKhau"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Nhập tài khoản"
+        android:hint="Nhập mật khẩu"
+        android:inputType="textPassword"
         android:textSize="15dp" />
 
     <EditText
+        android:id="@+id/bai3edtDienThoai"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Nhập tài khoản"
+        android:hint="Nhập số điện thoại"
+        android:inputType="phone"
         android:textSize="15dp" />
 
     <EditText
+        android:id="@+id/bai3edtEmail"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Nhập tài khoản"
+        android:hint="Nhập email"
+        android:inputType="text"
         android:textSize="15dp" />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
+
         <Button
-            android:id="@+id/bai3btndangky"
+            android:id="@+id/bai3btnDangky"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="90dp"
-            android:text="Đăng ký"/>
+            android:text="Đăng ký" />
 
         <Button
-            android:id="@+id/bia3nhaplai"
+            android:id="@+id/bia3btnNhapLai"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Nhập lại"
-            android:layout_marginStart="40dp"/>
+            android:layout_marginStart="40dp"
+            android:text="Nhập lại" />
     </LinearLayout>
+    <TextView
+        android:id="@+id/bai3tvOut"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="20dp"/>
 </LinearLayout>
