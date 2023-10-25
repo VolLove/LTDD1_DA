@@ -27,26 +27,39 @@ public class Bai3Activity extends AppCompatActivity {
         btnNhapLai.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                tvOut.setText(null);
-                tvOut.setBackgroundResource(R.color.white);
                 edtDienThoai.setText(null);
                 edtMatKhau.setText(null);
                 edtTaiKhoan.setText(null);
                 edtEmail.setText(null);
+                tvOut.setText(null);
+                tvOut.setBackgroundResource(R.color.white);
             }
         });
         btnDangKy.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (edtTaiKhoan.getText().toString() == "") {
-
-                }
-                else {
-
+                if (edtTaiKhoan.getText().toString().length() == 0 ||
+                        edtEmail.getText().toString().length() == 0 ||
+                        edtDienThoai.getText().toString().length() == 0 ||
+                        edtMatKhau.toString().length() == 0) {
+                    if (edtMatKhau.getText().toString().length()==0){
+                        edtMatKhau.setError("Mật khẩu không để trống!");
+                    }
+                    if (edtEmail.getText().toString().length()==0){
+                        edtEmail.setError("Email không để trống!");
+                    }
+                    if (edtDienThoai.getText().toString().length()==0){
+                        edtDienThoai.setError("Điện thoại không để trống!");
+                    }
+                    if (edtTaiKhoan.getText().toString().length()==0){
+                        edtTaiKhoan.setError("Tài khoản không để trống!");
+                    }
+                } else {
                     String string = "Tài khoản: " + edtTaiKhoan.getText() +
                             "\nMật khẩu: " + edtMatKhau.getText() +
                             "\nSố điện thoại: " + edtDienThoai.getText() +
                             "\nEmail: " + edtEmail.getText();
+                    btnNhapLai.callOnClick();
                     tvOut.setText(string);
                     tvOut.setBackgroundResource(R.color.green);
                 }

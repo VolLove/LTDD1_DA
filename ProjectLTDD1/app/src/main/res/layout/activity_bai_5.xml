@@ -1,9 +1,154 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".Bai5Activity">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/yellow"
+        android:gravity="center"
+        android:text="Thông tin cá nhân"
+        android:textColor="@color/red"
+        android:textSize="20dp"
+        android:textStyle="italic|bold" />
+
+    <EditText
+        android:id="@+id/bai5edtName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Nhập họ tên"
+        android:inputType="text"
+        android:textSize="20dp" />
+
+    <EditText
+        android:id="@+id/bai5edtCCCD"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Nhập căn CCCD"
+        android:inputType="text"
+        android:textSize="20dp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/blue"
+        android:gravity="center"
+        android:text="Bằng cấp"
+        android:textColor="@color/red"
+        android:textSize="18dp" />
+
+    <RadioGroup
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:id="@+id/bai5rad1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="10dp"
+            android:text="Đại học" />
+
+        <RadioButton
+            android:id="@+id/bai5rad2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="10dp"
+            android:text="Cao đẳng" />
+
+        <RadioButton
+            android:id="@+id/bai5rad3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="10dp"
+            android:text="Trung học" />
+
+    </RadioGroup>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/blue"
+        android:gravity="center"
+        android:text="Sở thích"
+        android:textColor="@color/red"
+        android:textSize="18dp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal">
+
+        <CheckBox
+            android:id="@+id/bai5cb1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="10dp"
+            android:text="Chơi game" />
+
+        <CheckBox
+            android:id="@+id/bai5cb2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="10dp"
+            android:text="Đọc sách" />
+
+        <CheckBox
+            android:id="@+id/bai5cb3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="10dp"
+            android:text="Đọc báo" />
+
+
+    </LinearLayout>
+
+
+    <EditText
+        android:id="@+id/bai5edtOrther"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:gravity="start"
+        android:hint="Nhập thông tin khác"
+        android:inputType="text" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/bai5btnDangKy"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Đăng ký" />
+
+        <Button
+            android:id="@+id/bai5btnNhapLai"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Nhập lại" />
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/blue"
+        android:gravity="center"
+        android:text="Thống kê bằng cấp"
+        android:textColor="@color/red"
+        android:textSize="18dp" />
+
+    <TextView
+        android:id="@+id/ai5tvResult"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+</LinearLayout>
