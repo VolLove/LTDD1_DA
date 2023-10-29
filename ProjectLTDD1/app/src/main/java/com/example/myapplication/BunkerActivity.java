@@ -7,11 +7,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
-import android.widget.ActionMenuView;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ListView;
@@ -19,7 +15,6 @@ import android.widget.Toolbar;
 
 import java.text.ParseException;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 import Model.Parcel;
@@ -101,12 +96,12 @@ public class BunkerActivity extends AppCompatActivity {
         //int parcel_id, int id_personnel, int id_type, int status, String title, String name_sender,
         // String phone_sender, String name_receiver, String phone_receiver, String address_receiver,
         // double transport_free, double weight, Date date_get, Date date_trans
-        data_LV.add(new Parcel(1, 1, 1, 0, "Thư gửi anh A", "Nguyen Van A", "0123456789",
-                "Nguyen Van B", "0123456789", "43, Nguyễn Chí Thanh, Ba Đình, Hà Nội", 100000,
-                0.2, "1/10/2023", "1/1/1"));
-        data_LV.add(new Parcel(2, 1, 1, 2, "Thư gửi anh A", "Nguyen Van A", "0123456789",
-                "Nguyen Van B", "0123456789", "43, Nguyễn Chí Thanh, Ba Đình, Hà Nội", 100000,
-                0.2, "1/10/2023", "1/1/1"));
+        data_LV.add(new Parcel(1, 1, 1, 0,  "Nguyen Van A", "0123456789",
+                "Nguyen Van B", "0123456789", "43, Nguyễn Chí Thanh, Ba Đình, Hà Nội",
+                "decription", 0.2, "1/10/2023", "1/1/1"));
+        data_LV.add(new Parcel(2, 1, 1, 2,"Nguyen Van A", "0123456789",
+                "Nguyen Van B", "0123456789", "43, Nguyễn Chí Thanh, Ba Đình, Hà Nội",
+                "decription", 0.2, "1/10/2023", "1/1/1"));
     }
 
 
