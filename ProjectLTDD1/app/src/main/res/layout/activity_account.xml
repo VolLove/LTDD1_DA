@@ -16,8 +16,7 @@
             android:id="@+id/acountBtnBack"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@android:color/transparent"
-            android:src="@drawable/img_9" />
+            android:background="@android:color/transparent" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -50,8 +49,7 @@
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:layout_gravity="center"
-            android:background="@drawable/imagedesign1"
-            android:src="@drawable/img_5" />
+            android:background="@drawable/imagedesign1" />
 
         <TextView
             android:id="@+id/accountTvName"
