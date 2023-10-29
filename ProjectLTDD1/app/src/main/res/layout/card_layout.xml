@@ -18,9 +18,7 @@
             android:layout_height="wrap_content"
             android:background="@color/primal_pink"
             android:padding="10dp"
-            android:paddingStart="20dp"
-
-            android:src="@drawable/img" />
+            android:paddingStart="20dp"/>
 
         <LinearLayout
             android:layout_width="wrap_content"

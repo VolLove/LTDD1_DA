@@ -16,7 +16,6 @@
             android:id="@+id/updateBtnBack"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/img_9"
             android:background="@android:color/transparent"
             />
         <TextView
