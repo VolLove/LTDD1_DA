@@ -9,7 +9,7 @@ import android.widget.ActionMenuView;
 
 public class DetailActivity extends AppCompatActivity {
     ActionMenuView actionMenuView;
-    MenuItem menuItem1, menuItem2;
+    MenuItem menuItem1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

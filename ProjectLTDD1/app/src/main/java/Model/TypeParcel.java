@@ -37,4 +37,9 @@ public class TypeParcel {
     public void setPack_free(double pack_free) {
         this.pack_free = pack_free;
     }
+
+    @Override
+    public String toString() {
+        return title;
+    }
 }

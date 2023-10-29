@@ -8,19 +8,19 @@
     tools:context=".CreateActivity">
 
     <Toolbar
-        android:id="@+id/createTool"
+        android:id="@+id/createTb"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/white">
 
         <ImageButton
-            android:id="@+id/createBtnBack"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@android:color/transparent" />
+            android:id="@+id/createibBack"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:background="@android:color/transparent"
+            android:src="@drawable/baseline_arrow_back_24" />
 
         <TextView
-            android:id="@+id/creatrContent"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="40dp"
@@ -30,9 +30,9 @@
             android:textSize="16dp" />
 
         <ActionMenuView
-            android:id="@+id/createMenu"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:id="@+id/createActionMenu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:background="@android:color/transparent" />
     </Toolbar>
 
@@ -75,8 +75,8 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="SDT người gửi"
             android:background="@android:color/transparent"
+            android:text="SDT người gửi"
             android:textColor="@color/black"
             android:textSize="13dp" />
 
@@ -85,8 +85,8 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@drawable/edittextdesign"
-            android:inputType="phone"
             android:hint="+08"
+            android:inputType="phone"
             android:padding="5dp" />
     </LinearLayout>
 
@@ -102,8 +102,8 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Người nhận"
             android:background="@android:color/transparent"
+            android:text="Người nhận"
             android:textColor="@color/black"
             android:textSize="13dp" />
 
@@ -129,18 +129,18 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="SDT người nhận"
             android:background="@android:color/transparent"
+            android:text="SDT người nhận"
             android:textColor="@color/black"
             android:textSize="13dp" />
 
         <EditText
             android:id="@+id/updateEdtReceiverPhone"
-            android:inputType="phone"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@drawable/edittextdesign"
             android:hint="+08"
+            android:inputType="phone"
             android:padding="5dp" />
     </LinearLayout>
 
@@ -154,19 +154,18 @@
         android:padding="10dp">
 
         <TextView
-            android:text="Loại hàng hóa"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@android:color/transparent"
+            android:text="Loại bưu phẩm"
             android:textColor="@color/black"
-            android:textSize="13dp"
-            />
+            android:textSize="13dp" />
+
         <Spinner
             android:id="@+id/createSpinType"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@android:color/transparent"
-            />
+            android:background="@android:color/transparent" />
     </LinearLayout>
 
     <LinearLayout
@@ -179,10 +178,10 @@
         android:padding="10dp">
 
         <TextView
-            android:text="Cân nậng"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@android:color/transparent"
+            android:text="Cân nậng"
             android:textColor="@color/black"
             android:textSize="13dp" />
 
@@ -191,9 +190,11 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@drawable/edittextdesign"
+            android:inputType="numberDecimal"
             android:hint="Kg"
             android:padding="5dp" />
     </LinearLayout>
+
     <LinearLayout
         android:layout_width="360dp"
         android:layout_height="wrap_content"
@@ -204,44 +205,46 @@
         android:padding="10dp">
 
         <TextView
-            android:text="Thông tin đơn hàng"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@android:color/transparent"
+            android:text="Thông tin đơn hàng"
             android:textColor="@color/black"
             android:textSize="13dp" />
 
         <EditText
+            android:id="@+id/createedtDecrip"
             android:layout_width="match_parent"
             android:layout_height="150dp"
             android:background="@drawable/edittextdesign"
             android:inputType="textMultiLine"
+            android:gravity="top"
             android:padding="5dp" />
     </LinearLayout>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
+        android:layout_marginHorizontal="77dp"
         android:layout_marginTop="10dp"
-        android:layout_marginHorizontal="77dp">
+        android:orientation="horizontal">
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Lưu"
+            android:background="@drawable/btncreate"
             android:paddingLeft="40dp"
             android:paddingRight="40dp"
-            android:background="@drawable/btncreate"/>
+            android:text="Lưu" />
 
         <Button
             android:layout_width="wrap_content"
-            android:paddingLeft="40dp"
-            android:paddingRight="40dp"
-            android:background="@drawable/btndestroy"
             android:layout_height="wrap_content"
-            android:text="Hủy"
             android:layout_marginLeft="40dp"
-            />
+            android:background="@drawable/btndestroy"
+            android:paddingLeft="40dp"
+            android:paddingRight="40dp"
+            android:text="Hủy" />
 
     </LinearLayout>
 </LinearLayout>

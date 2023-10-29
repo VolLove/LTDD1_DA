@@ -2,10 +2,18 @@ package com.example.myapplication;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.ActionMenuView;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.Toolbar;
 
@@ -19,14 +27,20 @@ import Model.TypeParcel;
 import Orther.ParcelAdapter;
 
 public class BunkerActivity extends AppCompatActivity {
+    ImageButton btnCreate;
     ListView lvDanhSach;
     static List<Parcel> data_LV = new ArrayList<>();
-    static List<TypeParcel> typeParcels = new ArrayList<>();
+    public static final int REQUEST_CODE_REGISTER = 1;
+    public static List<TypeParcel> typeParcels = new ArrayList<>();
     static ParcelAdapter parcelAdapter;
+    Context context;
+    Toolbar bunkerTb;
+    EditText edtSearch;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        context = this;
         setContentView(R.layout.activity_bunker);
         setControl();
         try {
@@ -40,7 +54,47 @@ public class BunkerActivity extends AppCompatActivity {
 
     private void setEvent() {
         parcelAdapter = new ParcelAdapter(this, R.layout.card_layout, data_LV);
+        lvDanhSach.setTextFilterEnabled(true);
         lvDanhSach.setAdapter(parcelAdapter);
+        btnCreate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Intent intent = new Intent(context, CreateActivity.class);
+                startActivityForResult(intent, REQUEST_CODE_REGISTER);
+            }
+        });
+//        btnSearch.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                if (edtSearch.getText().toString() == "") {
+//                    parcelAdapter = new ParcelAdapter(BunkerActivity.this, R.layout.card_layout, data_LV);
+//                } else {
+//                    int x = Integer.parseInt(edtSearch.getText().toString());
+//                    parcelAdapter.searchProductById(x);
+//                }
+//
+//            }
+//
+//        });
+        edtSearch.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                String text = edtSearch.getText().toString();
+                    parcelAdapter.getFilter().filter(text);
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+
+
+            }
+        });
     }
 
     //int parcel_id, String title, String id_type, String name_sender, String phone_sender,
@@ -52,11 +106,11 @@ public class BunkerActivity extends AppCompatActivity {
         //Chất lỏng
         //Đồ điện tử
         //Hàng đông lạnh
-        typeParcels.add(new TypeParcel(1, "Thư", 10000));
-        typeParcels.add(new TypeParcel(2, "Hàng dễ vỡ", 100000));
-        typeParcels.add(new TypeParcel(3, "Chất lỏng", 10000));
+        typeParcels.add(new TypeParcel(0, "Thư", 10000));
+        typeParcels.add(new TypeParcel(1, "Hàng dễ vỡ", 100000));
+        typeParcels.add(new TypeParcel(2, "Chất lỏng", 10000));
         typeParcels.add(new TypeParcel(3, "Đồ điện tử", 30000));
-        typeParcels.add(new TypeParcel(3, "Hàng đông lạnh", 50000));
+        typeParcels.add(new TypeParcel(4, "Hàng đông lạnh", 50000));
         //int parcel_id, int id_personnel, int id_type, int status, String title, String name_sender,
         // String phone_sender, String name_receiver, String phone_receiver, String address_receiver,
         // double transport_free, double weight, Date date_get, Date date_trans
@@ -71,5 +125,8 @@ public class BunkerActivity extends AppCompatActivity {
 
     private void setControl() {
         lvDanhSach = findViewById(R.id.bunkerLvDanhSach);
+        btnCreate = findViewById(R.id.bunkerBtnCreate);
+        edtSearch = findViewById(R.id.bunkerEdtSearch);
+//        btnSearch = findViewById(R.id.bunkerBtnSearch);
     }
 }
