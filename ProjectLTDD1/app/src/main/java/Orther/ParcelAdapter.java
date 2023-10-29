@@ -1,17 +1,23 @@
 package Orther;
 
 import android.content.Context;
+import android.content.Intent;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Adapter;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.Filter;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.myapplication.DetailActivity;
 import com.example.myapplication.R;
 
 import java.util.ArrayList;
@@ -22,8 +28,7 @@ import Model.Parcel;
 public class ParcelAdapter extends ArrayAdapter {
     Context context;
     int resource;
-    List<Parcel> data,dataClone;
-
+    List<Parcel> data, dataClone;
 
 
     public ParcelAdapter(Context context, int resource, List<Parcel> data) {
@@ -49,6 +54,7 @@ public class ParcelAdapter extends ArrayAdapter {
         TextView tvDateGet = convertView.findViewById(R.id.cardTvDateGet);
         TextView tvDateTrans = convertView.findViewById(R.id.cardTvdateTrans);
         LinearLayout llStatus = convertView.findViewById(R.id.cardllStatus);
+        Button cardBtnMore = convertView.findViewById(R.id.cardBtnMore);
 
         Parcel parcel = data.get(position);
 
@@ -79,6 +85,16 @@ public class ParcelAdapter extends ArrayAdapter {
             llStatus.setBackgroundResource(R.color.primal_red);
             tvStatus.setText("Trả hàng");
         }
+        cardBtnMore.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(context, DetailActivity.class);
+                Bundle bundle = new Bundle();
+                bundle.putSerializable("parcel",parcel);
+                intent.putExtras(bundle);
+                context.startActivity(intent);
+            }
+        });
         return convertView;
     }
 

@@ -1,5 +1,6 @@
 package com.example.myapplication;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
@@ -8,28 +9,29 @@ import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ListView;
-import android.widget.Toolbar;
 
 import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.List;
 
 import Model.Parcel;
+import Model.Personnel;
 import Model.TypeParcel;
 import Orther.ParcelAdapter;
 
 public class BunkerActivity extends AppCompatActivity {
     ImageButton btnCreate;
     ListView lvDanhSach;
-    static List<Parcel> data_LV = new ArrayList<>();
     public static final int REQUEST_CODE_REGISTER = 1;
+    public static List<Parcel> data_LV = new ArrayList<>();
     public static List<TypeParcel> typeParcels = new ArrayList<>();
+    public static List<Personnel> personnels = new ArrayList<>();
     static ParcelAdapter parcelAdapter;
     Context context;
-    Toolbar bunkerTb;
     EditText edtSearch;
 
     @Override
@@ -77,6 +79,7 @@ public class BunkerActivity extends AppCompatActivity {
 
             }
         });
+
     }
 
     //int parcel_id, String title, String id_type, String name_sender, String phone_sender,
@@ -102,6 +105,11 @@ public class BunkerActivity extends AppCompatActivity {
         data_LV.add(new Parcel(2, 1, 1, 2,"Nguyen Van A", "0123456789",
                 "Nguyen Van B", "0123456789", "43, Nguyễn Chí Thanh, Ba Đình, Hà Nội",
                 "decription", 0.2, "1/10/2023", "1/1/1"));
+        //
+        personnels.add(new Personnel(1,"User1","1234567890","Nhan vien 1","0123456789", "abc"));
+        personnels.add(new Personnel(2,"User2","1234567890","Nhan vien 2","0123456789", "abc"));
+        personnels.add(new Personnel(3,"User3","1234567890","Nhan vien 3","0123456789", "abc"));
+
     }
 
 

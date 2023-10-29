@@ -2,18 +2,23 @@ package Model;
 
 import com.example.myapplication.BunkerActivity;
 
+import java.io.Serializable;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
-public class Parcel {
+public class Parcel implements Serializable {
     private int parcel_id, id_personnel, id_type, status;
     private String name_sender;
     private String phone_sender;
     private String name_receiver;
     private String phone_receiver;
     private String address_receiver;
+    private String decription;
+    private double weight;
+    private Date date_get, date_trans;
+    private SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
 
     public String getDecription() {
         return decription;
@@ -23,10 +28,6 @@ public class Parcel {
         this.decription = decription;
     }
 
-    private String decription;
-    private double weight;
-    private Date date_get, date_trans;
-    private SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
 
     public Parcel() {
 
@@ -124,14 +125,13 @@ public class Parcel {
     }
 
     public double getTransport_free() {
-        List<TypeParcel> typeParcels = BunkerActivity.typeParcels;
-        double multi = 0 ;
-        for (TypeParcel typeParcel : typeParcels) {
-            if (typeParcel.getType_id() == id_type){
+        double multi = 0;
+        for (TypeParcel typeParcel : BunkerActivity.typeParcels) {
+            if (typeParcel.getType_id() == id_type) {
                 multi = typeParcel.getPack_free();
             }
         }
-        return weight*multi;
+        return weight * multi;
     }
 
 
@@ -157,5 +157,25 @@ public class Parcel {
 
     public void setDate_trans(String date_trans) throws ParseException {
         this.date_trans = format.parse(date_trans);
+    }
+
+    @Override
+    public String toString() {
+        return "Parcel{" +
+                "parcel_id=" + parcel_id +
+                ", id_personnel=" + id_personnel +
+                ", id_type=" + id_type +
+                ", status=" + status +
+                ", name_sender='" + name_sender + '\'' +
+                ", phone_sender='" + phone_sender + '\'' +
+                ", name_receiver='" + name_receiver + '\'' +
+                ", phone_receiver='" + phone_receiver + '\'' +
+                ", address_receiver='" + address_receiver + '\'' +
+                ", decription='" + decription + '\'' +
+                ", weight=" + weight +
+                ", date_get=" + date_get +
+                ", date_trans=" + date_trans +
+                ", format=" + format +
+                '}';
     }
 }
