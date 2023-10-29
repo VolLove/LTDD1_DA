@@ -4,7 +4,7 @@ import Orther.HashPassword;
 
 public class Personnel {
     int id_personnel;
-    String userName,passWord,phone,name,avatar;
+    String userName, passWord, phone, name, avatar;
 
     public Personnel() {
     }
@@ -72,5 +72,10 @@ public class Personnel {
 
     public void setAvatar(String avatar) {
         this.avatar = avatar;
+    }
+
+    @Override
+    public String toString() {
+        return getName();
     }
 }

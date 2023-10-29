@@ -44,25 +44,18 @@ public class CreateActivity extends AppCompatActivity {
         btnCrete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                boolean x = true;
                 if (edtname_sender.getText().toString().equals("")) {
                     edtname_sender.setError("Vui lòng nhập tên người gửi!");
-                    x = false;
                 } else if (edtphone_sender.getText().toString().equals("")) {
                     edtphone_sender.setError("Vui lòng nhập số điện thoại!");
-                    x = false;
                 } else if (edtname_receiver.getText().toString().equals("")) {
                     edtname_receiver.setError("Vui lòng nhập tên người nhận!");
-                    x = false;
                 } else if (edtphone_receiver.getText().toString().equals("")) {
                     edtphone_receiver.setError("Vui lòng nhập số điện thoại!");
-                    x = false;
                 } else if (edtweight.getText().toString().equals("") || Integer.parseInt(edtweight.getText().toString()) == 0) {
                     edtweight.setError("Nhập cân nặng!");
-                    x = false;
                 } else if (edtaddress_receiver.getText().toString().equals("")) {
                     edtaddress_receiver.setError("Cần địa chỉ nhận hàng!");
-                    x = false;
                 } else if (edtDecription.getText().toString().equals("")) {
                     edtDecription.setError("Đừng để trống!");
                 } else {

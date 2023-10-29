@@ -101,10 +101,10 @@ public class BunkerActivity extends AppCompatActivity {
         // double transport_free, double weight, Date date_get, Date date_trans
         data_LV.add(new Parcel(1, 1, 1, 0,  "Nguyen Van A", "0123456789",
                 "Nguyen Van B", "0123456789", "43, Nguyễn Chí Thanh, Ba Đình, Hà Nội",
-                "decription", 0.2, "1/10/2023", "1/1/1"));
+                "decription11", 0.2, "1/10/2023", "1/1/1"));
         data_LV.add(new Parcel(2, 1, 1, 2,"Nguyen Van A", "0123456789",
                 "Nguyen Van B", "0123456789", "43, Nguyễn Chí Thanh, Ba Đình, Hà Nội",
-                "decription", 0.2, "1/10/2023", "1/1/1"));
+                "decription11", 0.2, "1/10/2023", "1/1/1"));
         //
         personnels.add(new Personnel(1,"User1","1234567890","Nhan vien 1","0123456789", "abc"));
         personnels.add(new Personnel(2,"User2","1234567890","Nhan vien 2","0123456789", "abc"));

@@ -6,16 +6,12 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Adapter;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Filter;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.myapplication.DetailActivity;
 import com.example.myapplication.R;
@@ -45,7 +41,7 @@ public class ParcelAdapter extends ArrayAdapter {
     }
 
     @Override
-    public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
+    public View getView(int position, View convertView,  ViewGroup parent) {
         convertView = LayoutInflater.from(context).inflate(resource, null);
         TextView tvID = convertView.findViewById(R.id.cardTvID);
         TextView tvStatus = convertView.findViewById(R.id.cardTvStatus);

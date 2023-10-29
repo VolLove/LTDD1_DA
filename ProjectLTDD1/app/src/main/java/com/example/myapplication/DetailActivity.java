@@ -56,6 +56,7 @@ public class DetailActivity extends AppCompatActivity {
         tvphone_sender.setText(tvphone_sender.getText().toString() + parcel.getPhone_sender());
         tvphone_receiver.setText(tvphone_receiver.getText().toString() + parcel.getPhone_receiver());
         tvdate_get.setText(tvdate_get.getText().toString() + parcel.getDate_get());
+        tvdecription.setText(tvdecription.getText().toString() + parcel.getDecription());
         if (parcel.getDate_trans().equals("01/01/0001")) {
             tvdate_trans.setText(tvdate_trans.getText() + "N/A");
 
@@ -149,7 +150,11 @@ public class DetailActivity extends AppCompatActivity {
         menuItem1.setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
             @Override
             public boolean onMenuItemClick(@NonNull MenuItem menuItem) {
-
+                Intent intent1 = new Intent(context, UpdateActivity.class);
+                Bundle bundle1 = new Bundle();
+                bundle1.putSerializable("parcel", parcel);
+                intent1.putExtras(bundle1);
+                startActivity(intent1);
                 return false;
             }
         });
