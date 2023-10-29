@@ -44,11 +44,6 @@
     android:layout_height="wrap_content"
     android:paddingHorizontal="10dp"
     android:orientation="horizontal">
-<!--    <ImageButton-->
-<!--        android:id="@+id/bunkerBtnReset"-->
-<!--        android:src="@drawable/baseline_restart_alt_24"-->
-<!--        android:layout_width="50dp"-->
-<!--        android:layout_height="50dp" />-->
     <EditText
         android:id="@+id/bunkerEdtSearch"
         android:layout_width="0dp"
@@ -56,11 +51,6 @@
         android:layout_weight="1"
         android:hint="Nhập mã đơn hàng"/>
 
-<!--    <ImageButton-->
-<!--        android:id="@+id/bunkerBtnSearch"-->
-<!--        android:src="@drawable/baseline_search_24"-->
-<!--        android:layout_width="50dp"-->
-<!--        android:layout_height="50dp" />-->
 </LinearLayout>
     <ListView
         android:id="@+id/bunkerLvDanhSach"

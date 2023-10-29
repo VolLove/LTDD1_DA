@@ -64,19 +64,6 @@ public class BunkerActivity extends AppCompatActivity {
                 startActivityForResult(intent, REQUEST_CODE_REGISTER);
             }
         });
-//        btnSearch.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                if (edtSearch.getText().toString() == "") {
-//                    parcelAdapter = new ParcelAdapter(BunkerActivity.this, R.layout.card_layout, data_LV);
-//                } else {
-//                    int x = Integer.parseInt(edtSearch.getText().toString());
-//                    parcelAdapter.searchProductById(x);
-//                }
-//
-//            }
-//
-//        });
         edtSearch.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
@@ -127,6 +114,5 @@ public class BunkerActivity extends AppCompatActivity {
         lvDanhSach = findViewById(R.id.bunkerLvDanhSach);
         btnCreate = findViewById(R.id.bunkerBtnCreate);
         edtSearch = findViewById(R.id.bunkerEdtSearch);
-//        btnSearch = findViewById(R.id.bunkerBtnSearch);
     }
 }
