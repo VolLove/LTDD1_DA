@@ -1,15 +1,30 @@
 package Model;
 
-import android.widget.Adapter;
+import com.example.myapplication.BunkerActivity;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 
 public class Parcel {
     private int parcel_id, id_personnel, id_type, status;
-    private String title, name_sender, phone_sender, name_receiver, phone_receiver, address_receiver;
-    private double transport_free, weight;
+    private String name_sender;
+    private String phone_sender;
+    private String name_receiver;
+    private String phone_receiver;
+    private String address_receiver;
+
+    public String getDecription() {
+        return decription;
+    }
+
+    public void setDecription(String decription) {
+        this.decription = decription;
+    }
+
+    private String decription;
+    private double weight;
     private Date date_get, date_trans;
     private SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
 
@@ -17,20 +32,19 @@ public class Parcel {
 
     }
 
-    public Parcel(int parcel_id, int id_personnel, int id_type, int status, String title,
+    public Parcel(int parcel_id, int id_personnel, int id_type, int status,
                   String name_sender, String phone_sender, String name_receiver, String phone_receiver,
-                  String address_receiver, double transport_free, double weight, String date_get, String date_trans) throws ParseException {
+                  String address_receiver, String decription, double weight, String date_get, String date_trans) throws ParseException {
         this.parcel_id = parcel_id;
         this.id_personnel = id_personnel;
         this.id_type = id_type;
         this.status = status;
-        this.title = title;
         this.name_sender = name_sender;
         this.phone_sender = phone_sender;
         this.name_receiver = name_receiver;
         this.phone_receiver = phone_receiver;
         this.address_receiver = address_receiver;
-        this.transport_free = transport_free;
+        this.decription = decription;
         this.weight = weight;
         this.date_get = format.parse(date_get);
         this.date_trans = format.parse(date_trans);
@@ -68,13 +82,6 @@ public class Parcel {
         this.status = status;
     }
 
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
 
     public String getName_sender() {
         return name_sender;
@@ -117,12 +124,16 @@ public class Parcel {
     }
 
     public double getTransport_free() {
-        return transport_free;
+        List<TypeParcel> typeParcels = BunkerActivity.typeParcels;
+        double multi = 0 ;
+        for (TypeParcel typeParcel : typeParcels) {
+            if (typeParcel.getType_id() == id_type){
+                multi = typeParcel.getPack_free();
+            }
+        }
+        return weight*multi;
     }
 
-    public void setTransport_free(double transport_free) {
-        this.transport_free = transport_free;
-    }
 
     public double getWeight() {
         return weight;
@@ -144,7 +155,7 @@ public class Parcel {
         return format.format(date_trans);
     }
 
-    public void setDate_trans(Date date_trans) {
-        this.date_trans = date_trans;
+    public void setDate_trans(String date_trans) throws ParseException {
+        this.date_trans = format.parse(date_trans);
     }
 }

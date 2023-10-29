@@ -6,24 +6,18 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Filter;
-import android.widget.Filterable;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.myapplication.BunkerActivity;
 import com.example.myapplication.R;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Stack;
 
 import Model.Parcel;
-import Model.TypeParcel;
 
 public class ParcelAdapter extends ArrayAdapter {
     Context context;
@@ -49,7 +43,6 @@ public class ParcelAdapter extends ArrayAdapter {
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
         convertView = LayoutInflater.from(context).inflate(resource, null);
         TextView tvID = convertView.findViewById(R.id.cardTvID);
-        TextView tvTitleParcel = convertView.findViewById(R.id.cardtvTitleParcel);
         TextView tvStatus = convertView.findViewById(R.id.cardTvStatus);
         TextView tvNameTrans = convertView.findViewById(R.id.cardTvNameTrans);
         TextView tvNameGet = convertView.findViewById(R.id.cardTvNameGet);
@@ -60,7 +53,6 @@ public class ParcelAdapter extends ArrayAdapter {
         Parcel parcel = data.get(position);
 
         tvID.setText(tvID.getText() + "" + parcel.getParcel_id());
-        tvTitleParcel.setText(tvTitleParcel.getText() + parcel.getTitle());
         tvNameTrans.setText(tvNameTrans.getText() + parcel.getName_sender());
         tvNameGet.setText(tvNameGet.getText() + parcel.getName_receiver());
         tvDateGet.setText(tvDateGet.getText() + parcel.getDate_get().toString());
@@ -109,7 +101,6 @@ public class ParcelAdapter extends ArrayAdapter {
                             parcels.add(c);
                         }
                     }
-
                     results.values = parcels;
                     results.count = parcels.size();
                 }
