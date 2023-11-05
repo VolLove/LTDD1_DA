@@ -32,12 +32,11 @@ public class BunkerActivity extends AppCompatActivity {
     public static List<Parcel> data_LV = new ArrayList<>();
     public static List<TypeParcel> typeParcels = new ArrayList<>();
     public static List<Personnel> personnels = new ArrayList<>();
-    static ParcelAdapter parcelAdapter;
+    public static ParcelAdapter parcelAdapter;
     Spinner spStype;
     ArrayAdapter<TypeParcel> arrayAdapter;
     Context context;
     EditText edtSearch;
-    List<Parcel> parcels = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,7 +56,6 @@ public class BunkerActivity extends AppCompatActivity {
     private void setEvent() {
         arrayAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, typeParcels);
         spStype.setAdapter(arrayAdapter);
-        spStype.setSelection(0);
         parcelAdapter = new ParcelAdapter(this, R.layout.card_layout, data_LV);
         lvDanhSach.setTextFilterEnabled(true);
         lvDanhSach.setAdapter(parcelAdapter);
@@ -69,7 +67,31 @@ public class BunkerActivity extends AppCompatActivity {
                 startActivityForResult(intent, REQUEST_CODE_REGISTER);
             }
         });
+        spStype.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                edtSearch.setText(null);
+                List<Parcel> list = new ArrayList<>();
+                if (i != 0) {
+                    int type = typeParcels.get(i).getType_id();
+                    for (Parcel parcel1 : data_LV) {
+                        if (parcel1.getId_type() == type) {
+                                list.add(parcel1);
+                        }
+                    }
 
+                } else {
+                   list.addAll(data_LV);
+                }
+                parcelAdapter = new ParcelAdapter(BunkerActivity.this,R.layout.card_layout,list);
+                lvDanhSach.setAdapter(parcelAdapter);
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
         edtSearch.addTextChangedListener(new TextWatcher() {
 
             @Override
@@ -102,25 +124,37 @@ public class BunkerActivity extends AppCompatActivity {
         //Chất lỏng
         //Đồ điện tử
         //Hàng đông lạnh
-        typeParcels.add(new TypeParcel(0, "Thư", 10000));
-        typeParcels.add(new TypeParcel(1, "Hàng dễ vỡ", 100000));
-        typeParcels.add(new TypeParcel(2, "Chất lỏng", 10000));
-        typeParcels.add(new TypeParcel(3, "Đồ điện tử", 30000));
-        typeParcels.add(new TypeParcel(4, "Hàng đông lạnh", 50000));
+        typeParcels.add(new TypeParcel(0, "All", 0));
+        typeParcels.add(new TypeParcel(1, "Thư", 10000));
+        typeParcels.add(new TypeParcel(2, "Hàng dễ vỡ", 100000));
+        typeParcels.add(new TypeParcel(3, "Chất lỏng", 10000));
+        typeParcels.add(new TypeParcel(4, "Đồ điện tử", 30000));
+        typeParcels.add(new TypeParcel(5, "Hàng đông lạnh", 50000));
         //int parcel_id, int id_personnel, int id_type, int status, String title, String name_sender,
         // String phone_sender, String name_receiver, String phone_receiver, String address_receiver,
         // double transport_free, double weight, Date date_get, Date date_trans
-        data_LV.add(new Parcel(1, 2, 2, 0, "Nguyen Van A", "0123456789",
+        data_LV.add(new Parcel(0, 0, 1, 0, "Nguyen Van A", "0123456789",
                 "Nguyen Van B", "0123456789", "43, Nguyễn Chí Thanh, Ba Đình, Hà Nội",
                 "decription11", 0.2, "1/10/2023", "1/1/1"));
-        data_LV.add(new Parcel(2, 1, 1, 2, "Nguyen Van A", "0123456789",
+        data_LV.add(new Parcel(1, 1, 2, 2, "Nguyen Van A", "0123456789",
+                "Nguyen Van B", "0123456789", "43, Nguyễn Chí Thanh, Ba Đình, Hà Nội",
+                "decription11", 0.2, "1/10/2023", "1/1/1"));
+        data_LV.add(new Parcel(2, 2, 3, 2, "Nguyen Van A", "0123456789",
+                "Nguyen Van B", "0123456789", "43, Nguyễn Chí Thanh, Ba Đình, Hà Nội",
+                "decription11", 0.2, "1/10/2023", "1/1/1"));
+        data_LV.add(new Parcel(3, 2, 4, 2, "Nguyen Van A", "0123456789",
+                "Nguyen Van B", "0123456789", "43, Nguyễn Chí Thanh, Ba Đình, Hà Nội",
+                "decription11", 0.2, "1/10/2023", "1/1/1"));
+        data_LV.add(new Parcel(4, 1, 5, 2, "Nguyen Van A", "0123456789",
+                "Nguyen Van B", "0123456789", "43, Nguyễn Chí Thanh, Ba Đình, Hà Nội",
+                "decription11", 0.2, "1/10/2023", "1/1/1"));
+        data_LV.add(new Parcel(5, 0, 1, 2, "Nguyen Van A", "0123456789",
                 "Nguyen Van B", "0123456789", "43, Nguyễn Chí Thanh, Ba Đình, Hà Nội",
                 "decription11", 0.2, "1/10/2023", "1/1/1"));
         //
         personnels.add(new Personnel(0, "User1", "1234567890", "Nhan vien 1", "0123456789", "abc"));
         personnels.add(new Personnel(1, "User2", "1234567890", "Nhan vien 2", "0123456789", "abc"));
         personnels.add(new Personnel(2, "User3", "1234567890", "Nhan vien 3", "0123456789", "abc"));
-        parcels = data_LV;
     }
 
 

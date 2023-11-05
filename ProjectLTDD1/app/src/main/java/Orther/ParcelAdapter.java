@@ -13,6 +13,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 
+import com.example.myapplication.BunkerActivity;
 import com.example.myapplication.DetailActivity;
 import com.example.myapplication.R;
 
@@ -20,6 +21,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import Model.Parcel;
+import Model.TypeParcel;
 
 public class ParcelAdapter extends ArrayAdapter {
     Context context;
@@ -41,13 +43,14 @@ public class ParcelAdapter extends ArrayAdapter {
     }
 
     @Override
-    public View getView(int position, View convertView,  ViewGroup parent) {
+    public View getView(int position, View convertView, ViewGroup parent) {
         convertView = LayoutInflater.from(context).inflate(resource, null);
         TextView tvID = convertView.findViewById(R.id.cardTvID);
         TextView tvStatus = convertView.findViewById(R.id.cardTvStatus);
         TextView tvNameTrans = convertView.findViewById(R.id.cardTvNameTrans);
         TextView tvNameGet = convertView.findViewById(R.id.cardTvNameGet);
         TextView tvDateGet = convertView.findViewById(R.id.cardTvDateGet);
+        TextView tvType = convertView.findViewById(R.id.cardTvType);
         TextView tvDateTrans = convertView.findViewById(R.id.cardTvdateTrans);
         LinearLayout llStatus = convertView.findViewById(R.id.cardllStatus);
         Button cardBtnMore = convertView.findViewById(R.id.cardBtnMore);
@@ -81,12 +84,18 @@ public class ParcelAdapter extends ArrayAdapter {
             llStatus.setBackgroundResource(R.color.primal_red);
             tvStatus.setText("Trả hàng");
         }
+        for (TypeParcel typeParcel : BunkerActivity.typeParcels) {
+            if (parcel.getId_type() == typeParcel.getType_id()){
+                tvType.setText(typeParcel.getTitle());
+                break;
+            }
+        }
         cardBtnMore.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(context, DetailActivity.class);
                 Bundle bundle = new Bundle();
-                bundle.putSerializable("parcel",parcel);
+                bundle.putSerializable("parcel", parcel);
                 intent.putExtras(bundle);
                 context.startActivity(intent);
             }

@@ -38,6 +38,7 @@ public class CreateActivity extends AppCompatActivity {
 
     private void setEvent() {
         List<TypeParcel> typeParcels = BunkerActivity.typeParcels;
+        typeParcels.remove(0);
         arrayAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, typeParcels);
         spType.setAdapter(arrayAdapter);
 
@@ -62,7 +63,7 @@ public class CreateActivity extends AppCompatActivity {
                     Parcel parcel = new Parcel();
                     parcel.setStatus(0);
                     parcel.setId_type(spType.getSelectedItemPosition());
-                    parcel.setId_personnel(1);
+                    parcel.setId_personnel(0);
                     parcel.setParcel_id(getCurrentTime());
                     parcel.setDate_get(new Date());
                     try {
