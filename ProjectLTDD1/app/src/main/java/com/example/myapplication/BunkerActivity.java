@@ -10,9 +10,11 @@ import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ListView;
+import android.widget.Spinner;
 
 import java.text.ParseException;
 import java.util.ArrayList;
@@ -31,8 +33,11 @@ public class BunkerActivity extends AppCompatActivity {
     public static List<TypeParcel> typeParcels = new ArrayList<>();
     public static List<Personnel> personnels = new ArrayList<>();
     static ParcelAdapter parcelAdapter;
+    Spinner spStype;
+    ArrayAdapter<TypeParcel> arrayAdapter;
     Context context;
     EditText edtSearch;
+    List<Parcel> parcels = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,6 +55,9 @@ public class BunkerActivity extends AppCompatActivity {
 
 
     private void setEvent() {
+        arrayAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, typeParcels);
+        spStype.setAdapter(arrayAdapter);
+        spStype.setSelection(0);
         parcelAdapter = new ParcelAdapter(this, R.layout.card_layout, data_LV);
         lvDanhSach.setTextFilterEnabled(true);
         lvDanhSach.setAdapter(parcelAdapter);
@@ -61,16 +69,13 @@ public class BunkerActivity extends AppCompatActivity {
                 startActivityForResult(intent, REQUEST_CODE_REGISTER);
             }
         });
-        edtSearch.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
 
-            }
+        edtSearch.addTextChangedListener(new TextWatcher() {
 
             @Override
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
                 String text = edtSearch.getText().toString();
-                    parcelAdapter.getFilter().filter(text);
+                parcelAdapter.getFilter().filter(text);
             }
 
             @Override
@@ -78,6 +83,12 @@ public class BunkerActivity extends AppCompatActivity {
 
 
             }
+
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
         });
 
     }
@@ -99,17 +110,17 @@ public class BunkerActivity extends AppCompatActivity {
         //int parcel_id, int id_personnel, int id_type, int status, String title, String name_sender,
         // String phone_sender, String name_receiver, String phone_receiver, String address_receiver,
         // double transport_free, double weight, Date date_get, Date date_trans
-        data_LV.add(new Parcel(1, 1, 1, 0,  "Nguyen Van A", "0123456789",
+        data_LV.add(new Parcel(1, 2, 2, 0, "Nguyen Van A", "0123456789",
                 "Nguyen Van B", "0123456789", "43, Nguyễn Chí Thanh, Ba Đình, Hà Nội",
                 "decription11", 0.2, "1/10/2023", "1/1/1"));
-        data_LV.add(new Parcel(2, 1, 1, 2,"Nguyen Van A", "0123456789",
+        data_LV.add(new Parcel(2, 1, 1, 2, "Nguyen Van A", "0123456789",
                 "Nguyen Van B", "0123456789", "43, Nguyễn Chí Thanh, Ba Đình, Hà Nội",
                 "decription11", 0.2, "1/10/2023", "1/1/1"));
         //
-        personnels.add(new Personnel(1,"User1","1234567890","Nhan vien 1","0123456789", "abc"));
-        personnels.add(new Personnel(2,"User2","1234567890","Nhan vien 2","0123456789", "abc"));
-        personnels.add(new Personnel(3,"User3","1234567890","Nhan vien 3","0123456789", "abc"));
-
+        personnels.add(new Personnel(0, "User1", "1234567890", "Nhan vien 1", "0123456789", "abc"));
+        personnels.add(new Personnel(1, "User2", "1234567890", "Nhan vien 2", "0123456789", "abc"));
+        personnels.add(new Personnel(2, "User3", "1234567890", "Nhan vien 3", "0123456789", "abc"));
+        parcels = data_LV;
     }
 
 
@@ -117,5 +128,6 @@ public class BunkerActivity extends AppCompatActivity {
         lvDanhSach = findViewById(R.id.bunkerLvDanhSach);
         btnCreate = findViewById(R.id.bunkerBtnCreate);
         edtSearch = findViewById(R.id.bunkerEdtSearch);
+        spStype = findViewById(R.id.bunkerSpStype);
     }
 }

@@ -63,7 +63,8 @@
                     android:background="@drawable/edittextdesign"
                     android:hint="Nhập tên người gửi"
                     android:inputType="text"
-                    android:padding="5dp" />
+                    android:padding="5dp"
+                    android:textColor="@color/black" />
             </LinearLayout>
 
             <LinearLayout
@@ -90,7 +91,8 @@
                     android:background="@drawable/edittextdesign"
                     android:hint="+08"
                     android:inputType="phone"
-                    android:padding="5dp" />
+                    android:padding="5dp"
+                    android:textColor="@color/black" />
             </LinearLayout>
 
             <LinearLayout
@@ -117,7 +119,8 @@
                     android:background="@drawable/edittextdesign"
                     android:hint="Nhập tên người nhận"
                     android:inputType="text"
-                    android:padding="5dp" />
+                    android:padding="5dp"
+                    android:textColor="@color/black" />
             </LinearLayout>
 
             <LinearLayout
@@ -144,7 +147,8 @@
                     android:background="@drawable/edittextdesign"
                     android:hint="+08"
                     android:inputType="phone"
-                    android:padding="5dp" />
+                    android:padding="5dp"
+                    android:textColor="@color/black" />
             </LinearLayout>
 
             <LinearLayout
@@ -168,8 +172,11 @@
                     android:id="@+id/updateSpinType"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@android:color/transparent" />
+                    android:background="@android:color/transparent"
+
+                    android:textColor="@color/black" />
             </LinearLayout>
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -191,8 +198,10 @@
                     android:id="@+id/updateSpinPerson"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@android:color/transparent" />
+                    android:background="@android:color/transparent"
+                    android:textColor="@color/black" />
             </LinearLayout>
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -217,7 +226,8 @@
                     android:background="@drawable/edittextdesign"
                     android:hint="Kg"
                     android:inputType="numberDecimal"
-                    android:padding="5dp" />
+                    android:padding="5dp"
+                    android:textColor="@color/black" />
             </LinearLayout>
 
 
@@ -245,7 +255,8 @@
                     android:background="@drawable/edittextdesign"
                     android:hint="Địa chỉ giao hàng"
                     android:inputType="numberDecimal"
-                    android:padding="5dp" />
+                    android:padding="5dp"
+                    android:textColor="@color/black" />
             </LinearLayout>
 
             <LinearLayout
@@ -272,7 +283,8 @@
                     android:background="@drawable/edittextdesign"
                     android:gravity="top"
                     android:inputType="textMultiLine"
-                    android:padding="5dp" />
+                    android:padding="5dp"
+                    android:textColor="@color/black" />
             </LinearLayout>
 
             <LinearLayout
@@ -288,20 +300,20 @@
                     android:id="@+id/updatebtnAccept"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginRight="10dp"
                     android:background="@drawable/btncreate"
                     android:paddingLeft="40dp"
                     android:paddingRight="40dp"
-                    android:layout_marginRight="10dp"
                     android:text="Lưu" />
 
                 <Button
                     android:id="@+id/updatebtnClose"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
                     android:background="@drawable/btndestroy"
                     android:paddingLeft="40dp"
                     android:paddingRight="40dp"
-                    android:layout_marginLeft="10dp"
                     android:text="Hủy" />
 
             </LinearLayout>

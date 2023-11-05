@@ -26,7 +26,6 @@ public class UpdateActivity extends AppCompatActivity {
     Button btnSave, btnClose;
     ImageButton btnBack;
     Parcel parcel;
-    Context context;
     List<TypeParcel> typeParcels;
     ArrayAdapter<TypeParcel> arrayAdapter;
     List<Personnel> personnels;
@@ -36,15 +35,15 @@ public class UpdateActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_update);
-        context = this;
+
         setControl();
         setEvent();
     }
 
     private void setEvent() {
         Intent intent = getIntent();
-        Bundle bundle = intent.getExtras();
-        parcel = (Parcel) bundle.getSerializable("parcel");
+        int i = intent.getIntExtra("ID", 0);
+        parcel = BunkerActivity.data_LV.get(i);
 
         typeParcels = BunkerActivity.typeParcels;
         arrayAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, typeParcels);
@@ -71,16 +70,9 @@ public class UpdateActivity extends AppCompatActivity {
             }
         }
 
-        btnClose.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                System.exit(0);
-            }
-        });
         btnSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
                 if (edtname_sender.getText().toString().equals("")) {
                     edtname_sender.setError("Vui lòng nhập tên người gửi!");
                 } else if (edtphone_sender.getText().toString().equals("")) {
@@ -89,7 +81,7 @@ public class UpdateActivity extends AppCompatActivity {
                     edtname_receiver.setError("Vui lòng nhập tên người nhận!");
                 } else if (edtphone_receiver.getText().toString().equals("")) {
                     edtphone_receiver.setError("Vui lòng nhập số điện thoại!");
-                } else if (edtweight.getText().toString().equals("") || Integer.parseInt(edtweight.getText().toString()) == 0) {
+                } else if (edtweight.getText().toString().equals("")) {
                     edtweight.setError("Nhập cân nặng!");
                 } else if (edtaddress_receiver.getText().toString().equals("")) {
                     edtaddress_receiver.setError("Cần địa chỉ nhận hàng!");
@@ -109,8 +101,20 @@ public class UpdateActivity extends AppCompatActivity {
                                     parcel.setName_sender(edtname_sender.getText().toString());
                                     parcel.setPhone_receiver(edtphone_receiver.getText().toString());
                                     parcel.setPhone_sender(edtphone_sender.getText().toString());
-                                    parcel.setWeight(Integer.parseInt(edtweight.getText().toString()));
+                                    try {
+                                        parcel.setWeight(Double.valueOf(edtweight.getText().toString()));
+                                    } catch (NumberFormatException e) {
+                                    }
                                     parcel.setDecription(edtdecription.getText().toString());
+
+
+                                    Intent intent = new Intent(UpdateActivity.this, DetailActivity.class);
+                                    Bundle bundle = new Bundle();
+                                    bundle.putSerializable("update", parcel);
+                                    intent.putExtras(bundle);
+                                    setResult(2, intent);
+                                    BunkerActivity.parcelAdapter.notifyDataSetChanged();
+                                    finish();
                                 }
                             })
                             .setPositiveButton("Không", new DialogInterface.OnClickListener() {
@@ -128,15 +132,21 @@ public class UpdateActivity extends AppCompatActivity {
         btnBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                System.exit(0);
+                onBackPressed();
             }
         });
 
+        btnClose.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                onBackPressed();
+            }
+        });
     }
 
     @Override
     public void onBackPressed() {
-        System.exit(0);
+        finish();
     }
 
     private void setControl() {
