@@ -17,6 +17,7 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.List;
 
@@ -39,16 +40,20 @@ public class DetailActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail);
         setControl();
-        setEvent();
+        try {
+            setEvent();
+        } catch (ParseException e) {
+            throw new RuntimeException(e);
+        }
     }
 
 
-    private void setEvent() {
+    private void setEvent() throws ParseException {
         //Load content
         Intent intent = getIntent();
         Bundle bundle = intent.getExtras();
-        parcel = (Parcel) bundle.getSerializable("parcel");
-
+        Parcel p = (Parcel) bundle.getSerializable("parcel");
+        parcel = BunkerActivity.getParcelById(p.getParcel_id());
         UpData();
         btnBack.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -75,12 +80,23 @@ public class DetailActivity extends AppCompatActivity {
                         )
                         .setPositiveButton("Đồng ý", new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int id) {
-                                for (int x = 0; x < BunkerActivity.data_LV.size(); x++) {
-                                    if (parcel.getParcel_id() == BunkerActivity.data_LV.get(x).getParcel_id()) {
-                                        BunkerActivity.data_LV.get(x).setStatus(parcel.getStatus());
+                                Parcel parcel1;
+                                try {
+                                    parcel1 = BunkerActivity.getParcelById(parcel.getParcel_id());
+                                } catch (ParseException e) {
+                                    throw new RuntimeException(e);
+                                }
+                                if (parcel1 != null) {
+                                    BunkerActivity.updateParcel(parcel);
+                                    try {
+                                        BunkerActivity.data_LV = BunkerActivity.getAllParcels();
+                                    } catch (ParseException e) {
+                                        throw new RuntimeException(e);
                                     }
                                 }
-                                BunkerActivity.parcelAdapter.notifyDataSetChanged();
+
+                                Intent intent1 = new Intent();
+                                setResult(1,intent1);
                                 finish();
                             }
                         })

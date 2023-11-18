@@ -3,6 +3,7 @@ package com.example.myapplication;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.content.ContentValues;
 import android.content.Context;
 import android.content.Intent;
@@ -149,7 +150,7 @@ public class BunkerActivity extends AppCompatActivity {
         return personnelList;
     }
 
-    public int updatePersonnel(Personnel personnel) {
+    public static int updatePersonnel(Personnel personnel) {
         database = databaseHandler.getWritableDatabase();
         ContentValues values = new ContentValues();
         values.put("userName", personnel.getUserName());
@@ -160,7 +161,7 @@ public class BunkerActivity extends AppCompatActivity {
         return database.update("Users", values, "id_user = ?", new String[]{String.valueOf(personnel.getId_personnel())});
     }
 
-    public void deleteuPersonnel(int id_personnel) {
+    public static void deleteuPersonnel(int id_personnel) {
         SQLiteDatabase db = databaseHandler.getWritableDatabase();
         db.delete("Users", "id_user = ?", new String[]{String.valueOf(id_personnel)});
 
@@ -225,7 +226,7 @@ public class BunkerActivity extends AppCompatActivity {
         return parcelList;
     }
 
-    public int updateParcel(Parcel parcel) {
+    public static int updateParcel(Parcel parcel) {
         SQLiteDatabase db = databaseHandler.getWritableDatabase();
         ContentValues values = new ContentValues();
         values.put("id_personnel", parcel.getId_personnel());
@@ -243,7 +244,7 @@ public class BunkerActivity extends AppCompatActivity {
         return db.update("Parcel", values, "parcel_id = ?", new String[]{String.valueOf(parcel.getParcel_id())});
     }
 
-    public void deleteParcel(int parcelId) {
+    public static void deleteParcel(int parcelId) {
         SQLiteDatabase db = databaseHandler.getWritableDatabase();
         db.delete("Parcel", "parcel_id = ?", new String[]{String.valueOf(parcelId)});
 
@@ -277,7 +278,7 @@ public class BunkerActivity extends AppCompatActivity {
     }
 
     //    CREATE TABLE TypeParcel (type_id INTEGER PRIMARY KEY, title TEXT, pack_free REAL)";
-    public int updateTypeParcel(TypeParcel typeParcel) {
+    public static int updateTypeParcel(TypeParcel typeParcel) {
         database = databaseHandler.getWritableDatabase();
         ContentValues values = new ContentValues();
         values.put("title", typeParcel.getTitle());
@@ -289,6 +290,55 @@ public class BunkerActivity extends AppCompatActivity {
         SQLiteDatabase db = databaseHandler.getWritableDatabase();
         db.delete("TypeParcel", "type_id = ?", new String[]{String.valueOf(typeId)});
     }
+    @SuppressLint("Range")
+    public static Parcel getParcelById(int parcelId) throws ParseException {
+        database = databaseHandler.getReadableDatabase();
+        Parcel parcel = null;
+        Cursor cursor = database.query(
+                "Parcel",  // Tên bảng
+                null,      // Mảng chứa các cột (null để lấy tất cả các cột)
+                "parcel_id = ?", // Điều kiện WHERE
+                new String[]{String.valueOf(parcelId)}, // Giá trị điều kiện
+                null,      // GROUP BY
+                null,      // HAVING
+                null       // ORDER BY
+        );
 
+        if (cursor != null && cursor.moveToFirst()) {
+            parcel = new Parcel();
+            parcel.setParcel_id(cursor.getInt(cursor.getColumnIndex("parcel_id")));
+            parcel.setId_personnel(cursor.getInt(cursor.getColumnIndex("id_personnel")));
+            parcel.setId_type(cursor.getInt(cursor.getColumnIndex("id_type")));
+            parcel.setStatus(cursor.getInt(cursor.getColumnIndex("status")));
+            parcel.setName_sender(cursor.getString(cursor.getColumnIndex("name_sender")));
+            parcel.setPhone_sender(cursor.getString(cursor.getColumnIndex("phone_sender")));
+            parcel.setName_receiver(cursor.getString(cursor.getColumnIndex("name_receiver")));
+            parcel.setPhone_receiver(cursor.getString(cursor.getColumnIndex("phone_receiver")));
+            parcel.setAddress_receiver(cursor.getString(cursor.getColumnIndex("address_receiver")));
+            parcel.setDecription(cursor.getString(cursor.getColumnIndex("decription")));
+            parcel.setWeight(cursor.getDouble(cursor.getColumnIndex("weight")));
+            parcel.setDate_get2(cursor.getString(cursor.getColumnIndex("date_get")));
+            parcel.setDate_trans(cursor.getString(cursor.getColumnIndex("date_trans")));
+        }
 
+        if (cursor != null) {
+            cursor.close();
+        }
+
+        return parcel;
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode==1){
+            try {
+                data_LV = getAllParcels();
+            } catch (ParseException e) {
+                throw new RuntimeException(e);
+            }
+            parcelAdapter.notifyDataSetChanged();
+            lvDanhSach.setAdapter(parcelAdapter);
+        }
+    }
 }
