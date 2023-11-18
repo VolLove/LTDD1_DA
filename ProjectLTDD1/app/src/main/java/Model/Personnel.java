@@ -2,15 +2,15 @@ package Model;
 
 import Orther.HashPassword;
 
-public class User {
-    int id;
-    String userName,passWord,phone,name,avatar;
+public class Personnel {
+    int id_personnel;
+    String userName, passWord, phone, name, avatar;
 
-    public User() {
+    public Personnel() {
     }
 
-    public User(int id, String userName, String passWord,String name,  String phone, String avatar) {
-        this.id = id;
+    public Personnel(int id_personnel, String userName, String passWord, String name, String phone, String avatar) {
+        this.id_personnel = id_personnel;
         this.userName = userName;
         this.passWord = passWord;
         this.phone = phone;
@@ -18,7 +18,7 @@ public class User {
         this.avatar = avatar;
     }
 
-    public User(String userName, String passWord, String name, String phone, String avatar) {
+    public Personnel(String userName, String passWord, String name, String phone, String avatar) {
         this.userName = userName;
         this.passWord = HashPassword.hashPassword(passWord);
         this.phone = phone;
@@ -26,12 +26,12 @@ public class User {
         this.avatar = avatar;
     }
 
-    public int getId() {
-        return id;
+    public int getId_personnel() {
+        return id_personnel;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setId(int id_personnel) {
+        this.id_personnel = id_personnel;
     }
 
     public String getUserName() {
@@ -72,5 +72,10 @@ public class User {
 
     public void setAvatar(String avatar) {
         this.avatar = avatar;
+    }
+
+    @Override
+    public String toString() {
+        return getName();
     }
 }

@@ -2,101 +2,119 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@drawable/layout_custom"
-    android:orientation="vertical">
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="10dp">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/primal_pink"
-        android:gravity="center_vertical"
-        android:orientation="horizontal">
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@color/primal_pink"
-            android:padding="10dp"
-            android:paddingStart="20dp"
-
-            android:src="@drawable/img" />
+        android:layout_height="match_parent"
+        android:background="@drawable/layout_card_custom"
+        android:orientation="vertical">
 
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:id="@+id/cardllStatus"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:background="@color/primal_pink"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingTop="10dp"
+            android:paddingEnd="10dp">
 
-            <TextView
-                android:layout_width="230dp"
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/primal_pink"
-                android:text="Đơn hàng "
-                android:textSize="20dp"
-                android:textStyle="bold"
-                tools:ignore="TextSizeCheck" />
+                android:layout_weight="1"
+                android:background="@android:color/transparent"
+                android:orientation="vertical"
+                android:padding="10dp">
 
-            <TextView
-                android:id="@+id/cardTvNameItem"
-                android:layout_width="230dp"
-                android:layout_height="wrap_content"
-                android:background="@color/primal_pink"
-                android:textSize="20dp"
-                android:textStyle="bold"
+                <TextView
+                    android:id="@+id/cardTvID"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@android:color/transparent"
+                    android:text="Mã đơn: "
+                    android:textColor="#000000"
+                    android:textSize="20dp"
+                    tools:ignore="TextSizeCheck" />
+                <TextView
+                    android:id="@+id/cardTvStatus"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@android:color/transparent"
+                    android:text="Tình trạng"
+                    android:textColor="#000000"
+                    android:textSize="20dp"
+                    tools:ignore="TextSizeCheck" />
+                <TextView
+                    android:id="@+id/cardTvType"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@android:color/transparent"
+                    android:text=""
+                    android:textColor="#000000"
+                    android:textSize="20dp"
+                    tools:ignore="TextSizeCheck" />
+
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/cardBtnMore"
+                android:layout_width="110dp"
+                android:layout_height="38dp"
+                android:layout_gravity="center_vertical|right"
+                android:background="@drawable/buttondesign2"
+                android:backgroundTint="@color/white"
+                android:text="Xem thêm"
+                android:textColor="@color/black"
+                android:textSize="13dp"
                 tools:ignore="TextSizeCheck" />
         </LinearLayout>
 
-        <Button
-            android:id="@+id/cardBtnMore"
-            android:layout_width="110dp"
-            android:layout_height="38dp"
-            android:layout_gravity="center_vertical|right"
-            android:background="@drawable/buttondesign2"
-            android:backgroundTint="@color/white"
-            android:text="Xem thêm"
-            android:textColor="@color/black"
-            android:textSize="13dp"
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@android:color/transparent"
+            android:orientation="vertical"
+            android:padding="10dp">
 
-            tools:ignore="TextSizeCheck" />
+            <TextView
+                android:id="@+id/cardTvNameTrans"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:color/transparent"
+                android:text="Người chuyển:"
+                android:textColor="#000000"
+                android:textSize="20dp" />
+
+            <TextView
+                android:id="@+id/cardTvNameGet"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:color/transparent"
+                android:text="Người nhận: "
+                android:textColor="#000000"
+                android:textSize="20dp" />
+
+            <TextView
+                android:id="@+id/cardTvDateGet"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:color/transparent"
+                android:text="Ngày nhập: "
+                android:textColor="#000000"
+                android:textSize="20dp" />
+
+            <TextView
+                android:id="@+id/cardTvdateTrans"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:color/transparent"
+                android:text="Ngày gửi: "
+                android:textColor="#000000"
+                android:textSize="20dp" />
+        </LinearLayout>
     </LinearLayout>
-
-    <TextView
-        android:id="@+id/cardTvStatus"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Tình trạng: "
-        android:textColor="#000000"
-        android:textSize="20dp"
-        tools:ignore="TextSizeCheck" />
-    <TextView
-        android:id="@+id/cardTvNameTrans"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="20dp"
-        android:textColor="#000000"
-        android:text="Người chuyển:"/>
-
-    <TextView
-        android:id="@+id/cardTbNameGet"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="20dp"
-        android:textColor="#000000"
-        android:text="Người nhận: "/>
-
-    <TextView
-        android:id="@+id/cardTvDateGet"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="20dp"
-        android:textColor="#000000"
-        android:text="Ngày nhập: "/>
-
-    <TextView
-        android:id="@+id/cardTvdateTrans"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="20dp"
-        android:textColor="#000000"
-        android:text="Ngày gửi: "/>
 </LinearLayout>
