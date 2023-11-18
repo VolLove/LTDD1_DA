@@ -1,9 +1,9 @@
 -- Merging decision tree log ---
 manifest
-ADDED from F:\LTDD\LTDD1_DA\ProjectLTDD1\app\src\main\AndroidManifest.xml:2:1-50:12
-INJECTED from F:\LTDD\LTDD1_DA\ProjectLTDD1\app\src\main\AndroidManifest.xml:2:1-50:12
-INJECTED from F:\LTDD\LTDD1_DA\ProjectLTDD1\app\src\main\AndroidManifest.xml:2:1-50:12
-INJECTED from F:\LTDD\LTDD1_DA\ProjectLTDD1\app\src\main\AndroidManifest.xml:2:1-50:12
+ADDED from F:\LTDD\LTDD1_DA\ProjectLTDD1\app\src\main\AndroidManifest.xml:2:1-29:12
+INJECTED from F:\LTDD\LTDD1_DA\ProjectLTDD1\app\src\main\AndroidManifest.xml:2:1-29:12
+INJECTED from F:\LTDD\LTDD1_DA\ProjectLTDD1\app\src\main\AndroidManifest.xml:2:1-29:12
+INJECTED from F:\LTDD\LTDD1_DA\ProjectLTDD1\app\src\main\AndroidManifest.xml:2:1-29:12
 MERGED from [com.google.android.material:material:1.9.0] C:\Users\Admin\.gradle\caches\transforms-3\7e7258815cd840f091c81036491fe249\transformed\material-1.9.0\AndroidManifest.xml:17:1-26:12
 MERGED from [androidx.constraintlayout:constraintlayout:2.1.4] C:\Users\Admin\.gradle\caches\transforms-3\08f55b195dcd0c7c189d9e8288f31b0a\transformed\constraintlayout-2.1.4\AndroidManifest.xml:2:1-11:12
 MERGED from [androidx.appcompat:appcompat-resources:1.6.1] C:\Users\Admin\.gradle\caches\transforms-3\02a5982ad45dce0d66b2b492d6deb158\transformed\appcompat-resources-1.6.1\AndroidManifest.xml:17:1-22:12
@@ -55,8 +55,8 @@ MERGED from [androidx.annotation:annotation-experimental:1.3.0] C:\Users\Admin\.
 	xmlns:android
 		ADDED from F:\LTDD\LTDD1_DA\ProjectLTDD1\app\src\main\AndroidManifest.xml:2:11-69
 application
-ADDED from F:\LTDD\LTDD1_DA\ProjectLTDD1\app\src\main\AndroidManifest.xml:5:5-48:19
-INJECTED from F:\LTDD\LTDD1_DA\ProjectLTDD1\app\src\main\AndroidManifest.xml:5:5-48:19
+ADDED from F:\LTDD\LTDD1_DA\ProjectLTDD1\app\src\main\AndroidManifest.xml:5:5-27:19
+INJECTED from F:\LTDD\LTDD1_DA\ProjectLTDD1\app\src\main\AndroidManifest.xml:5:5-27:19
 MERGED from [com.google.android.material:material:1.9.0] C:\Users\Admin\.gradle\caches\transforms-3\7e7258815cd840f091c81036491fe249\transformed\material-1.9.0\AndroidManifest.xml:24:5-20
 MERGED from [com.google.android.material:material:1.9.0] C:\Users\Admin\.gradle\caches\transforms-3\7e7258815cd840f091c81036491fe249\transformed\material-1.9.0\AndroidManifest.xml:24:5-20
 MERGED from [androidx.constraintlayout:constraintlayout:2.1.4] C:\Users\Admin\.gradle\caches\transforms-3\08f55b195dcd0c7c189d9e8288f31b0a\transformed\constraintlayout-2.1.4\AndroidManifest.xml:9:5-20
@@ -93,70 +93,28 @@ MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] C:\Users\Ad
 		ADDED from F:\LTDD\LTDD1_DA\ProjectLTDD1\app\src\main\AndroidManifest.xml:13:9-51
 	android:dataExtractionRules
 		ADDED from F:\LTDD\LTDD1_DA\ProjectLTDD1\app\src\main\AndroidManifest.xml:7:9-65
-activity#com.example.myapplication.UpdateActivity
+activity#com.example.myapplication.DetailActivity
 ADDED from F:\LTDD\LTDD1_DA\ProjectLTDD1\app\src\main\AndroidManifest.xml:15:9-17:39
 	android:exported
 		ADDED from F:\LTDD\LTDD1_DA\ProjectLTDD1\app\src\main\AndroidManifest.xml:17:13-36
 	android:name
 		ADDED from F:\LTDD\LTDD1_DA\ProjectLTDD1\app\src\main\AndroidManifest.xml:16:13-43
-activity#com.example.myapplication.AccountActivity
-ADDED from F:\LTDD\LTDD1_DA\ProjectLTDD1\app\src\main\AndroidManifest.xml:18:9-20:39
+activity#com.example.myapplication.BunkerActivity
+ADDED from F:\LTDD\LTDD1_DA\ProjectLTDD1\app\src\main\AndroidManifest.xml:18:9-26:20
 	android:exported
 		ADDED from F:\LTDD\LTDD1_DA\ProjectLTDD1\app\src\main\AndroidManifest.xml:20:13-36
 	android:name
-		ADDED from F:\LTDD\LTDD1_DA\ProjectLTDD1\app\src\main\AndroidManifest.xml:19:13-44
-activity#com.example.myapplication.StatisActivity
-ADDED from F:\LTDD\LTDD1_DA\ProjectLTDD1\app\src\main\AndroidManifest.xml:21:9-23:39
-	android:exported
-		ADDED from F:\LTDD\LTDD1_DA\ProjectLTDD1\app\src\main\AndroidManifest.xml:23:13-36
-	android:name
-		ADDED from F:\LTDD\LTDD1_DA\ProjectLTDD1\app\src\main\AndroidManifest.xml:22:13-43
-activity#com.example.myapplication.CreateActivity
-ADDED from F:\LTDD\LTDD1_DA\ProjectLTDD1\app\src\main\AndroidManifest.xml:24:9-26:39
-	android:exported
-		ADDED from F:\LTDD\LTDD1_DA\ProjectLTDD1\app\src\main\AndroidManifest.xml:26:13-36
-	android:name
-		ADDED from F:\LTDD\LTDD1_DA\ProjectLTDD1\app\src\main\AndroidManifest.xml:25:13-43
-activity#com.example.myapplication.DetailActivity
-ADDED from F:\LTDD\LTDD1_DA\ProjectLTDD1\app\src\main\AndroidManifest.xml:27:9-29:39
-	android:exported
-		ADDED from F:\LTDD\LTDD1_DA\ProjectLTDD1\app\src\main\AndroidManifest.xml:29:13-36
-	android:name
-		ADDED from F:\LTDD\LTDD1_DA\ProjectLTDD1\app\src\main\AndroidManifest.xml:28:13-43
-activity#com.example.myapplication.BunkerActivity
-ADDED from F:\LTDD\LTDD1_DA\ProjectLTDD1\app\src\main\AndroidManifest.xml:30:9-38:20
-	android:exported
-		ADDED from F:\LTDD\LTDD1_DA\ProjectLTDD1\app\src\main\AndroidManifest.xml:32:13-36
-	android:name
-		ADDED from F:\LTDD\LTDD1_DA\ProjectLTDD1\app\src\main\AndroidManifest.xml:31:13-43
+		ADDED from F:\LTDD\LTDD1_DA\ProjectLTDD1\app\src\main\AndroidManifest.xml:19:13-43
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
-ADDED from F:\LTDD\LTDD1_DA\ProjectLTDD1\app\src\main\AndroidManifest.xml:33:13-37:29
+ADDED from F:\LTDD\LTDD1_DA\ProjectLTDD1\app\src\main\AndroidManifest.xml:21:13-25:29
 action#android.intent.action.MAIN
-ADDED from F:\LTDD\LTDD1_DA\ProjectLTDD1\app\src\main\AndroidManifest.xml:34:17-69
+ADDED from F:\LTDD\LTDD1_DA\ProjectLTDD1\app\src\main\AndroidManifest.xml:22:17-69
 	android:name
-		ADDED from F:\LTDD\LTDD1_DA\ProjectLTDD1\app\src\main\AndroidManifest.xml:34:25-66
+		ADDED from F:\LTDD\LTDD1_DA\ProjectLTDD1\app\src\main\AndroidManifest.xml:22:25-66
 category#android.intent.category.LAUNCHER
-ADDED from F:\LTDD\LTDD1_DA\ProjectLTDD1\app\src\main\AndroidManifest.xml:36:17-77
+ADDED from F:\LTDD\LTDD1_DA\ProjectLTDD1\app\src\main\AndroidManifest.xml:24:17-77
 	android:name
-		ADDED from F:\LTDD\LTDD1_DA\ProjectLTDD1\app\src\main\AndroidManifest.xml:36:27-74
-activity#com.example.myapplication.MenuActivity
-ADDED from F:\LTDD\LTDD1_DA\ProjectLTDD1\app\src\main\AndroidManifest.xml:39:9-41:39
-	android:exported
-		ADDED from F:\LTDD\LTDD1_DA\ProjectLTDD1\app\src\main\AndroidManifest.xml:41:13-36
-	android:name
-		ADDED from F:\LTDD\LTDD1_DA\ProjectLTDD1\app\src\main\AndroidManifest.xml:40:13-41
-activity#com.example.myapplication.RegisterActivity
-ADDED from F:\LTDD\LTDD1_DA\ProjectLTDD1\app\src\main\AndroidManifest.xml:42:9-44:39
-	android:exported
-		ADDED from F:\LTDD\LTDD1_DA\ProjectLTDD1\app\src\main\AndroidManifest.xml:44:13-36
-	android:name
-		ADDED from F:\LTDD\LTDD1_DA\ProjectLTDD1\app\src\main\AndroidManifest.xml:43:13-45
-activity#com.example.myapplication.MainActivity
-ADDED from F:\LTDD\LTDD1_DA\ProjectLTDD1\app\src\main\AndroidManifest.xml:45:9-47:48
-	android:exported
-		ADDED from F:\LTDD\LTDD1_DA\ProjectLTDD1\app\src\main\AndroidManifest.xml:47:13-36
-	android:name
-		ADDED from F:\LTDD\LTDD1_DA\ProjectLTDD1\app\src\main\AndroidManifest.xml:46:13-41
+		ADDED from F:\LTDD\LTDD1_DA\ProjectLTDD1\app\src\main\AndroidManifest.xml:24:27-74
 uses-sdk
 INJECTED from F:\LTDD\LTDD1_DA\ProjectLTDD1\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from F:\LTDD\LTDD1_DA\ProjectLTDD1\app\src\main\AndroidManifest.xml

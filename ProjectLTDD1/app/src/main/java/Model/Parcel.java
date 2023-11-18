@@ -150,6 +150,9 @@ public class Parcel implements Serializable {
     public void setDate_get(Date date_get) {
         this.date_get = date_get;
     }
+    public void setDate_get2(String date_trans) throws ParseException {
+        this.date_get = format.parse(date_trans);
+    }
 
     public String getDate_trans() {
         return format.format(date_trans);

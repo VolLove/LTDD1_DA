@@ -28,18 +28,6 @@
         android:testOnly="true"
         android:theme="@style/Theme.MyApplication" >
         <activity
-            android:name="com.example.myapplication.UpdateActivity"
-            android:exported="true" />
-        <activity
-            android:name="com.example.myapplication.AccountActivity"
-            android:exported="true" />
-        <activity
-            android:name="com.example.myapplication.StatisActivity"
-            android:exported="true" />
-        <activity
-            android:name="com.example.myapplication.CreateActivity"
-            android:exported="true" />
-        <activity
             android:name="com.example.myapplication.DetailActivity"
             android:exported="true" />
         <activity
@@ -51,15 +39,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name="com.example.myapplication.MenuActivity"
-            android:exported="true" />
-        <activity
-            android:name="com.example.myapplication.RegisterActivity"
-            android:exported="true" />
-        <activity
-            android:name="com.example.myapplication.MainActivity"
-            android:exported="true" />
 
         <provider
             android:name="androidx.startup.InitializationProvider"
