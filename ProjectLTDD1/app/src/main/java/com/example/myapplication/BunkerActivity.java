@@ -93,7 +93,67 @@ public class BunkerActivity extends AppCompatActivity {
     // String name_receiver, String phone_receiver, String address_receiver, Date date_get,
     // Date date_trans,int weight, int status, int id_personnel, double transport_free
     private void khoiTao() throws ParseException {
-
+        //Thư: hồ sơ, thư, các loại văn bản viết trên giấy
+        //Hàng dễ vỡ
+        //Chất lỏng
+        //Đồ điện tử
+        //Hàng đông lạnh
+        BunkerActivity.typeParcels.add(new TypeParcel(0, "All", 0));
+        BunkerActivity.typeParcels.add(new TypeParcel(1, "Thư", 10000));
+        BunkerActivity.typeParcels.add(new TypeParcel(2, "Hàng dễ vỡ", 100000));
+        BunkerActivity.typeParcels.add(new TypeParcel(3, "Chất lỏng", 10000));
+        BunkerActivity.typeParcels.add(new TypeParcel(4, "Đồ điện tử", 30000));
+        BunkerActivity.typeParcels.add(new TypeParcel(5, "Hàng đông lạnh", 50000));
+        //int parcel_id, int id_personnel, int id_type, int status, String title, String name_sender,
+        // String phone_sender, String name_receiver, String phone_receiver, String address_receiver,
+        // double transport_free, double weight, Date date_get, Date date_trans
+        try {
+            BunkerActivity.data_LV.add(new Parcel(0, 0, 1, 0, "Nguyen Van A", "0123456789",
+                    "Nguyen Van B", "0123456789", "43, Nguyễn Chí Thanh, Ba Đình, Hà Nội",
+                    "decription11", 0.2, "1/10/2023", "1/1/1"));
+        } catch (ParseException e) {
+            throw new RuntimeException(e);
+        }
+        try {
+            BunkerActivity.data_LV.add(new Parcel(1, 1, 2, 2, "Nguyen Van A", "0123456789",
+                    "Nguyen Van B", "0123456789", "43, Nguyễn Chí Thanh, Ba Đình, Hà Nội",
+                    "decription11", 0.2, "1/10/2023", "1/1/1"));
+        } catch (ParseException e) {
+            throw new RuntimeException(e);
+        }
+        try {
+            BunkerActivity.data_LV.add(new Parcel(2, 2, 3, 2, "Nguyen Van A", "0123456789",
+                    "Nguyen Van B", "0123456789", "43, Nguyễn Chí Thanh, Ba Đình, Hà Nội",
+                    "decription11", 0.2, "1/10/2023", "1/1/1"));
+        } catch (ParseException e) {
+            throw new RuntimeException(e);
+        }
+        try {
+            BunkerActivity.data_LV.add(new Parcel(3, 2, 4, 2, "Nguyen Van A", "0123456789",
+                    "Nguyen Van B", "0123456789", "43, Nguyễn Chí Thanh, Ba Đình, Hà Nội",
+                    "decription11", 0.2, "1/10/2023", "1/1/1"));
+        } catch (ParseException e) {
+            throw new RuntimeException(e);
+        }
+        try {
+            BunkerActivity.data_LV.add(new Parcel(4, 1, 5, 2, "Nguyen Van A", "0123456789",
+                    "Nguyen Van B", "0123456789", "43, Nguyễn Chí Thanh, Ba Đình, Hà Nội",
+                    "decription11", 0.2, "1/10/2023", "1/1/1"));
+        } catch (ParseException e) {
+            throw new RuntimeException(e);
+        }
+        try {
+            BunkerActivity.data_LV.add(new Parcel(5, 0, 1, 2, "Nguyen Van A", "0123456789",
+                    "Nguyen Van B", "0123456789", "43, Nguyễn Chí Thanh, Ba Đình, Hà Nội",
+                    "decription11", 0.2, "1/10/2023", "1/1/1"));
+        } catch (ParseException e) {
+            throw new RuntimeException(e);
+        }
+        //
+        BunkerActivity.personnels.add(new Personnel(0, "User1", "1234567890", "Nhan vien 1", "0123456789", "abc"));
+        BunkerActivity.personnels.add(new Personnel(1, "User2", "1234567890", "Nhan vien 2", "0123456789", "abc"));
+        BunkerActivity.personnels.add(new Personnel(2, "User3", "1234567890", "Nhan vien 3", "0123456789", "abc"));
+        BunkerActivity.upAll(BunkerActivity.data_LV, BunkerActivity.typeParcels, BunkerActivity.personnels);
         data_LV = getAllParcels();
         typeParcels = getAllTypeParcels();
         personnels = getAllPersonnel();
