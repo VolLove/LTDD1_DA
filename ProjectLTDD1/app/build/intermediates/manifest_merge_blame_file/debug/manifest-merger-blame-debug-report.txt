@@ -39,95 +39,96 @@
 26-->F:\LTDD\LTDD1_DA\ProjectLTDD1\app\src\main\AndroidManifest.xml:11:9-54
 27        android:supportsRtl="true"
 27-->F:\LTDD\LTDD1_DA\ProjectLTDD1\app\src\main\AndroidManifest.xml:12:9-35
-28        android:theme="@style/Theme.MyApplication" >
-28-->F:\LTDD\LTDD1_DA\ProjectLTDD1\app\src\main\AndroidManifest.xml:13:9-51
-29        <activity
-29-->F:\LTDD\LTDD1_DA\ProjectLTDD1\app\src\main\AndroidManifest.xml:15:9-17:39
-30            android:name="com.example.myapplication.UpdateActivity"
-30-->F:\LTDD\LTDD1_DA\ProjectLTDD1\app\src\main\AndroidManifest.xml:16:13-43
-31            android:exported="true" />
-31-->F:\LTDD\LTDD1_DA\ProjectLTDD1\app\src\main\AndroidManifest.xml:17:13-36
-32        <activity
-32-->F:\LTDD\LTDD1_DA\ProjectLTDD1\app\src\main\AndroidManifest.xml:18:9-20:39
-33            android:name="com.example.myapplication.AccountActivity"
-33-->F:\LTDD\LTDD1_DA\ProjectLTDD1\app\src\main\AndroidManifest.xml:19:13-44
-34            android:exported="true" />
-34-->F:\LTDD\LTDD1_DA\ProjectLTDD1\app\src\main\AndroidManifest.xml:20:13-36
-35        <activity
-35-->F:\LTDD\LTDD1_DA\ProjectLTDD1\app\src\main\AndroidManifest.xml:21:9-23:39
-36            android:name="com.example.myapplication.StatisActivity"
-36-->F:\LTDD\LTDD1_DA\ProjectLTDD1\app\src\main\AndroidManifest.xml:22:13-43
-37            android:exported="true" />
-37-->F:\LTDD\LTDD1_DA\ProjectLTDD1\app\src\main\AndroidManifest.xml:23:13-36
-38        <activity
-38-->F:\LTDD\LTDD1_DA\ProjectLTDD1\app\src\main\AndroidManifest.xml:24:9-26:39
-39            android:name="com.example.myapplication.CreateActivity"
-39-->F:\LTDD\LTDD1_DA\ProjectLTDD1\app\src\main\AndroidManifest.xml:25:13-43
-40            android:exported="true" />
-40-->F:\LTDD\LTDD1_DA\ProjectLTDD1\app\src\main\AndroidManifest.xml:26:13-36
-41        <activity
-41-->F:\LTDD\LTDD1_DA\ProjectLTDD1\app\src\main\AndroidManifest.xml:27:9-29:39
-42            android:name="com.example.myapplication.DetailActivity"
-42-->F:\LTDD\LTDD1_DA\ProjectLTDD1\app\src\main\AndroidManifest.xml:28:13-43
-43            android:exported="true" />
-43-->F:\LTDD\LTDD1_DA\ProjectLTDD1\app\src\main\AndroidManifest.xml:29:13-36
-44        <activity
-44-->F:\LTDD\LTDD1_DA\ProjectLTDD1\app\src\main\AndroidManifest.xml:30:9-38:20
-45            android:name="com.example.myapplication.BunkerActivity"
-45-->F:\LTDD\LTDD1_DA\ProjectLTDD1\app\src\main\AndroidManifest.xml:31:13-43
-46            android:exported="true" >
-46-->F:\LTDD\LTDD1_DA\ProjectLTDD1\app\src\main\AndroidManifest.xml:32:13-36
-47            <intent-filter>
-47-->F:\LTDD\LTDD1_DA\ProjectLTDD1\app\src\main\AndroidManifest.xml:33:13-37:29
-48                <action android:name="android.intent.action.MAIN" />
-48-->F:\LTDD\LTDD1_DA\ProjectLTDD1\app\src\main\AndroidManifest.xml:34:17-69
-48-->F:\LTDD\LTDD1_DA\ProjectLTDD1\app\src\main\AndroidManifest.xml:34:25-66
-49
-50                <category android:name="android.intent.category.LAUNCHER" />
-50-->F:\LTDD\LTDD1_DA\ProjectLTDD1\app\src\main\AndroidManifest.xml:36:17-77
-50-->F:\LTDD\LTDD1_DA\ProjectLTDD1\app\src\main\AndroidManifest.xml:36:27-74
-51            </intent-filter>
-52        </activity>
-53        <activity
-53-->F:\LTDD\LTDD1_DA\ProjectLTDD1\app\src\main\AndroidManifest.xml:39:9-41:39
-54            android:name="com.example.myapplication.MenuActivity"
-54-->F:\LTDD\LTDD1_DA\ProjectLTDD1\app\src\main\AndroidManifest.xml:40:13-41
-55            android:exported="true" />
-55-->F:\LTDD\LTDD1_DA\ProjectLTDD1\app\src\main\AndroidManifest.xml:41:13-36
-56        <activity
-56-->F:\LTDD\LTDD1_DA\ProjectLTDD1\app\src\main\AndroidManifest.xml:42:9-44:39
-57            android:name="com.example.myapplication.RegisterActivity"
-57-->F:\LTDD\LTDD1_DA\ProjectLTDD1\app\src\main\AndroidManifest.xml:43:13-45
-58            android:exported="true" />
-58-->F:\LTDD\LTDD1_DA\ProjectLTDD1\app\src\main\AndroidManifest.xml:44:13-36
-59        <activity
-59-->F:\LTDD\LTDD1_DA\ProjectLTDD1\app\src\main\AndroidManifest.xml:45:9-47:48
-60            android:name="com.example.myapplication.MainActivity"
-60-->F:\LTDD\LTDD1_DA\ProjectLTDD1\app\src\main\AndroidManifest.xml:46:13-41
-61            android:exported="true" />
-61-->F:\LTDD\LTDD1_DA\ProjectLTDD1\app\src\main\AndroidManifest.xml:47:13-36
-62
-63        <provider
-63-->[androidx.emoji2:emoji2:1.2.0] C:\Users\Admin\.gradle\caches\transforms-3\2359ec2300da750368c8a650184da00c\transformed\emoji2-1.2.0\AndroidManifest.xml:24:9-32:20
-64            android:name="androidx.startup.InitializationProvider"
-64-->[androidx.emoji2:emoji2:1.2.0] C:\Users\Admin\.gradle\caches\transforms-3\2359ec2300da750368c8a650184da00c\transformed\emoji2-1.2.0\AndroidManifest.xml:25:13-67
-65            android:authorities="com.example.myapplication.androidx-startup"
-65-->[androidx.emoji2:emoji2:1.2.0] C:\Users\Admin\.gradle\caches\transforms-3\2359ec2300da750368c8a650184da00c\transformed\emoji2-1.2.0\AndroidManifest.xml:26:13-68
-66            android:exported="false" >
-66-->[androidx.emoji2:emoji2:1.2.0] C:\Users\Admin\.gradle\caches\transforms-3\2359ec2300da750368c8a650184da00c\transformed\emoji2-1.2.0\AndroidManifest.xml:27:13-37
-67            <meta-data
-67-->[androidx.emoji2:emoji2:1.2.0] C:\Users\Admin\.gradle\caches\transforms-3\2359ec2300da750368c8a650184da00c\transformed\emoji2-1.2.0\AndroidManifest.xml:29:13-31:52
-68                android:name="androidx.emoji2.text.EmojiCompatInitializer"
-68-->[androidx.emoji2:emoji2:1.2.0] C:\Users\Admin\.gradle\caches\transforms-3\2359ec2300da750368c8a650184da00c\transformed\emoji2-1.2.0\AndroidManifest.xml:30:17-75
-69                android:value="androidx.startup" />
-69-->[androidx.emoji2:emoji2:1.2.0] C:\Users\Admin\.gradle\caches\transforms-3\2359ec2300da750368c8a650184da00c\transformed\emoji2-1.2.0\AndroidManifest.xml:31:17-49
-70            <meta-data
-70-->[androidx.lifecycle:lifecycle-process:2.4.1] C:\Users\Admin\.gradle\caches\transforms-3\d78e4e26e1aefc152d0ee4dc6a642534\transformed\lifecycle-process-2.4.1\AndroidManifest.xml:31:13-33:52
-71                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
-71-->[androidx.lifecycle:lifecycle-process:2.4.1] C:\Users\Admin\.gradle\caches\transforms-3\d78e4e26e1aefc152d0ee4dc6a642534\transformed\lifecycle-process-2.4.1\AndroidManifest.xml:32:17-78
-72                android:value="androidx.startup" />
-72-->[androidx.lifecycle:lifecycle-process:2.4.1] C:\Users\Admin\.gradle\caches\transforms-3\d78e4e26e1aefc152d0ee4dc6a642534\transformed\lifecycle-process-2.4.1\AndroidManifest.xml:33:17-49
-73        </provider>
-74    </application>
-75
-76</manifest>
+28        android:testOnly="true"
+29        android:theme="@style/Theme.MyApplication" >
+29-->F:\LTDD\LTDD1_DA\ProjectLTDD1\app\src\main\AndroidManifest.xml:13:9-51
+30        <activity
+30-->F:\LTDD\LTDD1_DA\ProjectLTDD1\app\src\main\AndroidManifest.xml:15:9-17:39
+31            android:name="com.example.myapplication.UpdateActivity"
+31-->F:\LTDD\LTDD1_DA\ProjectLTDD1\app\src\main\AndroidManifest.xml:16:13-43
+32            android:exported="true" />
+32-->F:\LTDD\LTDD1_DA\ProjectLTDD1\app\src\main\AndroidManifest.xml:17:13-36
+33        <activity
+33-->F:\LTDD\LTDD1_DA\ProjectLTDD1\app\src\main\AndroidManifest.xml:18:9-20:39
+34            android:name="com.example.myapplication.AccountActivity"
+34-->F:\LTDD\LTDD1_DA\ProjectLTDD1\app\src\main\AndroidManifest.xml:19:13-44
+35            android:exported="true" />
+35-->F:\LTDD\LTDD1_DA\ProjectLTDD1\app\src\main\AndroidManifest.xml:20:13-36
+36        <activity
+36-->F:\LTDD\LTDD1_DA\ProjectLTDD1\app\src\main\AndroidManifest.xml:21:9-23:39
+37            android:name="com.example.myapplication.StatisActivity"
+37-->F:\LTDD\LTDD1_DA\ProjectLTDD1\app\src\main\AndroidManifest.xml:22:13-43
+38            android:exported="true" />
+38-->F:\LTDD\LTDD1_DA\ProjectLTDD1\app\src\main\AndroidManifest.xml:23:13-36
+39        <activity
+39-->F:\LTDD\LTDD1_DA\ProjectLTDD1\app\src\main\AndroidManifest.xml:24:9-26:39
+40            android:name="com.example.myapplication.CreateActivity"
+40-->F:\LTDD\LTDD1_DA\ProjectLTDD1\app\src\main\AndroidManifest.xml:25:13-43
+41            android:exported="true" />
+41-->F:\LTDD\LTDD1_DA\ProjectLTDD1\app\src\main\AndroidManifest.xml:26:13-36
+42        <activity
+42-->F:\LTDD\LTDD1_DA\ProjectLTDD1\app\src\main\AndroidManifest.xml:27:9-29:39
+43            android:name="com.example.myapplication.DetailActivity"
+43-->F:\LTDD\LTDD1_DA\ProjectLTDD1\app\src\main\AndroidManifest.xml:28:13-43
+44            android:exported="true" />
+44-->F:\LTDD\LTDD1_DA\ProjectLTDD1\app\src\main\AndroidManifest.xml:29:13-36
+45        <activity
+45-->F:\LTDD\LTDD1_DA\ProjectLTDD1\app\src\main\AndroidManifest.xml:30:9-38:20
+46            android:name="com.example.myapplication.BunkerActivity"
+46-->F:\LTDD\LTDD1_DA\ProjectLTDD1\app\src\main\AndroidManifest.xml:31:13-43
+47            android:exported="true" >
+47-->F:\LTDD\LTDD1_DA\ProjectLTDD1\app\src\main\AndroidManifest.xml:32:13-36
+48            <intent-filter>
+48-->F:\LTDD\LTDD1_DA\ProjectLTDD1\app\src\main\AndroidManifest.xml:33:13-37:29
+49                <action android:name="android.intent.action.MAIN" />
+49-->F:\LTDD\LTDD1_DA\ProjectLTDD1\app\src\main\AndroidManifest.xml:34:17-69
+49-->F:\LTDD\LTDD1_DA\ProjectLTDD1\app\src\main\AndroidManifest.xml:34:25-66
+50
+51                <category android:name="android.intent.category.LAUNCHER" />
+51-->F:\LTDD\LTDD1_DA\ProjectLTDD1\app\src\main\AndroidManifest.xml:36:17-77
+51-->F:\LTDD\LTDD1_DA\ProjectLTDD1\app\src\main\AndroidManifest.xml:36:27-74
+52            </intent-filter>
+53        </activity>
+54        <activity
+54-->F:\LTDD\LTDD1_DA\ProjectLTDD1\app\src\main\AndroidManifest.xml:39:9-41:39
+55            android:name="com.example.myapplication.MenuActivity"
+55-->F:\LTDD\LTDD1_DA\ProjectLTDD1\app\src\main\AndroidManifest.xml:40:13-41
+56            android:exported="true" />
+56-->F:\LTDD\LTDD1_DA\ProjectLTDD1\app\src\main\AndroidManifest.xml:41:13-36
+57        <activity
+57-->F:\LTDD\LTDD1_DA\ProjectLTDD1\app\src\main\AndroidManifest.xml:42:9-44:39
+58            android:name="com.example.myapplication.RegisterActivity"
+58-->F:\LTDD\LTDD1_DA\ProjectLTDD1\app\src\main\AndroidManifest.xml:43:13-45
+59            android:exported="true" />
+59-->F:\LTDD\LTDD1_DA\ProjectLTDD1\app\src\main\AndroidManifest.xml:44:13-36
+60        <activity
+60-->F:\LTDD\LTDD1_DA\ProjectLTDD1\app\src\main\AndroidManifest.xml:45:9-47:48
+61            android:name="com.example.myapplication.MainActivity"
+61-->F:\LTDD\LTDD1_DA\ProjectLTDD1\app\src\main\AndroidManifest.xml:46:13-41
+62            android:exported="true" />
+62-->F:\LTDD\LTDD1_DA\ProjectLTDD1\app\src\main\AndroidManifest.xml:47:13-36
+63
+64        <provider
+64-->[androidx.emoji2:emoji2:1.2.0] C:\Users\Admin\.gradle\caches\transforms-3\2359ec2300da750368c8a650184da00c\transformed\emoji2-1.2.0\AndroidManifest.xml:24:9-32:20
+65            android:name="androidx.startup.InitializationProvider"
+65-->[androidx.emoji2:emoji2:1.2.0] C:\Users\Admin\.gradle\caches\transforms-3\2359ec2300da750368c8a650184da00c\transformed\emoji2-1.2.0\AndroidManifest.xml:25:13-67
+66            android:authorities="com.example.myapplication.androidx-startup"
+66-->[androidx.emoji2:emoji2:1.2.0] C:\Users\Admin\.gradle\caches\transforms-3\2359ec2300da750368c8a650184da00c\transformed\emoji2-1.2.0\AndroidManifest.xml:26:13-68
+67            android:exported="false" >
+67-->[androidx.emoji2:emoji2:1.2.0] C:\Users\Admin\.gradle\caches\transforms-3\2359ec2300da750368c8a650184da00c\transformed\emoji2-1.2.0\AndroidManifest.xml:27:13-37
+68            <meta-data
+68-->[androidx.emoji2:emoji2:1.2.0] C:\Users\Admin\.gradle\caches\transforms-3\2359ec2300da750368c8a650184da00c\transformed\emoji2-1.2.0\AndroidManifest.xml:29:13-31:52
+69                android:name="androidx.emoji2.text.EmojiCompatInitializer"
+69-->[androidx.emoji2:emoji2:1.2.0] C:\Users\Admin\.gradle\caches\transforms-3\2359ec2300da750368c8a650184da00c\transformed\emoji2-1.2.0\AndroidManifest.xml:30:17-75
+70                android:value="androidx.startup" />
+70-->[androidx.emoji2:emoji2:1.2.0] C:\Users\Admin\.gradle\caches\transforms-3\2359ec2300da750368c8a650184da00c\transformed\emoji2-1.2.0\AndroidManifest.xml:31:17-49
+71            <meta-data
+71-->[androidx.lifecycle:lifecycle-process:2.4.1] C:\Users\Admin\.gradle\caches\transforms-3\d78e4e26e1aefc152d0ee4dc6a642534\transformed\lifecycle-process-2.4.1\AndroidManifest.xml:31:13-33:52
+72                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
+72-->[androidx.lifecycle:lifecycle-process:2.4.1] C:\Users\Admin\.gradle\caches\transforms-3\d78e4e26e1aefc152d0ee4dc6a642534\transformed\lifecycle-process-2.4.1\AndroidManifest.xml:32:17-78
+73                android:value="androidx.startup" />
+73-->[androidx.lifecycle:lifecycle-process:2.4.1] C:\Users\Admin\.gradle\caches\transforms-3\d78e4e26e1aefc152d0ee4dc6a642534\transformed\lifecycle-process-2.4.1\AndroidManifest.xml:33:17-49
+74        </provider>
+75    </application>
+76
+77</manifest>

@@ -93,53 +93,6 @@ public class DetailActivity extends AppCompatActivity {
                 dialog.show();
             }
         });
-        //delete
-        menuItem1.setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
-            @Override
-            public boolean onMenuItemClick(@NonNull MenuItem menuItem) {
-                Intent intent1 = new Intent(DetailActivity.this, UpdateActivity.class);
-                int id = -1;
-                for (int i = 0; i < BunkerActivity.data_LV.size(); i++) {
-                    if (BunkerActivity.data_LV.get(i).getParcel_id() == parcel.getParcel_id()) {
-                        id = i;
-                        break;
-                    }
-                }
-                intent1.putExtra("ID", id);
-                startActivityForResult(intent1, 2);
-                return false;
-            }
-        });
-        menuItem2.setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
-            @Override
-            public boolean onMenuItemClick(@NonNull MenuItem menuItem) {
-                AlertDialog.Builder builder = new AlertDialog.Builder(DetailActivity.this);
-                builder.setMessage("Bạn có chắc muốn xóa bưu phẩm này không?").setTitle("Xóa bưu phẩm")
-                        .setPositiveButton("Hủy bỏ", new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialogInterface, int i) {
-
-                            }
-                        })
-                        .setNegativeButton("Đồng ý", new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialogInterface, int i) {
-                                for (Parcel parcel1 : BunkerActivity.data_LV) {
-                                    if (parcel.getParcel_id() == parcel1.getParcel_id()) {
-                                        BunkerActivity.data_LV.remove(parcel1);
-                                        break;
-                                    }
-                                }
-                                Intent intent1 = new Intent();
-                                setResult(1, intent1);
-                                finish();
-                            }
-                        });
-                AlertDialog dialog = builder.create();
-                dialog.show();
-                return false;
-            }
-        });
 
     }
 
@@ -223,8 +176,6 @@ public class DetailActivity extends AppCompatActivity {
 
     private void setControl() {
         actionMenuView = findViewById(R.id.detailMenu);
-        menuItem1 = actionMenuView.getMenu().add(Menu.NONE, 1, Menu.NONE, "Chỉnh sửa");
-        menuItem2 = actionMenuView.getMenu().add(Menu.NONE, 2, Menu.NONE, "Xóa");
         tvId = findViewById(R.id.detailTvId);
         tvname_sender = findViewById(R.id.detailTvSenderName);
         tvname_receiver = findViewById(R.id.detailTvReceiverName);

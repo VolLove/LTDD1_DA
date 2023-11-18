@@ -33,7 +33,6 @@ public class BunkerActivity extends AppCompatActivity {
     public static List<TypeParcel> typeParcels = new ArrayList<>();
     public static List<Personnel> personnels = new ArrayList<>();
     public static ParcelAdapter parcelAdapter;
-    Spinner spStype;
     ArrayAdapter<TypeParcel> arrayAdapter;
     Context context;
     EditText edtSearch;
@@ -54,44 +53,9 @@ public class BunkerActivity extends AppCompatActivity {
 
 
     private void setEvent() {
-        arrayAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, typeParcels);
-        spStype.setAdapter(arrayAdapter);
         parcelAdapter = new ParcelAdapter(this, R.layout.card_layout, data_LV);
         lvDanhSach.setTextFilterEnabled(true);
         lvDanhSach.setAdapter(parcelAdapter);
-        btnCreate.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-                Intent intent = new Intent(context, CreateActivity.class);
-                startActivityForResult(intent, REQUEST_CODE_REGISTER);
-            }
-        });
-        spStype.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                edtSearch.setText(null);
-                List<Parcel> list = new ArrayList<>();
-                if (i != 0) {
-                    int type = typeParcels.get(i).getType_id();
-                    for (Parcel parcel1 : data_LV) {
-                        if (parcel1.getId_type() == type) {
-                                list.add(parcel1);
-                        }
-                    }
-
-                } else {
-                   list.addAll(data_LV);
-                }
-                parcelAdapter = new ParcelAdapter(BunkerActivity.this,R.layout.card_layout,list);
-                lvDanhSach.setAdapter(parcelAdapter);
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> adapterView) {
-
-            }
-        });
         edtSearch.addTextChangedListener(new TextWatcher() {
 
             @Override
@@ -160,8 +124,6 @@ public class BunkerActivity extends AppCompatActivity {
 
     private void setControl() {
         lvDanhSach = findViewById(R.id.bunkerLvDanhSach);
-        btnCreate = findViewById(R.id.bunkerBtnCreate);
         edtSearch = findViewById(R.id.bunkerEdtSearch);
-        spStype = findViewById(R.id.bunkerSpStype);
     }
 }
