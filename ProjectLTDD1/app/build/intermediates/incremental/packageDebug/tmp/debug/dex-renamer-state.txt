@@ -1,0 +1,16 @@
+#Sat Nov 18 16:41:44 ICT 2023
+base.0=F\:\\LTDD\\LTDD1_DA\\ProjectLTDD1\\app\\build\\intermediates\\dex\\debug\\mergeExtDexDebug\\classes.dex
+base.1=F\:\\LTDD\\LTDD1_DA\\ProjectLTDD1\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\0\\classes.dex
+base.2=F\:\\LTDD\\LTDD1_DA\\ProjectLTDD1\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\3\\classes.dex
+base.3=F\:\\LTDD\\LTDD1_DA\\ProjectLTDD1\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\4\\classes.dex
+base.4=F\:\\LTDD\\LTDD1_DA\\ProjectLTDD1\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\5\\classes.dex
+path.0=classes.dex
+path.1=0/classes.dex
+path.2=3/classes.dex
+path.3=4/classes.dex
+path.4=5/classes.dex
+renamed.0=classes.dex
+renamed.1=classes2.dex
+renamed.2=classes3.dex
+renamed.3=classes4.dex
+renamed.4=classes5.dex
