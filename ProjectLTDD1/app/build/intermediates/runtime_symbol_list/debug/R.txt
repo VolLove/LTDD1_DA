@@ -3353,6 +3353,10 @@ int id mtrl_picker_text_input_range_start 0x7f080145
 int id mtrl_picker_title_text 0x7f080146
 int id mtrl_view_tag_bottom_padding 0x7f080147
 int id multiply 0x7f080148
+int id navMenu 0x7f080210
+int id nav_exit 0x7f08020d
+int id nav_home 0x7f08020e
+int id nav_view 0x7f08020f
 int id navigation_bar_item_active_indicator_view 0x7f080149
 int id navigation_bar_item_icon_container 0x7f08014a
 int id navigation_bar_item_icon_view 0x7f08014b
@@ -3680,6 +3684,7 @@ int layout design_navigation_menu 0x7f0b002b
 int layout design_navigation_menu_item 0x7f0b002c
 int layout design_text_input_end_icon 0x7f0b002d
 int layout design_text_input_start_icon 0x7f0b002e
+int layout layout_header_nav 0x7f0b006c
 int layout m3_alert_dialog 0x7f0b002f
 int layout m3_alert_dialog_actions 0x7f0b0030
 int layout m3_alert_dialog_title 0x7f0b0031
@@ -3741,6 +3746,7 @@ int layout select_dialog_item_material 0x7f0b0068
 int layout select_dialog_multichoice_material 0x7f0b0069
 int layout select_dialog_singlechoice_material 0x7f0b006a
 int layout support_simple_spinner_dropdown_item 0x7f0b006b
+int menu item 0x7f130000
 int mipmap ic_launcher 0x7f0d0000
 int mipmap ic_launcher_round 0x7f0d0001
 int plurals mtrl_badge_content_description 0x7f0e0000
@@ -3891,6 +3897,8 @@ int string mtrl_switch_track_decoration_path 0x7f0f008f
 int string mtrl_switch_track_path 0x7f0f0090
 int string mtrl_timepicker_cancel 0x7f0f0091
 int string mtrl_timepicker_confirm 0x7f0f0092
+int string nav_close 0x7f0f009f
+int string nav_open 0x7f0f00a0
 int string password_toggle_content_description 0x7f0f0093
 int string path_password_eye 0x7f0f0094
 int string path_password_eye_mask_strike_through 0x7f0f0095

@@ -1,7 +1,12 @@
 package com.example.myapplication;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.annotation.SuppressLint;
 import android.content.ContentValues;
@@ -12,13 +17,15 @@ import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ListView;
-import android.widget.Spinner;
+
+import com.google.android.material.navigation.NavigationView;
 
 import java.text.ParseException;
 import java.util.ArrayList;
@@ -30,8 +37,12 @@ import Model.Personnel;
 import Model.TypeParcel;
 import Orther.ParcelAdapter;
 
-public class BunkerActivity extends AppCompatActivity {
-        ImageButton btnReset;
+public class BunkerActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
+    ImageButton btnReset;
+    DrawerLayout navMenu;
+    NavigationView navView;
+    NavigationView navigationView;
+    Toolbar tbNav;
     ListView lvDanhSach;
     public static final int REQUEST_CODE_REGISTER = 1;
     public static List<Parcel> data_LV = new ArrayList<>();
@@ -68,7 +79,6 @@ public class BunkerActivity extends AppCompatActivity {
         lvDanhSach.setAdapter(parcelAdapter);
 
         edtSearch.addTextChangedListener(new TextWatcher() {
-
             @Override
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
                 String text = edtSearch.getText().toString();
@@ -77,15 +87,11 @@ public class BunkerActivity extends AppCompatActivity {
 
             @Override
             public void afterTextChanged(Editable editable) {
-
-
             }
 
             @Override
             public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-
             }
-
         });
         btnReset.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -100,6 +106,12 @@ public class BunkerActivity extends AppCompatActivity {
                 }
             }
         });
+        tbNav.setTitle("Kho");
+        setSupportActionBar(tbNav);
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, navMenu, tbNav, R.string.nav_open, R.string.nav_close);
+        navMenu.addDrawerListener(toggle);
+        toggle.syncState();
+        navigationView.setNavigationItemSelectedListener(this);
     }
 
     //int parcel_id, String title, String id_type, String name_sender, String phone_sender,
@@ -115,8 +127,28 @@ public class BunkerActivity extends AppCompatActivity {
         lvDanhSach = findViewById(R.id.bunkerLvDanhSach);
         edtSearch = findViewById(R.id.bunkerEdtSearch);
         btnReset = findViewById(R.id.bunkerBtnReset);
+        navMenu = findViewById(R.id.navMenu);
+        navView = findViewById(R.id.nav_view);
+        tbNav = findViewById(R.id.bunkerTb);
+        navigationView = findViewById(R.id.nav_view);
     }
+    @Override
+    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+        int id = item.getItemId();
+        if (id == R.id.nav_home) {
+            Intent intent = new Intent(this, BunkerActivity.class);
+            startActivity(intent);
 
+        }
+        if (id == R.id.nav_create) {
+
+        }
+        if (id == R.id.nav_exit) {
+            finish();
+        }
+        navMenu.closeDrawer(GravityCompat.START);
+        return false;
+    }
     public static void addPersonnel(Personnel personnel) {
         database = databaseHandler.getWritableDatabase();
         ContentValues values = new ContentValues();

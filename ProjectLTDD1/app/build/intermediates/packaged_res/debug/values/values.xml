@@ -9,6 +9,8 @@
     <color name="primal_sec">#2400FF</color>
     <color name="white">#FFFFFFFF</color>
     <string name="app_name">My Application</string>
+    <string name="nav_close">close</string>
+    <string name="nav_open">open</string>
     <style name="Base.Theme.MyApplication" parent="Theme.AppCompat.Light.NoActionBar">
         
         
