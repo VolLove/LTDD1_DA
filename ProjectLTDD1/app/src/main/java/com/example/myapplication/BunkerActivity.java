@@ -66,6 +66,7 @@ public class BunkerActivity extends AppCompatActivity {
         parcelAdapter = new ParcelAdapter(this, R.layout.card_layout, data_LV);
         lvDanhSach.setTextFilterEnabled(true);
         lvDanhSach.setAdapter(parcelAdapter);
+
         edtSearch.addTextChangedListener(new TextWatcher() {
 
             @Override
@@ -269,14 +270,13 @@ public class BunkerActivity extends AppCompatActivity {
         database = databaseHandler.getReadableDatabase();
         Parcel parcel = null;
         Cursor cursor = database.query(
-                "Parcel",  // Tên bảng
-                null,      // Mảng chứa các cột (null để lấy tất cả các cột)
-                "parcel_id = ?", // Điều kiện WHERE
-                new String[]{String.valueOf(parcelId)}, // Giá trị điều kiện
-                null,      // GROUP BY
-                null,      // HAVING
-                null       // ORDER BY
-        );
+                "Parcel",
+                null,
+                "parcel_id = ?",
+                new String[]{String.valueOf(parcelId)},
+                null,
+                null,
+                null);
 
         if (cursor != null && cursor.moveToFirst()) {
             parcel = new Parcel();
@@ -294,18 +294,38 @@ public class BunkerActivity extends AppCompatActivity {
             parcel.setDate_get2(cursor.getString(cursor.getColumnIndex("date_get")));
             parcel.setDate_trans(cursor.getString(cursor.getColumnIndex("date_trans")));
         }
-
         if (cursor != null) {
             cursor.close();
         }
-
         return parcel;
     }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == RESULT_OK) {
+        if (resultCode == RESULT_OK) {
+            try {
+                data_LV = getAllParcels();
+            } catch (ParseException e) {
+                throw new RuntimeException(e);
+            }
+            parcelAdapter = new ParcelAdapter(BunkerActivity.this, R.layout.card_layout, data_LV);
+            lvDanhSach.setAdapter(arrayAdapter);
+        }
+        Intent intent = new Intent();
+        if (intent != null) {
+            int id = intent.getIntExtra("id", -1);
+            int value = intent.getIntExtra("value", -1);
+            Parcel parcel1;
+            try {
+                parcel1 = getParcelById(id);
+            } catch (ParseException e) {
+                throw new RuntimeException(e);
+            }
+            if (parcel1 != null) {
+                parcel1.setStatus(value);
+                updateParcel(parcel1);
+            }
             try {
                 data_LV = getAllParcels();
             } catch (ParseException e) {

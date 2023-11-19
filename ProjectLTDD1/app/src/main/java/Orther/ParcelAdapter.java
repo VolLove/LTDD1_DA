@@ -95,6 +95,7 @@ public class ParcelAdapter extends ArrayAdapter {
             public void onClick(View view) {
                 Intent intent = new Intent(context, DetailActivity.class);
                 Bundle bundle = new Bundle();
+                intent.putExtra("IdParcel",parcel.getParcel_id());
                 bundle.putSerializable("parcel", parcel);
                 intent.putExtras(bundle);
                 context.startActivity(intent);
@@ -141,4 +142,5 @@ public class ParcelAdapter extends ArrayAdapter {
             }
         };
     }
+
 }
