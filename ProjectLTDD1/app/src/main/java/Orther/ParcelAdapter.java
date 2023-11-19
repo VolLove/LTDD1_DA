@@ -104,7 +104,9 @@ public class ParcelAdapter extends ArrayAdapter {
         return convertView;
     }
 
-
+    public void setData(List<Parcel> newData) {
+        data = newData;
+    }
     @Override
     public Filter getFilter() {
         return new Filter() {
@@ -123,6 +125,11 @@ public class ParcelAdapter extends ArrayAdapter {
                 } else {
                     String x = constraint.toString();
                     ArrayList<Parcel> parcels = new ArrayList<>();
+                    try {
+                        data = BunkerActivity.getAllParcels();
+                    } catch (ParseException e) {
+                        throw new RuntimeException(e);
+                    }
                     for (Parcel c : data) {
                         if (String.valueOf(c.getParcel_id()).equals(x)) {
                             parcels.add(c);

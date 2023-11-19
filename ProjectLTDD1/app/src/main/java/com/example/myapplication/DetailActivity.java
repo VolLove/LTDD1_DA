@@ -80,19 +80,22 @@ public class DetailActivity extends AppCompatActivity {
                         )
                         .setPositiveButton("Đồng ý", new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int id) {
-//                                Parcel parcel1;
-//                                try {
-//                                    parcel1 = BunkerActivity.getParcelById(parcel.getParcel_id());
-//                                } catch (ParseException e) {
-//                                    throw new RuntimeException(e);
-//                                }
-//                                if (parcel1 != null) {
-//                                    BunkerActivity.updateParcel(parcel);
-//                                }
-                                Intent intent1 =  new Intent();
-                                intent1.putExtra("id",parcel.getParcel_id());
-                                intent1.putExtra("value",parcel.getStatus());
-                                setResult(1,intent1);
+                                Parcel parcel1;
+                                try {
+                                    parcel1 = BunkerActivity.getParcelById(parcel.getParcel_id());
+                                } catch (ParseException e) {
+                                    throw new RuntimeException(e);
+                                }
+                                if (parcel1 != null) {
+                                    BunkerActivity.updateParcel(parcel);
+                                    try {
+                                        BunkerActivity.data_LV = BunkerActivity.getAllParcels();
+                                    } catch (ParseException e) {
+                                        throw new RuntimeException(e);
+                                    }
+                                    BunkerActivity.parcelAdapter.setData(BunkerActivity.data_LV);
+                                    BunkerActivity.parcelAdapter.notifyDataSetChanged();
+                                }
                                 onBackPressed();
                             }
                         })

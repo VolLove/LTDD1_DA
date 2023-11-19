@@ -10,6 +10,7 @@ color primal_sec
 color white
 drawable baseline_add_24
 drawable baseline_arrow_back_24
+drawable baseline_refresh_24
 drawable baseline_restart_alt_24
 drawable baseline_search_24
 drawable btncreate
@@ -27,11 +28,9 @@ drawable layout_custom
 drawable layoutdesign1
 drawable layoutdesign2
 id DetailContent
-id bunkerBtnBack
-id bunkerBtnCreate
+id bunkerBtnReset
 id bunkerEdtSearch
 id bunkerLvDanhSach
-id bunkerSpStype
 id bunkerTb
 id cardBtnMore
 id cardTvDateGet

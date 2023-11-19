@@ -2909,6 +2909,7 @@ drawable avd_hide_password
 drawable avd_show_password
 drawable baseline_add_24
 drawable baseline_arrow_back_24
+drawable baseline_refresh_24
 drawable baseline_restart_alt_24
 drawable baseline_search_24
 drawable btn_checkbox_checked_mtrl
@@ -3123,11 +3124,9 @@ id bounce
 id bounceBoth
 id bounceEnd
 id bounceStart
-id bunkerBtnBack
-id bunkerBtnCreate
+id bunkerBtnReset
 id bunkerEdtSearch
 id bunkerLvDanhSach
-id bunkerSpStype
 id bunkerTb
 id buttonPanel
 id cache_measures

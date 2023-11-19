@@ -31,7 +31,7 @@ import Model.TypeParcel;
 import Orther.ParcelAdapter;
 
 public class BunkerActivity extends AppCompatActivity {
-    ImageButton btnCreate;
+        ImageButton btnReset;
     ListView lvDanhSach;
     public static final int REQUEST_CODE_REGISTER = 1;
     public static List<Parcel> data_LV = new ArrayList<>();
@@ -87,7 +87,19 @@ public class BunkerActivity extends AppCompatActivity {
             }
 
         });
-
+        btnReset.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                edtSearch.setText("");
+                try {
+                    data_LV = getAllParcels();
+                    parcelAdapter.setData(data_LV);
+                    parcelAdapter.notifyDataSetChanged();
+                } catch (ParseException e) {
+                    throw new RuntimeException(e);
+                }
+            }
+        });
     }
 
     //int parcel_id, String title, String id_type, String name_sender, String phone_sender,
@@ -102,6 +114,7 @@ public class BunkerActivity extends AppCompatActivity {
     private void setControl() {
         lvDanhSach = findViewById(R.id.bunkerLvDanhSach);
         edtSearch = findViewById(R.id.bunkerEdtSearch);
+        btnReset = findViewById(R.id.bunkerBtnReset);
     }
 
     public static void addPersonnel(Personnel personnel) {
@@ -300,39 +313,4 @@ public class BunkerActivity extends AppCompatActivity {
         return parcel;
     }
 
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        if (resultCode == RESULT_OK) {
-            try {
-                data_LV = getAllParcels();
-            } catch (ParseException e) {
-                throw new RuntimeException(e);
-            }
-            parcelAdapter = new ParcelAdapter(BunkerActivity.this, R.layout.card_layout, data_LV);
-            lvDanhSach.setAdapter(arrayAdapter);
-        }
-        Intent intent = new Intent();
-        if (intent != null) {
-            int id = intent.getIntExtra("id", -1);
-            int value = intent.getIntExtra("value", -1);
-            Parcel parcel1;
-            try {
-                parcel1 = getParcelById(id);
-            } catch (ParseException e) {
-                throw new RuntimeException(e);
-            }
-            if (parcel1 != null) {
-                parcel1.setStatus(value);
-                updateParcel(parcel1);
-            }
-            try {
-                data_LV = getAllParcels();
-            } catch (ParseException e) {
-                throw new RuntimeException(e);
-            }
-            parcelAdapter = new ParcelAdapter(BunkerActivity.this, R.layout.card_layout, data_LV);
-            lvDanhSach.setAdapter(arrayAdapter);
-        }
-    }
 }
