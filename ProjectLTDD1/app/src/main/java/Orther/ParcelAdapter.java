@@ -17,6 +17,7 @@ import com.example.myapplication.BunkerActivity;
 import com.example.myapplication.DetailActivity;
 import com.example.myapplication.R;
 
+import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -26,7 +27,7 @@ import Model.TypeParcel;
 public class ParcelAdapter extends ArrayAdapter {
     Context context;
     int resource;
-    List<Parcel> data, dataClone;
+    List<Parcel> data;
 
 
     public ParcelAdapter(Context context, int resource, List<Parcel> data) {
@@ -34,7 +35,6 @@ public class ParcelAdapter extends ArrayAdapter {
         this.context = context;
         this.data = data;
         this.resource = resource;
-        dataClone = data;
     }
 
     @Override
@@ -85,7 +85,7 @@ public class ParcelAdapter extends ArrayAdapter {
             tvStatus.setText("Trả hàng");
         }
         for (TypeParcel typeParcel : BunkerActivity.typeParcels) {
-            if (parcel.getId_type() == typeParcel.getType_id()){
+            if (parcel.getId_type() == typeParcel.getType_id()) {
                 tvType.setText(typeParcel.getTitle());
                 break;
             }
@@ -111,14 +111,19 @@ public class ParcelAdapter extends ArrayAdapter {
             protected FilterResults performFiltering(CharSequence constraint) {
                 FilterResults results = new FilterResults();
                 if (constraint == null || constraint.length() == 0) {
-                    results.values = dataClone;
-                    results.count = dataClone.size();
+                    List<Parcel> list;
+                    try {
+                        list = BunkerActivity.getAllParcels();
+                    } catch (ParseException e) {
+                        throw new RuntimeException(e);
+                    }
+                    results.values = list;
+                    results.count = list.size();
                 } else {
-                    int x = Integer.parseInt(constraint.toString());
+                    String x = constraint.toString();
                     ArrayList<Parcel> parcels = new ArrayList<>();
-
                     for (Parcel c : data) {
-                        if (c.getParcel_id() == x) {
+                        if (String.valueOf(c.getParcel_id()).equals(x)) {
                             parcels.add(c);
                         }
                     }

@@ -70,8 +70,49 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         sqLiteDatabase.execSQL(createParcelTable);
         sqLiteDatabase.execSQL(createTypeParcelTable);
 
+        String insertPersonnelData = "INSERT INTO Users ( userName, passWord, phone, name, avatar) VALUES ( 'user1', 'pass1', '10000:a346e2157104c64bc4e6b52b2f178f86:e427d0b71706cc8f4344866e6840af0d68cc57094424faad4239b0e9dee6d62d', 'Nhan vien 1', 'avatar1')";
+        sqLiteDatabase.execSQL(insertPersonnelData);
+        insertPersonnelData = "INSERT INTO Users ( userName, passWord, phone, name, avatar) VALUES ( 'user1', 'pass1', '10000:a346e2157104c64bc4e6b52b2f178f86:e427d0b71706cc8f4344866e6840af0d68cc57094424faad4239b0e9dee6d62d', 'Nhan vien 1', 'avatar1')";
+        sqLiteDatabase.execSQL(insertPersonnelData);
+        insertPersonnelData = "INSERT INTO Users ( userName, passWord, phone, name, avatar) VALUES ( 'user1', 'pass1', '10000:a346e2157104c64bc4e6b52b2f178f86:e427d0b71706cc8f4344866e6840af0d68cc57094424faad4239b0e9dee6d62d', 'Nhan vien 1', 'avatar1')";
+        sqLiteDatabase.execSQL(insertPersonnelData);
+
+        String insertTypeParcelData = "INSERT INTO TypeParcel ( title, pack_free) VALUES ( 'Thư', 0)";
+        sqLiteDatabase.execSQL(insertTypeParcelData);
+        insertTypeParcelData = "INSERT INTO TypeParcel ( title, pack_free) VALUES ('Hàng dễ vỡ', 0)";
+        sqLiteDatabase.execSQL(insertTypeParcelData);
+        insertTypeParcelData = "INSERT INTO TypeParcel ( title, pack_free) VALUES ('Chất lỏng', 0)";
+        sqLiteDatabase.execSQL(insertTypeParcelData);
+        insertTypeParcelData = "INSERT INTO TypeParcel ( title, pack_free) VALUES ( 'Đồ điện tử', 0)";
+        sqLiteDatabase.execSQL(insertTypeParcelData);
+        insertTypeParcelData = "INSERT INTO TypeParcel ( title, pack_free) VALUES ( 'Hàng đông lạnh', 0)";
+        sqLiteDatabase.execSQL(insertTypeParcelData);
 
 
+        String insertParcelData = "INSERT INTO Parcel ( id_personnel, id_type, status, name_sender, phone_sender, name_receiver, phone_receiver, address_receiver, decription, weight, date_get, date_trans) " +
+                "VALUES ( 1, 2, 0, 'Sender Name 1', '123456789', 'Receiver Name 1', '987654321', '43, Nguyễn Chí Thanh, Ba Đình, Hà Nội', 'Description', 2.5, '18/01/2023', '1/1/1')";
+        sqLiteDatabase.execSQL(insertParcelData);
+        insertParcelData = "INSERT INTO Parcel ( id_personnel, id_type, status, name_sender, phone_sender, name_receiver, phone_receiver, address_receiver, decription, weight, date_get, date_trans) " +
+                "VALUES ( 1, 3, 0, 'Sender Name 2', '123456789', 'Receiver Name 2', '987654321', '43, Nguyễn Chí Thanh, Ba Đình, Hà Nội', 'Description', 2.5, '18/01/2023', '1/1/1')";
+        sqLiteDatabase.execSQL(insertParcelData);
+        insertParcelData = "INSERT INTO Parcel ( id_personnel, id_type, status, name_sender, phone_sender, name_receiver, phone_receiver, address_receiver, decription, weight, date_get, date_trans) " +
+                "VALUES ( 1, 4, 0, 'Sender Name 3', '123456789', 'Receiver Name 3', '987654321', '43, Nguyễn Chí Thanh, Ba Đình, Hà Nội', 'Description', 2.5, '18/01/2023', '1/1/1')";
+        sqLiteDatabase.execSQL(insertParcelData);
+        insertParcelData = "INSERT INTO Parcel ( id_personnel, id_type, status, name_sender, phone_sender, name_receiver, phone_receiver, address_receiver, decription, weight, date_get, date_trans) " +
+                "VALUES ( 1, 1, 0, 'Sender Name 4', '123456789', 'Receiver Name 4', '987654321', '43, Nguyễn Chí Thanh, Ba Đình, Hà Nội', 'Description', 2.5, '18/01/2023', '1/1/1')";
+        sqLiteDatabase.execSQL(insertParcelData);
+        insertParcelData = "INSERT INTO Parcel ( id_personnel, id_type, status, name_sender, phone_sender, name_receiver, phone_receiver, address_receiver, decription, weight, date_get, date_trans) " +
+                "VALUES ( 1, 2, 0, 'Sender Name 5', '123456789', 'Receiver Name 5', '987654321', '43, Nguyễn Chí Thanh, Ba Đình, Hà Nội', 'Description', 2.5, '18/01/2023', '1/1/1')";
+        sqLiteDatabase.execSQL(insertParcelData);
+        insertParcelData = "INSERT INTO Parcel ( id_personnel, id_type, status, name_sender, phone_sender, name_receiver, phone_receiver, address_receiver, decription, weight, date_get, date_trans) " +
+                "VALUES (1, 3, 0, 'Sender Name 6', '123456789', 'Receiver Name 6', '987654321', '43, Nguyễn Chí Thanh, Ba Đình, Hà Nội', 'Description', 2.5, '18/01/2023', '1/1/1')";
+        sqLiteDatabase.execSQL(insertParcelData);
+        insertParcelData = "INSERT INTO Parcel ( id_personnel, id_type, status, name_sender, phone_sender, name_receiver, phone_receiver, address_receiver, decription, weight, date_get, date_trans) " +
+                "VALUES ( 1, 4, 0, 'Sender Name 7', '123456789', 'Receiver Name 7', '987654321', '43, Nguyễn Chí Thanh, Ba Đình, Hà Nội', 'Description', 2.5, '18/01/2023', '1/1/1')";
+        sqLiteDatabase.execSQL(insertParcelData);
+        insertParcelData = "INSERT INTO Parcel ( id_personnel, id_type, status, name_sender, phone_sender, name_receiver, phone_receiver, address_receiver, decription, weight, date_get, date_trans) " +
+                "VALUES ( 1, 1, 0, 'Sender Name 8', '123456789', 'Receiver Name 8', '987654321', '43, Nguyễn Chí Thanh, Ba Đình, Hà Nội', 'Description', 2.5, '18/01/2023', '1/1/1')";
+        sqLiteDatabase.execSQL(insertParcelData);
     }
 
     @Override

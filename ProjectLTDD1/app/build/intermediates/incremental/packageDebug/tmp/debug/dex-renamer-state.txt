@@ -1,4 +1,4 @@
-#Sat Nov 18 23:15:56 ICT 2023
+#Sun Nov 19 20:52:03 ICT 2023
 base.0=F\:\\LTDD\\LTDD1_DA\\ProjectLTDD1\\app\\build\\intermediates\\dex\\debug\\mergeExtDexDebug\\classes.dex
 base.1=F\:\\LTDD\\LTDD1_DA\\ProjectLTDD1\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\0\\classes.dex
 base.2=F\:\\LTDD\\LTDD1_DA\\ProjectLTDD1\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\3\\classes.dex

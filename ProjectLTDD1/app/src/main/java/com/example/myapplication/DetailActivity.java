@@ -96,7 +96,7 @@ public class DetailActivity extends AppCompatActivity {
                                 }
 
                                 Intent intent1 = new Intent();
-                                setResult(1,intent1);
+                                setResult(RESULT_OK,intent1);
                                 finish();
                             }
                         })
@@ -179,16 +179,6 @@ public class DetailActivity extends AppCompatActivity {
 
     }
 
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        if (resultCode == 2 && resultCode == 2) {
-            Intent intent = getIntent();
-            Bundle bundle = intent.getExtras();
-            parcel = (Parcel) data.getSerializableExtra("update");
-            UpData();
-        }
-    }
 
     private void setControl() {
         actionMenuView = findViewById(R.id.detailMenu);
