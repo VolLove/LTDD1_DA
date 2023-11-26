@@ -55,7 +55,8 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         sqLiteDatabase.execSQL(insertTypeParcelData);
         insertTypeParcelData = "INSERT INTO TypeParcel ( title, pack_free) VALUES ( 'Hàng đông lạnh', 30000)";
         sqLiteDatabase.execSQL(insertTypeParcelData);
-
+        insertTypeParcelData = "INSERT INTO TypeParcel ( title, pack_free) VALUES ( 'Hàng đông lạnh 2', 30000)";
+        sqLiteDatabase.execSQL(insertTypeParcelData);
 
         String insertParcelData = "INSERT INTO Parcel (  id_type, status, name_sender, phone_sender, name_receiver, phone_receiver, address_receiver, decription, weight, date_get, date_trans) " +
                 "VALUES (  2, 1, 'Sender Name 1', '123456789', 'Receiver Name 1', '987654321', '43, Nguyễn Chí Thanh, Ba Đình, Hà Nội', 'Description', 2.5, '18/01/2023', '1/1/1')";
