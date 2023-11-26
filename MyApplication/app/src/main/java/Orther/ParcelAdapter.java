@@ -1,12 +1,14 @@
 package Orther;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.Filter;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -15,8 +17,11 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import com.example.myapplication.DetailParcelFragment;
+import com.example.myapplication.MainActivity;
 import com.example.myapplication.R;
 
+import java.text.ParseException;
+import java.util.ArrayList;
 import java.util.List;
 
 import Model.Parcel;
@@ -26,13 +31,19 @@ public class ParcelAdapter extends ArrayAdapter {
     Context context;
     int resource;
     List<Parcel> data;
+
+    List<Parcel> clone;
     List<TypeParcel> typeParcels;
-    public ParcelAdapter(Context context, int resource, List<Parcel> data,List<TypeParcel> typeParcels) {
+
+
+
+    public ParcelAdapter(Context context, int resource, List<Parcel> data, List<TypeParcel> typeParcels) {
         super(context, resource, data);
         this.context = context;
         this.data = data;
         this.resource = resource;
         this.typeParcels = typeParcels;
+        clone = data;
     }
 
     @Override
@@ -54,7 +65,6 @@ public class ParcelAdapter extends ArrayAdapter {
         Button cardBtnMore = convertView.findViewById(R.id.cardParcelBtnMore);
 
         Parcel parcel = data.get(position);
-
         tvID.setText(tvID.getText() + "" + parcel.getParcel_id());
         tvNameTrans.setText(tvNameTrans.getText() + parcel.getName_sender());
         tvNameGet.setText(tvNameGet.getText() + parcel.getName_receiver());
@@ -92,7 +102,7 @@ public class ParcelAdapter extends ArrayAdapter {
             @Override
             public void onClick(View view) {
                 Bundle bundle = new Bundle();
-                bundle.putInt("key",parcel.getParcel_id());
+                bundle.putInt("key", parcel.getParcel_id());
                 DetailParcelFragment fragment = new DetailParcelFragment();
                 fragment.setArguments(bundle);
 
@@ -111,4 +121,20 @@ public class ParcelAdapter extends ArrayAdapter {
         data = newData;
     }
 
+    public void searchById(String tparcelId) {
+        List<Parcel> filteredList = new ArrayList<>();
+        if (tparcelId.length() != 0) {
+            int parcelId = Integer.parseInt(tparcelId);
+            for (Parcel parcel : data) {
+                if (parcel.getParcel_id() == parcelId) {
+                    filteredList.add(parcel);
+                }
+            }
+            setData(filteredList);
+            notifyDataSetChanged();
+        } else {
+            setData(clone);
+            notifyDataSetChanged();
+        }
+    }
 }

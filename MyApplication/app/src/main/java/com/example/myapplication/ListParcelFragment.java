@@ -1,11 +1,14 @@
 package com.example.myapplication;
 
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Spinner;
 
@@ -27,6 +30,7 @@ public class ListParcelFragment extends Fragment {
     public static ParcelAdapter parcelAdapter;
     Spinner spinner;
     ArrayAdapter arrayAdapter;
+    EditText editText;
 
     @Nullable
     @Override
@@ -37,6 +41,7 @@ public class ListParcelFragment extends Fragment {
         parcels = MainActivity.databaseHandler.getAllParcels();
         typeParcels = MainActivity.databaseHandler.getAllTypeParcels();
         spinner = view.findViewById(R.id.parcelSp);
+        editText = view.findViewById(R.id.list_parcel_EdtSearch);
         //main
         parcelAdapter = new ParcelAdapter(requireContext(), R.layout.card_parcel_layout, parcels, typeParcels);
         listView.setAdapter(parcelAdapter);
@@ -59,6 +64,23 @@ public class ListParcelFragment extends Fragment {
 
             @Override
             public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
+        editText.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                String s = editText.getText().toString();
+                parcelAdapter.searchById(s);
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
 
             }
         });
