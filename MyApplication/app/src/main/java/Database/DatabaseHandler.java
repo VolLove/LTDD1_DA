@@ -108,7 +108,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     public void addParcel(Parcel parcel) {
         db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
-        // Gán các giá trị từ đối tượng Parcel vào ContentValues
+
         values.put("id_type", parcel.getId_type());
         values.put("status", parcel.getStatus());
         values.put("name_sender", parcel.getName_sender());
@@ -120,7 +120,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         values.put("weight", parcel.getWeight());
         values.put("date_get", parcel.getDate_get());
         values.put("date_trans", parcel.getDate_trans());
-        // Chèn dữ liệu vào bảng Parcel
+
         db.insert("Parcel", null, values);
 
     }
@@ -144,11 +144,11 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         db = this.getWritableDatabase();
         Cursor cursor = db.rawQuery(selectQuery, null);
 
-        // Duyệt qua các dòng dữ liệu và thêm vào danh sách parcelList
+
         if (cursor.moveToFirst()) {
             do {
                 Parcel parcel = new Parcel();
-                // Gán các giá trị từ cột Cursor vào đối tượng Parcel
+
                 parcel.setParcel_id(cursor.getInt(0));
                 parcel.setId_type(cursor.getInt(1));
                 parcel.setStatus(cursor.getInt(2));
@@ -161,7 +161,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
                 parcel.setWeight(cursor.getDouble(9));
                 parcel.setDate_get(cursor.getString(10));
                 parcel.setDate_trans(cursor.getString(11));
-                // Thêm parcel vào danh sách
+
                 parcelList.add(parcel);
             } while (cursor.moveToNext());
         }
@@ -174,7 +174,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     public int updateParcel(Parcel parcel) {
         db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
-        // Gán các giá trị từ đối tượng Parcel vào ContentValues
+
         values.put("id_type", parcel.getId_type());
         values.put("status", parcel.getStatus());
         values.put("name_sender", parcel.getName_sender());
@@ -186,7 +186,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         values.put("weight", parcel.getWeight());
         values.put("date_get", parcel.getDate_get());
         values.put("date_trans", parcel.getDate_trans());
-        // Cập nhật dữ liệu trong bảng Parcel dựa trên parcel_id
+
         return db.update("Parcel", values, "parcel_id = ?", new String[]{String.valueOf(parcel.getParcel_id())});
     }
 
@@ -199,15 +199,14 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 
     // CRUD cho bảng TypeParcel
     // Thêm một TypeParcel mới vào database
-//    title TEXT, pack_free REAL
+   //    title TEXT, pack_free REAL
     public void addTypeParcel(TypeParcel typeParcel) {
         db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
-        // Gán các giá trị từ đối tượng TypeParcel vào ContentValues
+
         values.put("title", typeParcel.getTitle());
         values.put("pack_free", typeParcel.getPack_free());
 
-        // Chèn dữ liệu vào bảng TypeParcel
         db.insert("TypeParcel", null, values);
 
     }
@@ -220,15 +219,15 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         db = this.getWritableDatabase();
         Cursor cursor = db.rawQuery(selectQuery, null);
 
-        // Duyệt qua các dòng dữ liệu và thêm vào danh sách TypeParcel
+
         if (cursor.moveToFirst()) {
             do {
                 TypeParcel typeParcel = new TypeParcel();
-                // Gán các giá trị từ cột Cursor vào đối tượng TypeParcel
+
                 typeParcel.setType_id(cursor.getInt(0));
                 typeParcel.setTitle(cursor.getString(1));
                 typeParcel.setPack_free(cursor.getDouble(2));
-                // Thêm TypeParcel vào danh sách
+
                 typeParcels.add(typeParcel);
             } while (cursor.moveToNext());
         }
@@ -258,13 +257,13 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         db = this.getReadableDatabase();
 
         Cursor cursor = db.query(
-                "Parcel", // Tên bảng
-                null, // Danh sách các cột, null để lấy tất cả các cột
-                "parcel_id = ?", // Câu điều kiện WHERE
-                new String[]{String.valueOf(parcelId)}, // Giá trị đối số cho điều kiện WHERE
-                null, // GROUP BY
-                null, // HAVING
-                null // ORDER BY
+                "Parcel",
+                null,
+                "parcel_id = ?",
+                new String[]{String.valueOf(parcelId)},
+                null,
+                null,
+                null
         );
 //              "id_type INTEGER," +
 //              "status INTEGER," +
@@ -309,13 +308,13 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         db = this.getReadableDatabase();
 
         Cursor cursor = db.query(
-                "Parcel", // Tên bảng
-                null, // Danh sách các cột, null để lấy tất cả các cột
-                "status = ?", // Câu điều kiện WHERE
-                new String[]{String.valueOf(status)}, // Giá trị đối số cho điều kiện WHERE
-                null, // GROUP BY
-                null, // HAVING
-                null // ORDER BY
+                "Parcel",
+                null,
+                "status = ?",
+                new String[]{String.valueOf(status)},
+                null,
+                null,
+                null
         );
 
         if (cursor != null && cursor.moveToFirst()) {
@@ -344,5 +343,32 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         }
 
         return parcelList;
+    }
+
+    @SuppressLint("Range")
+    public TypeParcel getTypeParcelById(int typeId) {
+        db = this.getReadableDatabase();
+        TypeParcel typeParcel = null;
+
+        Cursor cursor = db.query(
+                "TypeParcel",
+                null,
+                "type_id = ?",
+                new String[]{String.valueOf(typeId)},
+                null,
+                null,
+                null
+        );
+
+        if (cursor != null && cursor.moveToFirst()) {
+            typeParcel = new TypeParcel();
+            typeParcel.setType_id(cursor.getInt(cursor.getColumnIndex("type_id")));
+            typeParcel.setTitle(cursor.getString(cursor.getColumnIndex("title")));
+            typeParcel.setPack_free(cursor.getDouble(cursor.getColumnIndex("pack_free")));
+
+            cursor.close();
+        }
+
+        return typeParcel;
     }
 }

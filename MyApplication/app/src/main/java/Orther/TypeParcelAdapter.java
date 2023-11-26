@@ -25,6 +25,7 @@ import com.example.myapplication.MainActivity;
 import com.example.myapplication.R;
 import com.example.myapplication.UpdateTypeParcelFragment;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -58,9 +59,9 @@ public class TypeParcelAdapter extends ArrayAdapter {
         btnEdit = convertView.findViewById(R.id.typeparcelbtnEdit);
 
         TypeParcel typeParcel = typeParcels.get(position);
-
+        DecimalFormat decimalFormat = new DecimalFormat("#,###.00");
         tvName.setText(typeParcel.getTitle());
-        tvPackFree.setText(String.valueOf(typeParcel.getPack_free()));
+        tvPackFree.setText(decimalFormat.format(String.valueOf(typeParcel.getPack_free())));
 
         // Xử lý sự kiện khi nhấn button Xóa
         btnDelete.setOnClickListener(v -> {

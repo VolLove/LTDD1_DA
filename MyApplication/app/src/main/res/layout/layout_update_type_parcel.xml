@@ -37,6 +37,7 @@
         android:background="@drawable/layoutdesign2"
         android:hint="Phí vận chuyển"
         android:padding="10dp"
+        android:inputType="number"
         android:textColor="@color/black"
         android:textSize="20dp" />
 

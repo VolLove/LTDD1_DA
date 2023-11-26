@@ -19,6 +19,7 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import java.text.DecimalFormat;
 import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.List;
@@ -104,7 +105,7 @@ public class DetailParcelFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 Bundle bundle = new Bundle();
-                bundle.putInt("Key",parcel.getParcel_id());
+                bundle.putInt("Key", parcel.getParcel_id());
                 UpdateParcelFragment fragment = new UpdateParcelFragment();
                 fragment.setArguments(bundle);
 
@@ -165,6 +166,7 @@ public class DetailParcelFragment extends Fragment {
         tvdate_get.setText("Ngày nhập kho: ");
         tvweight.setText("Cân nặng: ");
         tv_type.setText("Loại : ");
+        DecimalFormat decimalFormat = new DecimalFormat("#,###");
         tvId.setText(tvId.getText().toString() + parcel.getParcel_id());
         tvname_sender.setText(tvname_sender.getText().toString() + parcel.getName_sender());
         tvname_receiver.setText(tvname_receiver.getText().toString() + parcel.getName_receiver());
@@ -205,7 +207,7 @@ public class DetailParcelFragment extends Fragment {
             btnChange.setText("Hàng trả lại");
 
         }
-        tvtransfree.setText(tvtransfree.getText().toString() + parcel.getTransport_free() + " VND");
+        tvtransfree.setText(tvtransfree.getText().toString() + decimalFormat.format(parcel.getTransport_free()) + " VND");
         List<TypeParcel> typeParcels = MainActivity.databaseHandler.getAllTypeParcels();
         for (TypeParcel typeParcel : typeParcels) {
             if (typeParcel.getType_id() == parcel.getId_type()) {
