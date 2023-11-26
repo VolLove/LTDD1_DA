@@ -50,7 +50,7 @@ public class UpdateParcelFragment extends Fragment {
         btnClose = view.findViewById(R.id.updatebtnClose);
 
         //main
-        Bundle bundle =getArguments();
+        Bundle bundle = getArguments();
         int i = bundle.getInt("Key");
         parcel = MainActivity.databaseHandler.getParcelById(i);
 
@@ -70,7 +70,6 @@ public class UpdateParcelFragment extends Fragment {
                 sptype.setSelection(x);
             }
         }
-
         btnSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -95,7 +94,8 @@ public class UpdateParcelFragment extends Fragment {
                             .setNegativeButton("Có", new DialogInterface.OnClickListener() {
                                 @Override
                                 public void onClick(DialogInterface dialogInterface, int i) {
-                                    parcel.setId_type(sptype.getSelectedItemPosition());
+                                    int i1 = typeParcels.get(sptype.getSelectedItemPosition()).getType_id();
+                                    parcel.setId_type(i1);
                                     parcel.setAddress_receiver(edtaddress_receiver.getText().toString());
                                     parcel.setName_receiver(edtname_receiver.getText().toString());
                                     parcel.setName_sender(edtname_sender.getText().toString());
@@ -106,8 +106,16 @@ public class UpdateParcelFragment extends Fragment {
                                     } catch (NumberFormatException e) {
                                     }
                                     parcel.setDecription(edtdecription.getText().toString());
+                                    //Cập nhật
                                     MainActivity.databaseHandler.updateParcel(parcel);
-                                    ListParcelFragment fragment = new ListParcelFragment();
+
+                                    //Dến fargment detail
+                                    DetailParcelFragment fragment = new DetailParcelFragment();
+                                    //truyền id
+                                    Bundle bundle = new Bundle();
+                                    bundle.putInt("key",parcel.getParcel_id());
+                                    fragment.setArguments(bundle);
+                                    //
                                     FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
                                     FragmentTransaction transaction = fragmentManager.beginTransaction();
                                     transaction.replace(R.id.mainFrame, fragment);

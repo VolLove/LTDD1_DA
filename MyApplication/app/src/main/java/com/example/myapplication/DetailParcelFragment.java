@@ -104,7 +104,7 @@ public class DetailParcelFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 Bundle bundle = new Bundle();
-                bundle.putInt("key",parcel.getParcel_id());
+                bundle.putInt("Key",parcel.getParcel_id());
                 UpdateParcelFragment fragment = new UpdateParcelFragment();
                 fragment.setArguments(bundle);
 
