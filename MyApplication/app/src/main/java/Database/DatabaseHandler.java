@@ -371,4 +371,24 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 
         return typeParcel;
     }
+    public int countParcelsByType(int typeId) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        int count = 0;
+
+        Cursor cursor = db.rawQuery(
+                "SELECT COUNT(*) FROM Parcel WHERE id_type = ?", // Truy vấn đếm số lượng Parcel với id_type tương ứng
+                new String[]{String.valueOf(typeId)}
+        );
+
+        if (cursor != null) {
+            if (cursor.moveToFirst()) {
+                count = cursor.getInt(0); // Lấy kết quả đếm từ cột COUNT(*)
+            }
+            cursor.close();
+        }
+
+        db.close();
+
+        return count;
+    }
 }

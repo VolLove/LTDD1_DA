@@ -38,7 +38,7 @@ public class TypeParcelAdapter extends ArrayAdapter {
     Context context;
     int resource;
     TextView tvName;
-    TextView tvPackFree;
+    TextView tvPackFree, tvCount;
     Button btnDelete;
     Button btnEdit;
 
@@ -53,16 +53,19 @@ public class TypeParcelAdapter extends ArrayAdapter {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         convertView = LayoutInflater.from(context).inflate(resource, null);
+        //ánh xạ
         tvName = convertView.findViewById(R.id.typeparcelTVName);
         tvPackFree = convertView.findViewById(R.id.typeparcelTVPackFree);
         btnDelete = convertView.findViewById(R.id.typeparcelbtnDelete);
         btnEdit = convertView.findViewById(R.id.typeparcelbtnEdit);
-
+        tvCount = convertView.findViewById(R.id.typeparcelTVCount);
+        //main
         TypeParcel typeParcel = typeParcels.get(position);
-        DecimalFormat decimalFormat = new DecimalFormat("#,###.00");
+        DecimalFormat decimalFormat = new DecimalFormat("#,###");
         tvName.setText(typeParcel.getTitle());
-        tvPackFree.setText(decimalFormat.format(String.valueOf(typeParcel.getPack_free())));
-
+        tvPackFree.setText(decimalFormat.format(typeParcel.getPack_free()));
+        int i = MainActivity.databaseHandler.countParcelsByType(typeParcel.getType_id());
+        tvCount.setText(String.valueOf(i));
         // Xử lý sự kiện khi nhấn button Xóa
         btnDelete.setOnClickListener(v -> {
             List<Parcel> parcels = MainActivity.databaseHandler.getAllParcels();
