@@ -13,6 +13,16 @@
         android:hint="Nhập mã đơn hàng"
         android:paddingVertical="10dp" />
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/black" />
+
+    <Spinner
+        android:id="@+id/parcelSp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
     <ListView
         android:id="@+id/list_parcel_LvDanhSach"
         android:layout_width="match_parent"

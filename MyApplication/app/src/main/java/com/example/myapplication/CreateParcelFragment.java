@@ -70,7 +70,7 @@ public class CreateParcelFragment extends Fragment {
                     edtDecription.setError("Đừng để trống!");
                 } else {
                     Parcel parcel = new Parcel();
-                    parcel.setStatus(0);
+                    parcel.setStatus(1);
                     parcel.setId_type(typeParcels.get(spType.getSelectedItemPosition()).getType_id());
                     parcel.setDate_get_date(new Date());
                     parcel.setDate_trans("1/1/1");

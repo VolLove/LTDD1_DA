@@ -66,19 +66,19 @@ public class ParcelAdapter extends ArrayAdapter {
             tvDateTrans.setText(tvDateTrans.getText() + parcel.getDate_trans().toString());
 
         }
-        if (parcel.getStatus() == 0) {
+        if (parcel.getStatus() == 1) {
             tvStatus.setText("Trong kho");
             llStatus.setBackgroundResource(R.color.primal_pink);
         }
-        if (parcel.getStatus() == 1) {
+        if (parcel.getStatus() == 2) {
             llStatus.setBackgroundResource(R.color.primal_green);
             tvStatus.setText("Đang vận chuyển");
         }
-        if (parcel.getStatus() == 2) {
+        if (parcel.getStatus() == 3) {
             llStatus.setBackgroundResource(R.color.primal_blue);
             tvStatus.setText("Đã nhận");
         }
-        if (parcel.getStatus() == 3) {
+        if (parcel.getStatus() == 4) {
             llStatus.setBackgroundResource(R.color.primal_red);
             tvStatus.setText("Trả hàng");
         }

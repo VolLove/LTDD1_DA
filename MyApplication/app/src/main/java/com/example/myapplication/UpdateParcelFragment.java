@@ -101,10 +101,7 @@ public class UpdateParcelFragment extends Fragment {
                                     parcel.setName_sender(edtname_sender.getText().toString());
                                     parcel.setPhone_receiver(edtphone_receiver.getText().toString());
                                     parcel.setPhone_sender(edtphone_sender.getText().toString());
-                                    try {
-                                        parcel.setWeight(Double.valueOf(edtweight.getText().toString()));
-                                    } catch (NumberFormatException e) {
-                                    }
+                                    parcel.setWeight(Double.valueOf(edtweight.getText().toString()));
                                     parcel.setDecription(edtdecription.getText().toString());
                                     //Cập nhật
                                     MainActivity.databaseHandler.updateParcel(parcel);
@@ -113,7 +110,7 @@ public class UpdateParcelFragment extends Fragment {
                                     DetailParcelFragment fragment = new DetailParcelFragment();
                                     //truyền id
                                     Bundle bundle = new Bundle();
-                                    bundle.putInt("key",parcel.getParcel_id());
+                                    bundle.putInt("key", parcel.getParcel_id());
                                     fragment.setArguments(bundle);
                                     //
                                     FragmentManager fragmentManager = getActivity().getSupportFragmentManager();

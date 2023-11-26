@@ -58,28 +58,28 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 
 
         String insertParcelData = "INSERT INTO Parcel (  id_type, status, name_sender, phone_sender, name_receiver, phone_receiver, address_receiver, decription, weight, date_get, date_trans) " +
-                "VALUES (  2, 0, 'Sender Name 1', '123456789', 'Receiver Name 1', '987654321', '43, Nguyễn Chí Thanh, Ba Đình, Hà Nội', 'Description', 2.5, '18/01/2023', '1/1/1')";
+                "VALUES (  2, 1, 'Sender Name 1', '123456789', 'Receiver Name 1', '987654321', '43, Nguyễn Chí Thanh, Ba Đình, Hà Nội', 'Description', 2.5, '18/01/2023', '1/1/1')";
         sqLiteDatabase.execSQL(insertParcelData);
         insertParcelData = "INSERT INTO Parcel (  id_type, status, name_sender, phone_sender, name_receiver, phone_receiver, address_receiver, decription, weight, date_get, date_trans) " +
-                "VALUES (  3, 0, 'Sender Name 2', '123456789', 'Receiver Name 2', '987654321', '43, Nguyễn Chí Thanh, Ba Đình, Hà Nội', 'Description', 2.5, '18/01/2023', '1/1/1')";
+                "VALUES (  3, 2, 'Sender Name 2', '123456789', 'Receiver Name 2', '987654321', '43, Nguyễn Chí Thanh, Ba Đình, Hà Nội', 'Description', 2.5, '18/01/2023', '1/1/1')";
         sqLiteDatabase.execSQL(insertParcelData);
         insertParcelData = "INSERT INTO Parcel (  id_type, status, name_sender, phone_sender, name_receiver, phone_receiver, address_receiver, decription, weight, date_get, date_trans) " +
-                "VALUES (  4, 0, 'Sender Name 3', '123456789', 'Receiver Name 3', '987654321', '43, Nguyễn Chí Thanh, Ba Đình, Hà Nội', 'Description', 2.5, '18/01/2023', '1/1/1')";
+                "VALUES (  4, 3, 'Sender Name 3', '123456789', 'Receiver Name 3', '987654321', '43, Nguyễn Chí Thanh, Ba Đình, Hà Nội', 'Description', 2.5, '18/01/2023', '1/1/1')";
         sqLiteDatabase.execSQL(insertParcelData);
         insertParcelData = "INSERT INTO Parcel (  id_type, status, name_sender, phone_sender, name_receiver, phone_receiver, address_receiver, decription, weight, date_get, date_trans) " +
-                "VALUES ( 1, 0, 'Sender Name 4', '123456789', 'Receiver Name 4', '987654321', '43, Nguyễn Chí Thanh, Ba Đình, Hà Nội', 'Description', 2.5, '18/01/2023', '1/1/1')";
+                "VALUES ( 1, 1, 'Sender Name 4', '123456789', 'Receiver Name 4', '987654321', '43, Nguyễn Chí Thanh, Ba Đình, Hà Nội', 'Description', 2.5, '18/01/2023', '1/1/1')";
         sqLiteDatabase.execSQL(insertParcelData);
         insertParcelData = "INSERT INTO Parcel (  id_type, status, name_sender, phone_sender, name_receiver, phone_receiver, address_receiver, decription, weight, date_get, date_trans) " +
-                "VALUES (  2, 0, 'Sender Name 5', '123456789', 'Receiver Name 5', '987654321', '43, Nguyễn Chí Thanh, Ba Đình, Hà Nội', 'Description', 2.5, '18/01/2023', '1/1/1')";
+                "VALUES (  2, 2, 'Sender Name 5', '123456789', 'Receiver Name 5', '987654321', '43, Nguyễn Chí Thanh, Ba Đình, Hà Nội', 'Description', 2.5, '18/01/2023', '1/1/1')";
         sqLiteDatabase.execSQL(insertParcelData);
         insertParcelData = "INSERT INTO Parcel (  id_type, status, name_sender, phone_sender, name_receiver, phone_receiver, address_receiver, decription, weight, date_get, date_trans) " +
-                "VALUES ( 3, 0, 'Sender Name 6', '123456789', 'Receiver Name 6', '987654321', '43, Nguyễn Chí Thanh, Ba Đình, Hà Nội', 'Description', 2.5, '18/01/2023', '1/1/1')";
+                "VALUES ( 3, 3, 'Sender Name 6', '123456789', 'Receiver Name 6', '987654321', '43, Nguyễn Chí Thanh, Ba Đình, Hà Nội', 'Description', 2.5, '18/01/2023', '1/1/1')";
         sqLiteDatabase.execSQL(insertParcelData);
         insertParcelData = "INSERT INTO Parcel (  id_type, status, name_sender, phone_sender, name_receiver, phone_receiver, address_receiver, decription, weight, date_get, date_trans) " +
-                "VALUES (  4, 0, 'Sender Name 7', '123456789', 'Receiver Name 7', '987654321', '43, Nguyễn Chí Thanh, Ba Đình, Hà Nội', 'Description', 2.5, '18/01/2023', '1/1/1')";
+                "VALUES (  4, 1, 'Sender Name 7', '123456789', 'Receiver Name 7', '987654321', '43, Nguyễn Chí Thanh, Ba Đình, Hà Nội', 'Description', 2.5, '18/01/2023', '1/1/1')";
         sqLiteDatabase.execSQL(insertParcelData);
         insertParcelData = "INSERT INTO Parcel (  id_type, status, name_sender, phone_sender, name_receiver, phone_receiver, address_receiver, decription, weight, date_get, date_trans) " +
-                "VALUES (  1, 0, 'Sender Name 8', '123456789', 'Receiver Name 8', '987654321', '43, Nguyễn Chí Thanh, Ba Đình, Hà Nội', 'Description', 2.5, '18/01/2023', '1/1/1')";
+                "VALUES (  1, 2, 'Sender Name 8', '123456789', 'Receiver Name 8', '987654321', '43, Nguyễn Chí Thanh, Ba Đình, Hà Nội', 'Description', 2.5, '18/01/2023', '1/1/1')";
         sqLiteDatabase.execSQL(insertParcelData);
     }
 
@@ -140,7 +140,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         List<Parcel> parcelList = new ArrayList<>();
         String selectQuery = "SELECT * FROM Parcel";
 
-         db = this.getWritableDatabase();
+        db = this.getWritableDatabase();
         Cursor cursor = db.rawQuery(selectQuery, null);
 
         // Duyệt qua các dòng dữ liệu và thêm vào danh sách parcelList
@@ -251,9 +251,10 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         db.delete("TypeParcel", "type_id = ?", new String[]{String.valueOf(typeParcellId)});
 
     }
+
     @SuppressLint("Range")
     public Parcel getParcelById(int parcelId) {
-        SQLiteDatabase db = this.getReadableDatabase();
+        db = this.getReadableDatabase();
 
         Cursor cursor = db.query(
                 "Parcel", // Tên bảng
@@ -297,9 +298,50 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         if (cursor != null) {
             cursor.close();
         }
-        db.close();
 
         return parcel;
     }
 
+    @SuppressLint("Range")
+    public List<Parcel> getParcelsByStatus(int status) {
+        List<Parcel> parcelList = new ArrayList<>();
+        db = this.getReadableDatabase();
+
+        Cursor cursor = db.query(
+                "Parcel", // Tên bảng
+                null, // Danh sách các cột, null để lấy tất cả các cột
+                "status = ?", // Câu điều kiện WHERE
+                new String[]{String.valueOf(status)}, // Giá trị đối số cho điều kiện WHERE
+                null, // GROUP BY
+                null, // HAVING
+                null // ORDER BY
+        );
+
+        if (cursor != null && cursor.moveToFirst()) {
+            do {
+                Parcel parcel = new Parcel();
+                parcel.setParcel_id(cursor.getInt(cursor.getColumnIndex("parcel_id")));
+                parcel.setId_type(cursor.getInt(cursor.getColumnIndex("id_type")));
+                parcel.setStatus(cursor.getInt(cursor.getColumnIndex("status")));
+                parcel.setName_sender(cursor.getString(cursor.getColumnIndex("name_sender")));
+                parcel.setPhone_sender(cursor.getString(cursor.getColumnIndex("phone_sender")));
+                parcel.setName_receiver(cursor.getString(cursor.getColumnIndex("name_receiver")));
+                parcel.setPhone_receiver(cursor.getString(cursor.getColumnIndex("phone_receiver")));
+                parcel.setAddress_receiver(cursor.getString(cursor.getColumnIndex("address_receiver")));
+                parcel.setDecription(cursor.getString(cursor.getColumnIndex("decription")));
+                parcel.setWeight(cursor.getDouble(cursor.getColumnIndex("weight")));
+                parcel.setDate_get(cursor.getString(cursor.getColumnIndex("date_get")));
+                parcel.setDate_trans(cursor.getString(cursor.getColumnIndex("date_trans")));
+
+                parcelList.add(parcel);
+            } while (cursor.moveToNext());
+        }
+
+        // Đóng Cursor và Database sau khi sử dụng xong
+        if (cursor != null) {
+            cursor.close();
+        }
+
+        return parcelList;
+    }
 }

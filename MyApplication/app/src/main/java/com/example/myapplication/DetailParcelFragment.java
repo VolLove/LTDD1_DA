@@ -182,24 +182,24 @@ public class DetailParcelFragment extends Fragment {
         tvaddress_receiver.setText(tvaddress_receiver.getText().toString() + parcel.getAddress_receiver());
         tvweight.setText(tvweight.getText().toString() + parcel.getWeight() + " kg");
 
-        if (parcel.getStatus() == 0) {
+        if (parcel.getStatus() == 1) {
             btnChange.setBackgroundResource(R.color.primal_pink);
             tvstatus.setText(tvstatus.getText().toString() + "Trong kho");
             btnChange.setText("Xác nhận gửi hàng");
         }
-        if (parcel.getStatus() == 1) {
+        if (parcel.getStatus() == 2) {
             btnChange.setBackgroundResource(R.color.primal_green);
             tvstatus.setText(tvstatus.getText().toString() + "Đang vận chuyển");
             btnChange.setText("Xác nhận nhận hàng");
 
         }
-        if (parcel.getStatus() == 2) {
+        if (parcel.getStatus() == 3) {
             btnChange.setBackgroundResource(R.color.primal_blue);
             tvstatus.setText(tvstatus.getText().toString() + "Đã nhận");
             btnChange.setText("Hàng đã nhận");
 
         }
-        if (parcel.getStatus() == 3) {
+        if (parcel.getStatus() == 4) {
             btnChange.setBackgroundResource(R.color.primal_red);
             tvstatus.setText(tvstatus.getText().toString() + "Trả hàng");
             btnChange.setText("Hàng trả lại");
