@@ -3,6 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/primal"
+    android:padding="20dp"
     android:orientation="vertical">
 
     <TextView
@@ -33,6 +34,7 @@
         android:id="@+id/createTypeParcelEdtPack"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:inputType="number"
         android:background="@drawable/layoutdesign2"
         android:hint="Phí vận chuyển"
         android:padding="10dp"
@@ -47,6 +49,7 @@
         android:orientation="horizontal">
 
         <Button
+            android:id="@+id/createTypeParcelBtnSave"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="20dp"
@@ -56,6 +59,7 @@
             android:textSize="20dp" />
 
         <Button
+            android:id="@+id/createTypeParcelBtnClose"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="20dp"

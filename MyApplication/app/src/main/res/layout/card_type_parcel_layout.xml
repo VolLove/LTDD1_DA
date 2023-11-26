@@ -3,10 +3,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@color/primal_green"
     android:orientation="vertical"
-    android:padding="10dp">
-
+    android:background="@color/primal"
+    android:padding="5dp">
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="10dp"
+    android:background="@color/primal_green">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -39,7 +44,7 @@
 
         <TextView
             android:id="@+id/typeparcelTVPackFree"
-            android:layout_width="200dp"
+            android:layout_width="160dp"
             android:layout_height="wrap_content"
             android:text="text"
             android:textSize="20dp" />
@@ -75,4 +80,6 @@
             android:text="Sửa" />
 
     </LinearLayout>
+</LinearLayout>
+
 </LinearLayout>

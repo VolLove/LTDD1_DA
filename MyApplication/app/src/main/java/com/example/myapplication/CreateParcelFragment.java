@@ -81,7 +81,9 @@ public class CreateParcelFragment extends Fragment {
                     parcel.setPhone_sender(edtphone_sender.getText().toString());
                     parcel.setWeight(Integer.parseInt(edtweight.getText().toString()));
                     parcel.setDecription(edtDecription.getText().toString());
+
                     MainActivity.databaseHandler.addParcel(parcel);
+
                     ListParcelFragment fragment = new ListParcelFragment();
                     FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
                     FragmentTransaction transaction = fragmentManager.beginTransaction();
