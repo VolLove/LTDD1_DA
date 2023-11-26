@@ -60,7 +60,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         } else if (id == R.id.nav_table_parcel) {
             replace(new ListParcelFragment());
         } else if (id == R.id.nav_table_type) {
-            replace(new ListParcelFragment());
+            replace(new ListTypeParcelFragment());
         } else if (id == R.id.nav_create_parcel) {
             replace(new CreateParcelFragment());
         } else if (id == R.id.nav_create_type) {
