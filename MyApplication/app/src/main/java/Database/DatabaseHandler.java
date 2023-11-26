@@ -255,8 +255,10 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         values.put("pack_free", typeParcel.getPack_free());
         // Cập nhật dữ liệu trong bảng TypeParcel dựa trên type_id
         return db.update("TypeParcel", values, "type_id = ?", new String[]{String.valueOf(typeParcel.getType_id())});
-    }  // Xóa một parcel từ bảng Parcel
+    }
 
+
+    // Xóa một parcel từ bảng Parcel
     public void deleteTypeParcel(int typeParcellId) {
         db = this.getWritableDatabase();
         db.delete("TypeParcel", "type_id = ?", new String[]{String.valueOf(typeParcellId)});
@@ -276,17 +278,6 @@ public class DatabaseHandler extends SQLiteOpenHelper {
                 null,
                 null
         );
-//              "id_type INTEGER," +
-//              "status INTEGER," +
-//              "name_sender TEXT," +
-//              "phone_sender TEXT, " +
-//              "name_receiver TEXT," +
-//              "phone_receiver TEXT," +
-//              "address_receiver TEXT, " +
-//              "decription TEXT," +
-//              "weight REAL," +
-//              "date_get TEXT, " +
-//              "date_trans TEXT)";
         Parcel parcel = null;
         if (cursor != null && cursor.moveToFirst()) {
             // Tạo đối tượng Parcel từ dữ liệu trong Cursor
@@ -305,7 +296,6 @@ public class DatabaseHandler extends SQLiteOpenHelper {
             parcel.setDate_trans(cursor.getString(cursor.getColumnIndex("date_trans")));
         }
 
-        // Đóng Cursor và Database sau khi sử dụng xong
         if (cursor != null) {
             cursor.close();
         }

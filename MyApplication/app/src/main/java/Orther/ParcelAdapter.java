@@ -63,6 +63,7 @@ public class ParcelAdapter extends ArrayAdapter {
         TextView tvDateTrans = convertView.findViewById(R.id.cardParcelTvdateTrans);
         LinearLayout llStatus = convertView.findViewById(R.id.cardParcelllStatus);
         Button cardBtnMore = convertView.findViewById(R.id.cardParcelBtnMore);
+
         Parcel parcel = data.get(position);
         tvID.setText(tvID.getText() + "" + parcel.getParcel_id());
         tvNameTrans.setText(tvNameTrans.getText() + parcel.getName_sender());
@@ -115,11 +116,12 @@ public class ParcelAdapter extends ArrayAdapter {
         });
         return convertView;
     }
-
+    //Thay đổi dữ liệu mới cho adapter
     public void setData(List<Parcel> newData) {
         data = newData;
     }
 
+    //Tìm kiếm ơn hàng
     public void searchById(String tparcelId) {
         List<Parcel> filteredList = new ArrayList<>();
         if (tparcelId.length() != 0) {

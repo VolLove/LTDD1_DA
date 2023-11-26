@@ -38,13 +38,14 @@ public class ListParcelFragment extends Fragment {
         View view = inflater.inflate(R.layout.layout_list_parcel, container, false);
         //Ánh xạ
         listView = view.findViewById(R.id.list_parcel_LvDanhSach);
-        parcels = MainActivity.databaseHandler.getAllParcels();
-        typeParcels = MainActivity.databaseHandler.getAllTypeParcels();
         spinner = view.findViewById(R.id.parcelSp);
         editText = view.findViewById(R.id.list_parcel_EdtSearch);
         //main
+        parcels = MainActivity.databaseHandler.getAllParcels();
+        typeParcels = MainActivity.databaseHandler.getAllTypeParcels();
         parcelAdapter = new ParcelAdapter(requireContext(), R.layout.card_parcel_layout, parcels, typeParcels);
         listView.setAdapter(parcelAdapter);
+
         final CharSequence[] changes = {"All", "Trong kho", "Dang giao", "Đã nhận", "Hàng trả"};
         arrayAdapter = new ArrayAdapter<>(getActivity(), android.R.layout.simple_list_item_1, changes);
         spinner.setAdapter(arrayAdapter);
@@ -69,14 +70,13 @@ public class ListParcelFragment extends Fragment {
         });
         editText.addTextChangedListener(new TextWatcher() {
             @Override
-            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-
-            }
-
-            @Override
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
                 String s = editText.getText().toString();
                 parcelAdapter.searchById(s);
+            }
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
             }
 
             @Override
