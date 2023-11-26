@@ -44,4 +44,8 @@ public class User {
         this.passWord = HashPassword.hashPassword(passWord);
     }
 
+    @Override
+    public String toString() {
+        return "id=" + id + ", userName='" + userName + '\'' + ", passWord='" + passWord;
+    }
 }

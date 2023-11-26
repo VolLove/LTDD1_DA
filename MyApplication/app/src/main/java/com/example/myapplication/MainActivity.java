@@ -10,6 +10,7 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 
@@ -65,6 +66,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             replace(new CreateParcelFragment());
         } else if (id == R.id.nav_create_type) {
             replace(new CreateTypeParcelFragment());
+        } else if (id == R.id.nav_logout) {
+            Intent intent = new Intent(MainActivity.this,LoginActivity.class);
+            startActivity(intent);
+            finish();
         } else if (id == R.id.nav_exit) {
             finish();
         }

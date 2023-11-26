@@ -23,6 +23,9 @@
             android:id="@+id/nav_create_type"
             android:title="Thêm loại bưu phẩm" />
         <item
+            android:id="@+id/nav_logout"
+            android:title="Đăng xuất" />
+        <item
             android:id="@+id/nav_exit"
             android:title="Thoát" />
 

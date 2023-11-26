@@ -1,5 +1,7 @@
 package Orther;
 
+import java.nio.charset.StandardCharsets;
+import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.security.SecureRandom;
 import java.security.spec.InvalidKeySpecException;
@@ -9,34 +11,23 @@ import javax.crypto.spec.PBEKeySpec;
 
 public class HashPassword {
     public static String hashPassword(String password) {
-        int iterations = 10000;
-        int keyLength = 256;
-        char[] passwordChars = password.toCharArray();
-        byte[] salt = generateSalt();
-
         try {
-            PBEKeySpec spec = new PBEKeySpec(passwordChars, salt, iterations, keyLength);
-            SecretKeyFactory skf = SecretKeyFactory.getInstance("PBKDF2WithHmacSHA1");
-            byte[] hashedBytes = skf.generateSecret(spec).getEncoded();
-            return iterations + ":" + bytesToHex(salt) + ":" + bytesToHex(hashedBytes);
-        } catch (NoSuchAlgorithmException | InvalidKeySpecException e) {
+            MessageDigest digest = MessageDigest.getInstance("SHA-256");
+
+            byte[] encodedHash = digest.digest(
+                    password.getBytes(StandardCharsets.UTF_8));
+
+            StringBuilder hexString = new StringBuilder();
+            for (byte b : encodedHash) {
+                String hex = Integer.toHexString(0xff & b);
+                if (hex.length() == 1) hexString.append('0');
+                hexString.append(hex);
+            }
+            return hexString.toString();
+
+        } catch (NoSuchAlgorithmException e) {
             e.printStackTrace();
         }
-
         return null;
-    }
-    // Phương thức để tạo salt ngẫu nhiên
-    private static byte[] generateSalt() {
-        SecureRandom random = new SecureRandom();
-        byte[] salt = new byte[16];
-        random.nextBytes(salt);
-        return salt;
-    }
-    private static String bytesToHex(byte[] bytes) {
-        StringBuilder sb = new StringBuilder();
-        for (byte b : bytes) {
-            sb.append(String.format("%02x", b));
-        }
-        return sb.toString();
     }
 }

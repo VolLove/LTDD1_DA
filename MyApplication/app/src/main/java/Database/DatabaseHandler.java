@@ -12,6 +12,8 @@ import java.util.List;
 
 import Model.Parcel;
 import Model.TypeParcel;
+import Model.User;
+import Orther.HashPassword;
 
 public class DatabaseHandler extends SQLiteOpenHelper {
     private static final String DATABASE_NAME = "db.sqlite";
@@ -40,10 +42,17 @@ public class DatabaseHandler extends SQLiteOpenHelper {
                 "date_get TEXT, " +
                 "date_trans TEXT)";
         String createTypeParcelTable = "CREATE TABLE TypeParcel (type_id INTEGER PRIMARY KEY, title TEXT, pack_free REAL)";
-
+        String CREATE_USER_TABLE = "CREATE TABLE User ( id INTEGER PRIMARY KEY, username  TEXT, password TEXT)";
         sqLiteDatabase.execSQL(createParcelTable);
         sqLiteDatabase.execSQL(createTypeParcelTable);
+        sqLiteDatabase.execSQL(CREATE_USER_TABLE);
 
+//        User user1 = new User("admin", "admin");
+//        User user2 = new User("user", "password");
+        String insertUserData = "INSERT INTO User ( username, password) VALUES ( 'admin', '8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918')";
+        sqLiteDatabase.execSQL(insertUserData);
+        insertUserData = "INSERT INTO User ( username, password) VALUES ( 'user', '5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8')";
+        sqLiteDatabase.execSQL(insertUserData);
 
         String insertTypeParcelData = "INSERT INTO TypeParcel ( title, pack_free) VALUES ( 'Thư', 10000)";
         sqLiteDatabase.execSQL(insertTypeParcelData);
@@ -59,10 +68,10 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         sqLiteDatabase.execSQL(insertTypeParcelData);
 
         String insertParcelData = "INSERT INTO Parcel (  id_type, status, name_sender, phone_sender, name_receiver, phone_receiver, address_receiver, decription, weight, date_get, date_trans) " +
-                "VALUES (  2, 1, 'Sender Name 1', '123456789', 'Receiver Name 1', '987654321', '43, Nguyễn Chí Thanh, Ba Đình, Hà Nội', 'Description', 2.5, '18/01/2023', '1/1/1')";
+                "VALUES (  2, 0, 'Sender Name 1', '123456789', 'Receiver Name 1', '987654321', '43, Nguyễn Chí Thanh, Ba Đình, Hà Nội', 'Description', 2.5, '18/01/2023', '1/1/1')";
         sqLiteDatabase.execSQL(insertParcelData);
         insertParcelData = "INSERT INTO Parcel (  id_type, status, name_sender, phone_sender, name_receiver, phone_receiver, address_receiver, decription, weight, date_get, date_trans) " +
-                "VALUES (  3, 2, 'Sender Name 2', '123456789', 'Receiver Name 2', '987654321', '43, Nguyễn Chí Thanh, Ba Đình, Hà Nội', 'Description', 2.5, '18/01/2023', '1/1/1')";
+                "VALUES (  3, 1, 'Sender Name 2', '123456789', 'Receiver Name 2', '987654321', '43, Nguyễn Chí Thanh, Ba Đình, Hà Nội', 'Description', 2.5, '18/01/2023', '1/1/1')";
         sqLiteDatabase.execSQL(insertParcelData);
         insertParcelData = "INSERT INTO Parcel (  id_type, status, name_sender, phone_sender, name_receiver, phone_receiver, address_receiver, decription, weight, date_get, date_trans) " +
                 "VALUES (  4, 3, 'Sender Name 3', '123456789', 'Receiver Name 3', '987654321', '43, Nguyễn Chí Thanh, Ba Đình, Hà Nội', 'Description', 2.5, '18/01/2023', '1/1/1')";
@@ -71,17 +80,19 @@ public class DatabaseHandler extends SQLiteOpenHelper {
                 "VALUES ( 1, 1, 'Sender Name 4', '123456789', 'Receiver Name 4', '987654321', '43, Nguyễn Chí Thanh, Ba Đình, Hà Nội', 'Description', 2.5, '18/01/2023', '1/1/1')";
         sqLiteDatabase.execSQL(insertParcelData);
         insertParcelData = "INSERT INTO Parcel (  id_type, status, name_sender, phone_sender, name_receiver, phone_receiver, address_receiver, decription, weight, date_get, date_trans) " +
-                "VALUES (  2, 2, 'Sender Name 5', '123456789', 'Receiver Name 5', '987654321', '43, Nguyễn Chí Thanh, Ba Đình, Hà Nội', 'Description', 2.5, '18/01/2023', '1/1/1')";
+                "VALUES (  2, 1, 'Sender Name 5', '123456789', 'Receiver Name 5', '987654321', '43, Nguyễn Chí Thanh, Ba Đình, Hà Nội', 'Description', 2.5, '18/01/2023', '1/1/1')";
         sqLiteDatabase.execSQL(insertParcelData);
         insertParcelData = "INSERT INTO Parcel (  id_type, status, name_sender, phone_sender, name_receiver, phone_receiver, address_receiver, decription, weight, date_get, date_trans) " +
                 "VALUES ( 3, 3, 'Sender Name 6', '123456789', 'Receiver Name 6', '987654321', '43, Nguyễn Chí Thanh, Ba Đình, Hà Nội', 'Description', 2.5, '18/01/2023', '1/1/1')";
         sqLiteDatabase.execSQL(insertParcelData);
         insertParcelData = "INSERT INTO Parcel (  id_type, status, name_sender, phone_sender, name_receiver, phone_receiver, address_receiver, decription, weight, date_get, date_trans) " +
-                "VALUES (  4, 1, 'Sender Name 7', '123456789', 'Receiver Name 7', '987654321', '43, Nguyễn Chí Thanh, Ba Đình, Hà Nội', 'Description', 2.5, '18/01/2023', '1/1/1')";
+                "VALUES (  4, 0, 'Sender Name 7', '123456789', 'Receiver Name 7', '987654321', '43, Nguyễn Chí Thanh, Ba Đình, Hà Nội', 'Description', 2.5, '18/01/2023', '1/1/1')";
         sqLiteDatabase.execSQL(insertParcelData);
         insertParcelData = "INSERT INTO Parcel (  id_type, status, name_sender, phone_sender, name_receiver, phone_receiver, address_receiver, decription, weight, date_get, date_trans) " +
-                "VALUES (  1, 2, 'Sender Name 8', '123456789', 'Receiver Name 8', '987654321', '43, Nguyễn Chí Thanh, Ba Đình, Hà Nội', 'Description', 2.5, '18/01/2023', '1/1/1')";
+                "VALUES (  1, 1, 'Sender Name 8', '123456789', 'Receiver Name 8', '987654321', '43, Nguyễn Chí Thanh, Ba Đình, Hà Nội', 'Description', 2.5, '18/01/2023', '1/1/1')";
         sqLiteDatabase.execSQL(insertParcelData);
+
+
     }
 
     @Override
@@ -199,7 +210,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 
     // CRUD cho bảng TypeParcel
     // Thêm một TypeParcel mới vào database
-   //    title TEXT, pack_free REAL
+    //    title TEXT, pack_free REAL
     public void addTypeParcel(TypeParcel typeParcel) {
         db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
@@ -371,6 +382,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 
         return typeParcel;
     }
+
     public int countParcelsByType(int typeId) {
         SQLiteDatabase db = this.getReadableDatabase();
         int count = 0;
@@ -387,8 +399,45 @@ public class DatabaseHandler extends SQLiteOpenHelper {
             cursor.close();
         }
 
-        db.close();
 
         return count;
+    }
+
+    //    "CREATE TABLE User ( id INTEGER PRIMARY KEY, username  TEXT, password TEXT)";
+    public void addUser(User user) {
+        db = this.getWritableDatabase();
+
+        ContentValues values = new ContentValues();
+        values.put("username", user.getUserName());
+        values.put("password", user.getPassWord());
+
+        // Chèn user vào bảng User
+        db.insert("User", null, values);
+
+    }
+
+    public boolean checkUserLogin(User user) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        boolean result = false;
+
+        Cursor cursor = db.query(
+                "User",
+                 new String[]{"id"},
+                "username" + "=? AND " + "password" + "=?",
+                new String[]{user.getUserName(), user.getPassWord()},
+                null,
+                null,
+                null
+        );
+
+        if (cursor != null && cursor.getCount() > 0) {
+            result = true; // Người dùng có tồn tại với thông tin đăng nhập cung cấp
+        }
+
+        if (cursor != null) {
+            cursor.close();
+        }
+
+        return result;
     }
 }

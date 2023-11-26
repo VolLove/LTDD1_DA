@@ -52,7 +52,7 @@ public class ListParcelFragment extends Fragment {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                 if (i != 0) {
-                    parcels = MainActivity.databaseHandler.getParcelsByStatus(spinner.getSelectedItemPosition());
+                    parcels = MainActivity.databaseHandler.getParcelsByStatus(spinner.getSelectedItemPosition()-1);
                     parcelAdapter = new ParcelAdapter(requireContext(), R.layout.card_parcel_layout, parcels, typeParcels);
                     listView.setAdapter(parcelAdapter);
                 } else {
