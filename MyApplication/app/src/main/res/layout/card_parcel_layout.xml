@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:background="@color/primal"
     android:orientation="vertical"
     android:padding="10dp">
 
@@ -13,7 +14,7 @@
         android:orientation="vertical">
 
         <LinearLayout
-            android:id="@+id/cardllStatus"
+            android:id="@+id/cardParcelllStatus"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/primal_pink"
@@ -31,7 +32,7 @@
                 android:padding="10dp">
 
                 <TextView
-                    android:id="@+id/cardTvID"
+                    android:id="@+id/cardParcelTvID"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@android:color/transparent"
@@ -40,7 +41,7 @@
                     android:textSize="20dp"
                     tools:ignore="TextSizeCheck" />
                 <TextView
-                    android:id="@+id/cardTvStatus"
+                    android:id="@+id/cardParcelTvStatus"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@android:color/transparent"
@@ -49,7 +50,7 @@
                     android:textSize="20dp"
                     tools:ignore="TextSizeCheck" />
                 <TextView
-                    android:id="@+id/cardTvType"
+                    android:id="@+id/cardParcelTvType"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@android:color/transparent"
@@ -61,7 +62,7 @@
             </LinearLayout>
 
             <Button
-                android:id="@+id/cardBtnMore"
+                android:id="@+id/cardParcelBtnMore"
                 android:layout_width="110dp"
                 android:layout_height="38dp"
                 android:layout_gravity="center_vertical|right"
@@ -81,7 +82,7 @@
             android:padding="10dp">
 
             <TextView
-                android:id="@+id/cardTvNameTrans"
+                android:id="@+id/cardParcelTvNameTrans"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@android:color/transparent"
@@ -90,7 +91,7 @@
                 android:textSize="20dp" />
 
             <TextView
-                android:id="@+id/cardTvNameGet"
+                android:id="@+id/cardParcelTvNameGet"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@android:color/transparent"
@@ -99,7 +100,7 @@
                 android:textSize="20dp" />
 
             <TextView
-                android:id="@+id/cardTvDateGet"
+                android:id="@+id/cardParcelTvDateGet"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@android:color/transparent"
@@ -108,7 +109,7 @@
                 android:textSize="20dp" />
 
             <TextView
-                android:id="@+id/cardTvdateTrans"
+                android:id="@+id/cardParcelTvdateTrans"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@android:color/transparent"

@@ -3,7 +3,12 @@
     android:layout_width="match_parent"
     android:layout_height="200dp"
     android:gravity="center"
-    android:background="#FFEB3B">
+    android:orientation="vertical"
+    android:background="@color/primal">
+    <ImageView
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:src="@drawable/ic_launcher_foreground"/>
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

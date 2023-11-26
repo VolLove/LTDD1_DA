@@ -9,10 +9,10 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-public class ListParcelFragment extends Fragment {
+public class ListTypeParcelFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.layout_list_parcel,container,false);
+        return inflater.inflate(R.layout.layout_list_type_parcel,container,false);
     }
 }

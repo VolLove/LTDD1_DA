@@ -1,13 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
-    <item
-        android:id="@+id/nav_create"
-        android:title="Thêm" />
-    <item
-        android:id="@+id/nav_reset"
-        android:title="Refrest" />
-    <item
-        android:id="@+id/nav_exit"
-        android:title="Thoát" />
+    <group
+        android:checkableBehavior="single">
+        <item
+
+            android:id="@+id/nav_home"
+            android:title="Trang chủ" />
+
+        <item
+            android:id="@+id/nav_table_parcel"
+            android:title="Table bưu phẩm" />
+
+        <item
+            android:id="@+id/nav_create_parcel"
+            android:title="Thêm bưu phẩm" />
+
+        <item
+            android:id="@+id/nav_table_type"
+            android:title="Table loại bưu phẩm" />
+
+        <item
+            android:id="@+id/nav_create_type"
+            android:title="Thêm loại bưu phẩm" />
+        <item
+            android:id="@+id/nav_exit"
+            android:title="Thoát" />
+
+    </group>
 
 </menu>

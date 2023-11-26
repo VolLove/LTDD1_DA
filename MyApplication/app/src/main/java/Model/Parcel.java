@@ -1,15 +1,18 @@
 package Model;
 
-import com.example.myapplication.BunkerActivity;
+import com.example.myapplication.MainActivity;
 
 import java.io.Serializable;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 
 public class Parcel implements Serializable {
-    private int parcel_id, id_personnel, id_type, status;
+    private int parcel_id, id_type, status;
     private String name_sender;
     private String phone_sender;
     private String name_receiver;
@@ -17,27 +20,14 @@ public class Parcel implements Serializable {
     private String address_receiver;
     private String decription;
     private double weight;
-    private Date date_get, date_trans;
+    private String date_get, date_trans;
     private SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
 
-    public String getDecription() {
-        return decription;
-    }
-
-    public void setDecription(String decription) {
-        this.decription = decription;
-    }
-
-
     public Parcel() {
-
     }
 
-    public Parcel(int parcel_id, int id_personnel, int id_type, int status,
-                  String name_sender, String phone_sender, String name_receiver, String phone_receiver,
-                  String address_receiver, String decription, double weight, String date_get, String date_trans) throws ParseException {
+    public Parcel(int parcel_id, int id_type, int status, String name_sender, String phone_sender, String name_receiver, String phone_receiver, String address_receiver, String decription, double weight, String date_get, String date_trans) {
         this.parcel_id = parcel_id;
-        this.id_personnel = id_personnel;
         this.id_type = id_type;
         this.status = status;
         this.name_sender = name_sender;
@@ -47,8 +37,8 @@ public class Parcel implements Serializable {
         this.address_receiver = address_receiver;
         this.decription = decription;
         this.weight = weight;
-        this.date_get = format.parse(date_get);
-        this.date_trans = format.parse(date_trans);
+        this.date_get = date_get;
+        this.date_trans = date_trans;
     }
 
     public int getParcel_id() {
@@ -57,14 +47,6 @@ public class Parcel implements Serializable {
 
     public void setParcel_id(int parcel_id) {
         this.parcel_id = parcel_id;
-    }
-
-    public int getId_personnel() {
-        return id_personnel;
-    }
-
-    public void setId_personnel(int id_personnel) {
-        this.id_personnel = id_personnel;
     }
 
     public int getId_type() {
@@ -80,9 +62,15 @@ public class Parcel implements Serializable {
     }
 
     public void setStatus(int status) {
+        LocalDateTime currentDateTime = LocalDateTime.now();
+        DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("dd/MM/yyyy", Locale.getDefault());
+        if (status == 2) {
+            date_trans = dateFormatter.format(currentDateTime);
+        } else {
+            date_trans = "1/1/1";
+        }
         this.status = status;
     }
-
 
     public String getName_sender() {
         return name_sender;
@@ -124,16 +112,13 @@ public class Parcel implements Serializable {
         this.address_receiver = address_receiver;
     }
 
-    public double getTransport_free() {
-        double multi = 0;
-        for (TypeParcel typeParcel : BunkerActivity.typeParcels) {
-            if (typeParcel.getType_id() == id_type) {
-                multi = typeParcel.getPack_free();
-            }
-        }
-        return weight * multi;
+    public String getDecription() {
+        return decription;
     }
 
+    public void setDecription(String decription) {
+        this.decription = decription;
+    }
 
     public double getWeight() {
         return weight;
@@ -144,29 +129,33 @@ public class Parcel implements Serializable {
     }
 
     public String getDate_get() {
-        return format.format(date_get);
+        return date_get;
     }
 
-    public void setDate_get(Date date_get) {
+    public void setDate_get(String date_get) {
         this.date_get = date_get;
-    }
-    public void setDate_get2(String date_trans) throws ParseException {
-        this.date_get = format.parse(date_trans);
     }
 
     public String getDate_trans() {
-        return format.format(date_trans);
+        return date_trans;
     }
 
-    public void setDate_trans(String date_trans) throws ParseException {
-        this.date_trans = format.parse(date_trans);
+    public void setDate_trans(String date_trans) {
+        this.date_trans = date_trans;
+    }
+
+    public void setDate_trans_Date(Date date_trans) {
+        this.date_trans = format.format(date_trans);
+    }
+
+    public void setDate_get_date(Date date_get) {
+        this.date_get = format.format(date_get);
     }
 
     @Override
     public String toString() {
         return "Parcel{" +
                 "parcel_id=" + parcel_id +
-                ", id_personnel=" + id_personnel +
                 ", id_type=" + id_type +
                 ", status=" + status +
                 ", name_sender='" + name_sender + '\'' +
@@ -176,9 +165,20 @@ public class Parcel implements Serializable {
                 ", address_receiver='" + address_receiver + '\'' +
                 ", decription='" + decription + '\'' +
                 ", weight=" + weight +
-                ", date_get=" + date_get +
-                ", date_trans=" + date_trans +
+                ", date_get='" + date_get + '\'' +
+                ", date_trans='" + date_trans + '\'' +
                 ", format=" + format +
                 '}';
+    }
+
+    public double getTransport_free() {
+        List<TypeParcel> typeParcels = MainActivity.databaseHandler.getAllTypeParcels();
+        double multi = 0;
+        for (TypeParcel typeParcel : typeParcels) {
+            if (typeParcel.getType_id() == id_type) {
+                multi = typeParcel.getPack_free();
+            }
+        }
+        return weight * multi;
     }
 }
