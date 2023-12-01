@@ -26,8 +26,11 @@ import com.github.mikephil.charting.formatter.ValueFormatter;
 
 import java.text.DecimalFormat;
 import java.util.ArrayList;
+import java.util.List;
 
 import Database.DatabaseHandler;
+import Model.Parcel;
+import Model.TypeParcel;
 
 public class ChartFragment extends Fragment {
     BarChart barChart;
@@ -61,7 +64,6 @@ public class ChartFragment extends Fragment {
             }
             cursor.close();
         }
-
         BarDataSet dataSet = new BarDataSet(entries, "");
         dataSet.setStackLabels(new String[]{"Trong kho", "Đang chuyển", "Đã nhận", "Trả hàng"});
         BarData barData = new BarData(dataSet);
@@ -72,13 +74,13 @@ public class ChartFragment extends Fragment {
         colors.add(Color.BLUE);
         colors.add(Color.RED);
         dataSet.setColors(colors);
-        ValueFormatter formatter = new ValueFormatter() {
+        barData.setValueFormatter(new ValueFormatter() {
             @Override
-            public String getBarLabel(BarEntry barEntry) {
-                return String.format("%.0f",barEntry.getY());
+            public String getFormattedValue(float value) {
+                DecimalFormat decimalFormat = new DecimalFormat("###,###,##0"); // Định dạng tiền tệ theo ý muốn của bạn
+                return decimalFormat.format(value) + " VND";
             }
-        };
-        barData.setValueFormatter(formatter);
+        });
         barData.setValueTextSize(20f);
         // Gán dữ liệu vào biểu đồ
         XAxis xAxis = barChart.getXAxis();

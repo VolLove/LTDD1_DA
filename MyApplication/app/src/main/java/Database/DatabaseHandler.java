@@ -453,11 +453,14 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         db = this.getReadableDatabase();
 
         String query = "SELECT date_get, " +
-                "SUM(CASE WHEN status = 0 THEN 1 ELSE 0 END) AS status_1_count, " +
-                "SUM(CASE WHEN status = 1 THEN 1 ELSE 0 END) AS status_2_count, " +
-                "SUM(CASE WHEN status = 2 THEN 1 ELSE 0 END) AS status_3_count, " +
-                "SUM(CASE WHEN status = 3 THEN 1 ELSE 0 END) AS status_4_count " +
-                "FROM Parcel GROUP BY date_get ORDER BY strftime('%Y-%m-%d', " +
+                "SUM(CASE WHEN status = 0 THEN p.weight * tp.pack_free ELSE 0 END) AS status_1_count, " +
+                "SUM(CASE WHEN status = 1 THEN p.weight * tp.pack_free ELSE 0 END) AS status_2_count, " +
+                "SUM(CASE WHEN status = 2 THEN p.weight * tp.pack_free ELSE 0 END) AS status_3_count, " +
+                "SUM(CASE WHEN status = 3 THEN p.weight * tp.pack_free ELSE 0 END) AS status_4_count " +
+                "FROM Parcel p " +
+                "INNER JOIN TypeParcel tp ON p.id_type = tp.type_id " +
+                "GROUP BY date_get " +
+                "ORDER BY strftime('%Y-%m-%d', " +
                 "substr(date_get, 7, 4) || '-' || substr(date_get, 4, 2) || '-' || substr(date_get, 1, 2)) ASC";
 
         Cursor cursor = db.rawQuery(query, null);
