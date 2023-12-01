@@ -26,9 +26,12 @@
             android:id="@+id/nav_logout"
             android:title="Đăng xuất" />
         <item
+            android:id="@+id/nav_chart"
+            android:title="Thống kê" />
+
+        <item
             android:id="@+id/nav_exit"
             android:title="Thoát" />
-
     </group>
 
 </menu>

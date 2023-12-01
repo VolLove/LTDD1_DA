@@ -66,6 +66,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             replace(new CreateParcelFragment());
         } else if (id == R.id.nav_create_type) {
             replace(new CreateTypeParcelFragment());
+
+        } else if (id == R.id.nav_chart) {
+            replace(new ChartFragment());
+
         } else if (id == R.id.nav_logout) {
             Intent intent = new Intent(MainActivity.this,LoginActivity.class);
             startActivity(intent);
