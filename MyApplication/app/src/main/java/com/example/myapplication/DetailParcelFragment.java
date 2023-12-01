@@ -1,6 +1,7 @@
 package com.example.myapplication;
 
 import android.content.DialogInterface;
+import android.icu.util.LocaleData;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
@@ -9,6 +10,7 @@ import android.view.ViewGroup;
 import android.widget.ActionMenuView;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -19,10 +21,13 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import java.io.File;
 import java.text.DecimalFormat;
 import java.text.ParseException;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 
 import Database.DatabaseHandler;
 import Model.Parcel;
@@ -34,6 +39,7 @@ public class DetailParcelFragment extends Fragment {
             tvphone_receiver, tvaddress_receiver,
             tvstatus, tv_type, tvweight, tvdecription, tvdate_get, tvdate_trans, tvtransfree;
     Button btnChange, btnDelete, btnEdit;
+    ImageView imageView;
 
     @Nullable
     @Override
@@ -56,6 +62,7 @@ public class DetailParcelFragment extends Fragment {
         tvtransfree = view.findViewById(R.id.detailTvFree);
         btnDelete = view.findViewById(R.id.detailBtnDelete);
         btnEdit = view.findViewById(R.id.detailBtnEdit);
+        imageView = view.findViewById(R.id.detailImage);
         //main
         Bundle bundle = getArguments();
         int i = bundle.getInt("key");
@@ -80,6 +87,7 @@ public class DetailParcelFragment extends Fragment {
                                 Parcel parcel1;
                                 parcel1 = MainActivity.databaseHandler.getParcelById(parcel.getParcel_id());
                                 if (parcel1 != null) {
+                                    parcel.setDate_trans_Date(new Date());
                                     MainActivity.databaseHandler.updateParcel(parcel);
                                     ListParcelFragment fragment = new ListParcelFragment();
                                     // Sử dụng FragmentManager để thay thế Fragment hiện tại bằng Fragment mới
@@ -136,6 +144,10 @@ public class DetailParcelFragment extends Fragment {
                                 Parcel parcel1;
                                 parcel1 = MainActivity.databaseHandler.getParcelById(parcel.getParcel_id());
                                 if (parcel1 != null) {
+                                    if (parcel.getImage_path() != null) {
+                                        File file = new File(parcel.getImage_path());
+                                        file.delete();
+                                    }
                                     MainActivity.databaseHandler.deleteParcel(parcel.getParcel_id());
                                     ListParcelFragment.parcels = MainActivity.databaseHandler.getAllParcels();
                                     ListParcelFragment.parcelAdapter.setData(MainActivity.databaseHandler.getAllParcels());
@@ -173,6 +185,9 @@ public class DetailParcelFragment extends Fragment {
         tvphone_sender.setText(tvphone_sender.getText().toString() + parcel.getPhone_sender());
         tvphone_receiver.setText(tvphone_receiver.getText().toString() + parcel.getPhone_receiver());
         tvdate_get.setText(tvdate_get.getText().toString() + parcel.getDate_get());
+        if (parcel.getImage_path() != null && parcel.getImage_path() != "") {
+            imageView.setImageURI(parcel.getImage_path_uri());
+        }
         tvdecription.setText(parcel.getDecription());
         if (parcel.getDate_trans().equals("01/01/0001")) {
             tvdate_trans.setText(tvdate_trans.getText() + "N/A");

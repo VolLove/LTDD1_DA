@@ -1,9 +1,10 @@
 package Model;
 
+import android.net.Uri;
+
 import com.example.myapplication.MainActivity;
 
 import java.io.Serializable;
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -21,12 +22,13 @@ public class Parcel implements Serializable {
     private String decription;
     private double weight;
     private String date_get, date_trans;
+    private String image_path;
     private SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
 
     public Parcel() {
     }
 
-    public Parcel(int parcel_id, int id_type, int status, String name_sender, String phone_sender, String name_receiver, String phone_receiver, String address_receiver, String decription, double weight, String date_get, String date_trans) {
+    public Parcel(int parcel_id, int id_type, int status, String name_sender, String phone_sender, String name_receiver, String phone_receiver, String address_receiver, String decription, double weight, String date_get, String date_trans,String image_path) {
         this.parcel_id = parcel_id;
         this.id_type = id_type;
         this.status = status;
@@ -39,6 +41,7 @@ public class Parcel implements Serializable {
         this.weight = weight;
         this.date_get = date_get;
         this.date_trans = date_trans;
+        this.image_path = image_path;
     }
 
     public int getParcel_id() {
@@ -140,6 +143,16 @@ public class Parcel implements Serializable {
         return date_trans;
     }
 
+    public String getImage_path() {
+        return image_path;
+    }
+    public Uri getImage_path_uri() {
+        return Uri.parse(image_path);
+    }
+    public void setImage_path(String image_path) {
+        this.image_path = image_path;
+    }
+
     public void setDate_trans(String date_trans) {
         this.date_trans = date_trans;
     }
@@ -152,24 +165,6 @@ public class Parcel implements Serializable {
         this.date_get = format.format(date_get);
     }
 
-    @Override
-    public String toString() {
-        return "Parcel{" +
-                "parcel_id=" + parcel_id +
-                ", id_type=" + id_type +
-                ", status=" + status +
-                ", name_sender='" + name_sender + '\'' +
-                ", phone_sender='" + phone_sender + '\'' +
-                ", name_receiver='" + name_receiver + '\'' +
-                ", phone_receiver='" + phone_receiver + '\'' +
-                ", address_receiver='" + address_receiver + '\'' +
-                ", decription='" + decription + '\'' +
-                ", weight=" + weight +
-                ", date_get='" + date_get + '\'' +
-                ", date_trans='" + date_trans + '\'' +
-                ", format=" + format +
-                '}';
-    }
 
     public double getTransport_free() {
         List<TypeParcel> typeParcels = MainActivity.databaseHandler.getAllTypeParcels();

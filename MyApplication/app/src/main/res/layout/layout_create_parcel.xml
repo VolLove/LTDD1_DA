@@ -123,6 +123,19 @@
                     android:padding="5dp" />
             </LinearLayout>
 
+            <ImageView
+                android:id="@+id/createivImage"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:layout_marginHorizontal="10dp"
+                android:layout_marginTop="10dp"
+                android:padding="10dp" />
+
+            <Button
+                android:id="@+id/createbtnChooseImage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Choose image"/>
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -202,6 +215,7 @@
                     android:padding="5dp" />
             </LinearLayout>
 
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -242,20 +256,20 @@
                     android:id="@+id/createbtnAccept"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginRight="10dp"
                     android:background="@drawable/btncreate"
                     android:paddingLeft="40dp"
                     android:paddingRight="40dp"
-                    android:layout_marginRight="10dp"
                     android:text="Lưu" />
 
                 <Button
                     android:id="@+id/createbtnClose"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
                     android:background="@drawable/btndestroy"
                     android:paddingLeft="40dp"
                     android:paddingRight="40dp"
-                    android:layout_marginLeft="10dp"
                     android:text="Hủy" />
 
             </LinearLayout>

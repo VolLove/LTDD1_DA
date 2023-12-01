@@ -1,8 +1,11 @@
 package com.example.myapplication;
 
+import android.app.Activity;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
+import android.os.Environment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,6 +13,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.Spinner;
 
 import androidx.annotation.NonNull;
@@ -19,6 +23,11 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
 import java.text.ParseException;
 import java.util.List;
 
@@ -28,10 +37,12 @@ import Model.TypeParcel;
 public class UpdateParcelFragment extends Fragment {
     EditText edtname_sender, edtphone_sender, edtname_receiver, edtphone_receiver, edtaddress_receiver, edtdecription, edtweight;
     Spinner sptype;
-    Button btnSave, btnClose;
+    Button btnSave, btnClose, btnChoose;
     Parcel parcel;
     List<TypeParcel> typeParcels;
     ArrayAdapter<TypeParcel> arrayAdapter;
+    ImageView imageView;
+    String imagePath;
 
     @Nullable
     @Override
@@ -48,7 +59,8 @@ public class UpdateParcelFragment extends Fragment {
         sptype = view.findViewById(R.id.updateSpinType);
         btnSave = view.findViewById(R.id.updatebtnAccept);
         btnClose = view.findViewById(R.id.updatebtnClose);
-
+        imageView = view.findViewById(R.id.updateimgImage);
+        btnChoose = view.findViewById(R.id.updatebtnChoose);
         //main
         Bundle bundle = getArguments();
         int i = bundle.getInt("Key");
@@ -65,6 +77,9 @@ public class UpdateParcelFragment extends Fragment {
         edtdecription.setText(parcel.getDecription());
         edtweight.setText(String.valueOf(parcel.getWeight()));
         edtaddress_receiver.setText(parcel.getAddress_receiver());
+        if (parcel.getImage_path() != null) {
+            imageView.setImageURI(parcel.getImage_path_uri());
+        }
         for (int x = 0; x < typeParcels.size(); x++) {
             if (parcel.getId_type() == typeParcels.get(x).getType_id()) {
                 sptype.setSelection(x);
@@ -96,6 +111,18 @@ public class UpdateParcelFragment extends Fragment {
                                 public void onClick(DialogInterface dialogInterface, int i) {
                                     int i1 = typeParcels.get(sptype.getSelectedItemPosition()).getType_id();
                                     parcel.setId_type(i1);
+                                    if (imagePath != null) {
+                                        if (parcel.getImage_path() != null) {
+                                            File file = new File(parcel.getImage_path());
+                                            file.delete();
+                                        }
+                                        parcel.setImage_path(imagePath);
+                                        String imageFileName = "IMG_" + System.currentTimeMillis() + ".jpg"; // Tạo tên cho ảnh (ví dụ: IMG_1632929097284.jpg)
+                                        File storageDir = getActivity().getExternalFilesDir(Environment.DIRECTORY_PICTURES); // Thư mục lưu trữ ảnh
+
+                                        File imageFile = new File(storageDir, imageFileName);
+                                        MainActivity.saveImage(getActivity(), Uri.parse(imagePath), imageFile);
+                                    }
                                     parcel.setAddress_receiver(edtaddress_receiver.getText().toString());
                                     parcel.setName_receiver(edtname_receiver.getText().toString());
                                     parcel.setName_sender(edtname_sender.getText().toString());
@@ -141,6 +168,25 @@ public class UpdateParcelFragment extends Fragment {
                 fragmentManager.popBackStack();
             }
         });
+
+        btnChoose.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
+                intent.setType("image/*");
+                startActivityForResult(intent, 99);
+            }
+        });
         return view;
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == 99 && resultCode == Activity.RESULT_OK && data != null) {
+            Uri uri = data.getData();
+            imageView.setImageURI(uri);
+            imagePath = uri.toString();
+        }
     }
 }

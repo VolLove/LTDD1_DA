@@ -241,6 +241,40 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginHorizontal="10dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/layoutdesign2"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:padding="10dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@android:color/transparent"
+                    android:text="Ảnh "
+                    android:textColor="@color/black"
+                    android:textSize="13dp" />
+
+                <ImageView
+                    android:id="@+id/updateimgImage"
+                    android:layout_width="match_parent"
+                    android:layout_height="300dp" />
+
+                <Button
+                    android:id="@+id/updatebtnChoose"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/buttondesign2"
+                    android:padding="10dp"
+                    android:text="Choose image"
+                    android:textColor="@color/black"
+                    android:textSize="16dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_marginHorizontal="60dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="10dp"

@@ -10,12 +10,19 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.MenuItem;
 
 import com.google.android.material.navigation.NavigationView;
 
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
 import java.util.EventListener;
 
 import Database.DatabaseHandler;
@@ -89,7 +96,22 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             super.onBackPressed();
         }
     }
+    public static void saveImage(Context context, Uri selectedImageUri, File destinationFile) {
+        try {
+            InputStream inputStream = context.getContentResolver().openInputStream(selectedImageUri);
+            OutputStream outputStream = new FileOutputStream(destinationFile);
 
+            byte[] buffer = new byte[1024];
+            int length;
+            while ((length = inputStream.read(buffer)) > 0) {
+                outputStream.write(buffer, 0, length);
+            }
+            outputStream.close();
+            inputStream.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
     private void replace(Fragment fragment) {
         FragmentManager fragmentManager = MainActivity.this.getSupportFragmentManager();
         FragmentTransaction transaction = fragmentManager.beginTransaction();

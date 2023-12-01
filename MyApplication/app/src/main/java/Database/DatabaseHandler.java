@@ -6,6 +6,8 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.net.Uri;
+import android.os.Environment;
 
 import com.example.myapplication.ChartFragment;
 import com.example.myapplication.MainActivity;
@@ -13,6 +15,7 @@ import com.github.mikephil.charting.components.XAxis;
 import com.github.mikephil.charting.data.BarEntry;
 import com.github.mikephil.charting.formatter.IndexAxisValueFormatter;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -46,7 +49,8 @@ public class DatabaseHandler extends SQLiteOpenHelper {
                 "decription TEXT," +
                 "weight REAL," +
                 "date_get TEXT, " +
-                "date_trans TEXT)";
+                "date_trans TEXT,"+
+                "image_path TEXT)";
         String createTypeParcelTable = "CREATE TABLE TypeParcel (type_id INTEGER PRIMARY KEY, title TEXT, pack_free REAL)";
         String CREATE_USER_TABLE = "CREATE TABLE User ( id INTEGER PRIMARY KEY, username  TEXT, password TEXT)";
         sqLiteDatabase.execSQL(createParcelTable);
@@ -80,13 +84,13 @@ public class DatabaseHandler extends SQLiteOpenHelper {
                 "VALUES (  3, 1, 'Sender Name 2', '123456789', 'Receiver Name 2', '987654321', '43, Nguyễn Chí Thanh, Ba Đình, Hà Nội', 'Description', 2.5, '11/01/2023', '1/1/1')";
         sqLiteDatabase.execSQL(insertParcelData);
         insertParcelData = "INSERT INTO Parcel (  id_type, status, name_sender, phone_sender, name_receiver, phone_receiver, address_receiver, decription, weight, date_get, date_trans) " +
-                "VALUES (  4, 3, 'Sender Name 3', '123456789', 'Receiver Name 3', '987654321', '43, Nguyễn Chí Thanh, Ba Đình, Hà Nội', 'Description', 2.5, '13/01/2023', '1/1/1')";
+                "VALUES (  4, 0, 'Sender Name 3', '123456789', 'Receiver Name 3', '987654321', '43, Nguyễn Chí Thanh, Ba Đình, Hà Nội', 'Description', 2.5, '13/01/2023', '1/1/1')";
         sqLiteDatabase.execSQL(insertParcelData);
         insertParcelData = "INSERT INTO Parcel (  id_type, status, name_sender, phone_sender, name_receiver, phone_receiver, address_receiver, decription, weight, date_get, date_trans) " +
                 "VALUES ( 1, 1, 'Sender Name 4', '123456789', 'Receiver Name 4', '987654321', '43, Nguyễn Chí Thanh, Ba Đình, Hà Nội', 'Description', 2.5, '18/12/2023', '1/1/1')";
         sqLiteDatabase.execSQL(insertParcelData);
         insertParcelData = "INSERT INTO Parcel (  id_type, status, name_sender, phone_sender, name_receiver, phone_receiver, address_receiver, decription, weight, date_get, date_trans) " +
-                "VALUES (  2, 2, 'Sender Name 5', '123456789', 'Receiver Name 5', '987654321', '43, Nguyễn Chí Thanh, Ba Đình, Hà Nội', 'Description', 2.5, '11/11/2023', '1/1/1')";
+                "VALUES (  2, 0, 'Sender Name 5', '123456789', 'Receiver Name 5', '987654321', '43, Nguyễn Chí Thanh, Ba Đình, Hà Nội', 'Description', 2.5, '11/11/2023', '1/1/1')";
         sqLiteDatabase.execSQL(insertParcelData);
         insertParcelData = "INSERT INTO Parcel (  id_type, status, name_sender, phone_sender, name_receiver, phone_receiver, address_receiver, decription, weight, date_get, date_trans) " +
                 "VALUES ( 3, 3, 'Sender Name 6', '123456789', 'Receiver Name 6', '987654321', '43, Nguyễn Chí Thanh, Ba Đình, Hà Nội', 'Description', 2.5, '11/01/2023', '1/1/1')";
@@ -143,7 +147,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         values.put("weight", parcel.getWeight());
         values.put("date_get", parcel.getDate_get());
         values.put("date_trans", parcel.getDate_trans());
-
+        values.put("image_path", parcel.getImage_path());
         db.insert("Parcel", null, values);
 
     }
@@ -184,7 +188,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
                 parcel.setWeight(cursor.getDouble(9));
                 parcel.setDate_get(cursor.getString(10));
                 parcel.setDate_trans(cursor.getString(11));
-
+                parcel.setImage_path(cursor.getString(12));
                 parcelList.add(parcel);
             } while (cursor.moveToNext());
         }
@@ -209,13 +213,14 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         values.put("weight", parcel.getWeight());
         values.put("date_get", parcel.getDate_get());
         values.put("date_trans", parcel.getDate_trans());
-
+        values.put("image_path", parcel.getImage_path());
         return db.update("Parcel", values, "parcel_id = ?", new String[]{String.valueOf(parcel.getParcel_id())});
     }
 
     // Xóa một parcel từ bảng Parcel
     public void deleteParcel(int parcelId) {
         db = this.getWritableDatabase();
+
         db.delete("Parcel", "parcel_id = ?", new String[]{String.valueOf(parcelId)});
 
     }
@@ -306,6 +311,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
             parcel.setWeight(cursor.getDouble(cursor.getColumnIndex("weight")));
             parcel.setDate_get(cursor.getString(cursor.getColumnIndex("date_get")));
             parcel.setDate_trans(cursor.getString(cursor.getColumnIndex("date_trans")));
+            parcel.setImage_path(cursor.getString(cursor.getColumnIndex("image_path")));
         }
 
         if (cursor != null) {
@@ -451,7 +457,6 @@ public class DatabaseHandler extends SQLiteOpenHelper {
                 "SUM(CASE WHEN status = 1 THEN 1 ELSE 0 END) AS status_2_count, " +
                 "SUM(CASE WHEN status = 2 THEN 1 ELSE 0 END) AS status_3_count, " +
                 "SUM(CASE WHEN status = 3 THEN 1 ELSE 0 END) AS status_4_count " +
-//                "strftime('%Y-%m-%d', date_get) as date_get_formatted " +
                 "FROM Parcel GROUP BY date_get ORDER BY strftime('%Y-%m-%d', " +
                 "substr(date_get, 7, 4) || '-' || substr(date_get, 4, 2) || '-' || substr(date_get, 1, 2)) ASC";
 

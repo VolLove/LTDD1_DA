@@ -64,6 +64,18 @@
                 android:textColor="@color/black"
                 android:textSize="16dp" />
 
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Ảnh: "
+                android:textColor="@color/black"
+                android:textSize="16dp" />
+
+            <ImageView
+                android:id="@+id/detailImage"
+                android:layout_width="match_parent"
+                android:layout_height="200dp" />
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
